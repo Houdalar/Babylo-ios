@@ -21,6 +21,7 @@
 		B16BE3AA29C230550024806A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A929C230550024806A /* AppColors.swift */; };
 		B16BE3AD29C230FA0024806A /* resetpassword2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3AB29C230FA0024806A /* resetpassword2.swift */; };
 		B16BE3AE29C230FA0024806A /* resetpassword1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3AC29C230FA0024806A /* resetpassword1.swift */; };
+		B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3B329C278C30024806A /* resetpassword3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		B16BE3A929C230550024806A /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		B16BE3AB29C230FA0024806A /* resetpassword2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword2.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword2.swift"; sourceTree = "<group>"; };
 		B16BE3AC29C230FA0024806A /* resetpassword1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword1.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword1.swift"; sourceTree = "<group>"; };
+		B16BE3B329C278C30024806A /* resetpassword3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetpassword3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				B16BE3AB29C230FA0024806A /* resetpassword2.swift */,
 				B16BE3A129C2300D0024806A /* Login.swift */,
 				B16BE3A029C2300D0024806A /* Signup.swift */,
+				B16BE3B329C278C30024806A /* resetpassword3.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
 				B16BE3AD29C230FA0024806A /* resetpassword2.swift in Sources */,
+				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
 				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
 				B16BE3AA29C230550024806A /* AppColors.swift in Sources */,
 				B16BE3AE29C230FA0024806A /* resetpassword1.swift in Sources */,
