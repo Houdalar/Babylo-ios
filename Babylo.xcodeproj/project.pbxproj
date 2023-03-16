@@ -22,6 +22,7 @@
 		B16BE3AD29C230FA0024806A /* resetpassword2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3AB29C230FA0024806A /* resetpassword2.swift */; };
 		B16BE3AE29C230FA0024806A /* resetpassword1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3AC29C230FA0024806A /* resetpassword1.swift */; };
 		B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3B329C278C30024806A /* resetpassword3.swift */; };
+		B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F316A129C2D66F00C88D78 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B16BE3AB29C230FA0024806A /* resetpassword2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword2.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword2.swift"; sourceTree = "<group>"; };
 		B16BE3AC29C230FA0024806A /* resetpassword1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword1.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword1.swift"; sourceTree = "<group>"; };
 		B16BE3B329C278C30024806A /* resetpassword3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetpassword3.swift; sourceTree = "<group>"; };
+		B1F316A129C2D66F00C88D78 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		B16BE38229C229DE0024806A /* Babylo */ = {
 			isa = PBXGroup;
 			children = (
+				B1F316A029C2D64A00C88D78 /* ViewModel */,
 				B16BE39929C22B180024806A /* Model */,
 				B16BE39629C22ADB0024806A /* view */,
 				B16BE38329C229DE0024806A /* BabyloApp.swift */,
@@ -138,6 +141,14 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B1F316A029C2D64A00C88D78 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B1F316A129C2D66F00C88D78 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 				B16BE39B29C22B2C0024806A /* Intro.swift in Sources */,
 				B16BE39829C22AF40024806A /* IntroView.swift in Sources */,
 				B16BE38629C229DE0024806A /* ContentView.swift in Sources */,
+				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
 				B16BE3AD29C230FA0024806A /* resetpassword2.swift in Sources */,

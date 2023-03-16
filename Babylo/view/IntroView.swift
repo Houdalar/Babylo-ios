@@ -15,7 +15,7 @@ struct IntroView: View {
     var body: some View {
         ZStack{
             if showSignupView{
-                Signup()
+                SignupView()
                     .transition(.move(edge: .trailing))
             }
             else{

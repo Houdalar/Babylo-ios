@@ -11,6 +11,9 @@ struct SignupView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var username: String = ""
+    @State private var emailError: String = ""
+    @State private var usernameError: String = ""
+    @State private var passwordError: String = ""
     @State private var isLoading = false
     @Environment(\.presentationMode) var presentationMode
     
@@ -32,6 +35,14 @@ struct SignupView: View {
                 .cornerRadius(30)
                 .padding(.horizontal,20)
                 .padding(.top,40)
+                
+            Text(emailError)
+                .foregroundColor(.red)
+                .padding(.horizontal, 20)
+                .padding(.top, 0)
+                .font(Font.system(size: 13))
+                .multilineTextAlignment(.leading)
+
             
             TextField("Username", text: $username)
                 .frame(height: 50)
@@ -43,6 +54,12 @@ struct SignupView: View {
                 .padding(.horizontal,20)
                 .padding(.top,10)
             
+            Text(usernameError)
+                .foregroundColor(.red)
+                .padding(.horizontal, 20)
+                .padding(.top, 0)
+                .font(Font.system(size: 13))
+            
             SecureField("Password", text: $password)
                 .frame(height: 50)
                 .foregroundColor(.black)
@@ -53,13 +70,23 @@ struct SignupView: View {
                 .padding(.horizontal,20)
                 .padding(.top,10)
             
+            Text(passwordError)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.red)
+                .padding(.horizontal, 20)
+                .padding(.top, 0)
+                .font(Font.system(size: 13))
+            
             Button(
                 action: {
                 // Perform sign up action
                 withAnimation {
                     isLoading = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         isLoading = false
+                        if validate() {
+                                        signUp()
+                                    }
                     }
                 }
             }) {
@@ -122,8 +149,44 @@ struct SignupView: View {
         presentationMode.wrappedValue.dismiss()
     }
 
+    private func validate() -> Bool {
+        var isValid = true
+        
+        if email.isEmpty {
+            emailError = "Email cannot be empty"
+        }
+        else if   !email.isValidEmail {
+            emailError = "Invalid email address"
+            isValid = false
+        }
+        else {
+            emailError = ""
+        }
+        
+        if username.isEmpty {
+            usernameError = "Username cannot be empty"
+            isValid = false
+        } else {
+            usernameError = ""
+        }
+        
+        if password.isEmpty || password.count < 8 {
+            passwordError = "Password must be at least 8 characters"
+            isValid = false
+        } else {
+            passwordError = ""
+        }
+        
+        return isValid
+    }
 
-
+}
+extension String {
+    var isValidEmail: Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: self)
+    }
 }
 
 struct Previews_Signup_Previews: PreviewProvider {

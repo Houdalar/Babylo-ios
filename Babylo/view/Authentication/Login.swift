@@ -13,10 +13,12 @@ struct LoginView: View {
     @State private var username: String = ""
     @State private var isLoading = false
     @State private var rememberMe = false
+    @State private var emailError: String = ""
+    @State private var passwordError: String = ""
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-                   
+        NavigationView {
         VStack {
             Image("Authentication-bro")
                 .resizable()
@@ -33,6 +35,13 @@ struct LoginView: View {
                 .padding(.horizontal,20)
                 .padding(.top,40)
             
+            Text(emailError)
+                .foregroundColor(.red)
+                .padding(.horizontal, 20)
+                .padding(.top, 0)
+                .font(Font.system(size: 13))
+                .multilineTextAlignment(.leading)
+            
             SecureField("Password", text: $password)
                 .frame(height: 50)
                 .foregroundColor(.black)
@@ -42,6 +51,13 @@ struct LoginView: View {
                 .cornerRadius(30)
                 .padding(.horizontal,20)
                 .padding(.top,10)
+            
+            Text(passwordError)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.red)
+                .padding(.horizontal, 20)
+                .padding(.top, 0)
+                .font(Font.system(size: 13))
             
             HStack(alignment: .firstTextBaseline){
                 Toggle(isOn: $rememberMe) {
@@ -53,11 +69,13 @@ struct LoginView: View {
                 .padding(.horizontal, 15)
                 .padding(.top,15)
                 
-                Text("Forgot Password?")
-                    .foregroundColor(AppColors.primarydark)
-                    .underline()
-                    .padding(.horizontal, 20)
-                    .font(Font.system(size: 15))
+                NavigationLink(destination: Reset1View()){
+                    Text("Forgot Password?")
+                        .foregroundColor(AppColors.primarydark)
+                        .underline()
+                        .padding(.horizontal, 20)
+                        .font(Font.system(size: 15))
+                }
             }
             
             
@@ -68,6 +86,9 @@ struct LoginView: View {
                     isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         isLoading = false
+                        if verify() {
+                                        signUp()
+                                    }
                     }
                 }
             }) {
@@ -111,9 +132,35 @@ struct LoginView: View {
         
         
     }
+    }
     
     private func signUp() {
         // Handle signup logic
+    }
+    
+    private func verify() -> Bool {
+        var isValid = true
+        
+        if email.isEmpty {
+            emailError = "Please enter your email"
+        }
+        else if   !email.isValidEmail {
+            emailError = "Invalid email address"
+            isValid = false
+        }
+        else {
+            emailError = ""
+        }
+        
+        
+        if password.isEmpty  {
+            passwordError = "Please enter your password"
+            isValid = false
+        } else {
+            passwordError = ""
+        }
+        
+        return isValid
     }
     
     private func switchToSignup() {
