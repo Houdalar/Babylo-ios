@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
 		B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38329C229DE0024806A /* BabyloApp.swift */; };
 		B16BE38629C229DE0024806A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38529C229DE0024806A /* ContentView.swift */; };
 		B16BE38829C229DF0024806A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16BE38729C229DF0024806A /* Assets.xcassets */; };
@@ -43,6 +44,9 @@
 		B16BE3AC29C230FA0024806A /* resetpassword1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword1.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword1.swift"; sourceTree = "<group>"; };
 		B16BE3B329C278C30024806A /* resetpassword3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetpassword3.swift; sourceTree = "<group>"; };
 		B1F316A129C2D66F00C88D78 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.debug.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.debug.xcconfig"; sourceTree = "<group>"; };
+		C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.release.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.release.xcconfig"; sourceTree = "<group>"; };
+		EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,17 +54,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64B4DD008D2537518A002AD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B16BE37729C229DE0024806A = {
 			isa = PBXGroup;
 			children = (
 				B16BE38229C229DE0024806A /* Babylo */,
 				B16BE38129C229DE0024806A /* Products */,
+				CEA11F12E87AC0FF9CB8CA96 /* Pods */,
+				64B4DD008D2537518A002AD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +166,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CEA11F12E87AC0FF9CB8CA96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */,
+				C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B16BE39329C229DF0024806A /* Build configuration list for PBXNativeTarget "Babylo" */;
 			buildPhases = (
+				420D2A344E88FE0E45DE8C9B /* [CP] Check Pods Manifest.lock */,
 				B16BE37C29C229DE0024806A /* Sources */,
 				B16BE37D29C229DE0024806A /* Frameworks */,
 				B16BE37E29C229DE0024806A /* Resources */,
+				F6662F0A4BAF90F059A97255 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +242,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		420D2A344E88FE0E45DE8C9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Babylo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6662F0A4BAF90F059A97255 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Babylo/Pods-Babylo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Babylo/Pods-Babylo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Babylo/Pods-Babylo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B16BE37C29C229DE0024806A /* Sources */ = {
@@ -357,6 +426,7 @@
 		};
 		B16BE39429C229DF0024806A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -385,6 +455,7 @@
 		};
 		B16BE39529C229DF0024806A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
