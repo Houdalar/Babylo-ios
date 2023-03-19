@@ -1,14 +1,17 @@
 //
-//  resetpassword2.swift
+//  reset2.swift
 //  Babylo
 //
-//  Created by houda lariani on 15/3/2023.
+//  Created by houda lariani on 20/3/2023.
 //
 
 import SwiftUI
+
 struct Reset2View: View {
     @State private var email: String = ""
     @State private var isLoading = false
+    @State private var code: String = ""
+    @State private var isCodeComplete: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -31,16 +34,33 @@ struct Reset2View: View {
                                 .foregroundColor(.gray)
                                 .padding(.top,10)
             
-            TextField("Email", text: $email)
-                .frame(height: 50)
-                .foregroundColor(.black)
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
-                .textFieldStyle(PlainTextFieldStyle())
-                .background(Color(.systemGray6).opacity(0.7))
-                .cornerRadius(30)
-                .padding(.horizontal,20)
-                .padding(.top,30)
-            
+            HStack(spacing: 15) {
+                ForEach(0..<4) { index in
+                    let binding = Binding(
+                        get: {
+                            String(code.prefix(index+1).suffix(1))
+                        },
+                        set: {
+                            if $0.isEmpty {
+                                code = String(code.prefix(index))
+                            } else if $0.count == 1 {
+                                code = code + $0
+                                if index < 3 {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                        withAnimation {
+                                            code += " "
+                                        }
+                                    }
+                                }
+                                isCodeComplete = code.count == 4
+                            }
+                        }
+                    )
+                    CodeBoxView(text: binding, focus: index == code.count-1)
+                }
+            }
+            .padding(.horizontal,20)
+            .padding(.top,30)
           
                 
             
@@ -61,13 +81,14 @@ struct Reset2View: View {
                             .scaleEffect(2)
                             .padding()
                     } else {
-                        Text("Send")
+                        Text("Verify")
                             .padding(.horizontal,110)
                             .foregroundColor(.black)
                             .padding()
-                            .background(Color.yellow)
+                            .background(isCodeComplete ? Color.yellow : Color.yellow.opacity(0.5))
                             .cornerRadius(30)
                             .frame(maxWidth: .infinity)
+                            .disabled(!isCodeComplete)
                         
                     }
                 }
@@ -84,7 +105,7 @@ struct Reset2View: View {
     }
     
     private func switchToSignup() {
-        let signupView = SignupView()
+        let signupView = Reset3View()
         let transition = AnyTransition.move(edge: .bottom)
             .animation(.easeInOut(duration: 2))
         let signupViewWithTransition = signupView
@@ -101,6 +122,41 @@ struct Reset2View: View {
     }
 
 }
+
+struct CodeBoxView: View {
+    @Binding var text: String
+    var focus: Bool
+
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 8)
+                .strokeBorder(focus ? Color.yellow : Color.gray, lineWidth: 1)
+                .frame(width: 60, height: 70, alignment: .center)
+            
+            TextField("", text: $text, onEditingChanged: { isEditing in
+                if isEditing {
+                    self.text = ""
+                }
+            })
+            .font(.title2)
+            .foregroundColor(.black)
+            .multilineTextAlignment(.center)
+            .frame(width: 30, height: 30, alignment: .center)
+            .keyboardType(.numberPad)
+            .textContentType(.oneTimeCode)
+            .accentColor(.clear)
+            .border(Color.clear, width: 0)
+            .onChange(of: text) { newValue in
+                if newValue.count > 1 {
+                    text = String(newValue.prefix(1))
+                }
+            }
+        }
+    }
+}
+
+
+
 
 struct Previews_Reset2_Previews: PreviewProvider {
     static var previews: some View {

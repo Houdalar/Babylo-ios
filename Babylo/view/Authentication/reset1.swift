@@ -1,8 +1,8 @@
 //
-//  resetpassword1.swift
+//  reset1.swift
 //  Babylo
 //
-//  Created by houda lariani on 14/3/2023.
+//  Created by houda lariani on 20/3/2023.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct Reset1View: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        
+        NavigationView {
         VStack {
             Image("Mailbox")
                 .resizable()
@@ -77,13 +77,16 @@ struct Reset1View: View {
         }
         
     }
+    }
     
     private func send() {
         // Handle signup logic
     }
     
+    
+    
     private func switchToSignup() {
-        let signupView = SignupView()
+        let signupView = Reset2View()
         let transition = AnyTransition.move(edge: .bottom)
             .animation(.easeInOut(duration: 2))
         let signupViewWithTransition = signupView
