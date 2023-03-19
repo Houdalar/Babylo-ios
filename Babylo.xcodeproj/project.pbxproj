@@ -23,6 +23,7 @@
 		B16BE3AD29C230FA0024806A /* resetpassword2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3AB29C230FA0024806A /* resetpassword2.swift */; };
 		B16BE3AE29C230FA0024806A /* resetpassword1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3AC29C230FA0024806A /* resetpassword1.swift */; };
 		B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3B329C278C30024806A /* resetpassword3.swift */; };
+		B1E2207529C5D6CB001D50A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E2207429C5D6CB001D50A8 /* User.swift */; };
 		B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F316A129C2D66F00C88D78 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		B16BE3AB29C230FA0024806A /* resetpassword2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword2.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword2.swift"; sourceTree = "<group>"; };
 		B16BE3AC29C230FA0024806A /* resetpassword1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = resetpassword1.swift; path = "../../../../school-projects/ios/Babylo-ios/Babylo/View/Authentication/resetpassword1.swift"; sourceTree = "<group>"; };
 		B16BE3B329C278C30024806A /* resetpassword3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetpassword3.swift; sourceTree = "<group>"; };
+		B1E2207429C5D6CB001D50A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B1F316A129C2D66F00C88D78 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.debug.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.debug.xcconfig"; sourceTree = "<group>"; };
 		C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.release.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				B16BE39A29C22B2C0024806A /* Intro.swift */,
+				B1E2207429C5D6CB001D50A8 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,7 +175,6 @@
 				B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */,
 				C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -298,6 +300,7 @@
 				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
+				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
 				B16BE3AD29C230FA0024806A /* resetpassword2.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
 				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,

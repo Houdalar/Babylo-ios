@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var isActive = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var username: String = ""
@@ -15,6 +16,10 @@ struct LoginView: View {
     @State private var rememberMe = false
     @State private var emailError: String = ""
     @State private var passwordError: String = ""
+    @ObservedObject var viewModel = UserViewModel()
+    @State private var showError = false
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -84,10 +89,11 @@ struct LoginView: View {
                 // Perform sign up action
                 withAnimation {
                     isLoading = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         isLoading = false
                         if verify() {
                                         signUp()
+                            
                                     }
                     }
                 }
@@ -129,13 +135,44 @@ struct LoginView: View {
             .padding(.top,30)
         }
         .padding(.horizontal, 20)
+        .disabled(viewModel.isLoading)
+        .alert(isPresented: $showError) {
+                    Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                }
+       
+                .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
+                    isActive = isAuthenticated
+                    
+                }
         
         
     }
     }
     
     private func signUp() {
-        // Handle signup logic
+        viewModel.login(email: email, password: password, onSuccess: { token in
+           
+        }, onFailure: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        })
+    }
+    
+    private func switchToHome() {
+        let loginView = HomeView()
+        let transition = AnyTransition.move(edge: .bottom)
+            .animation(.easeInOut(duration: 5))
+        let loginViewWithTransition = loginView
+            .transition(transition)
+        let loginVC = UIHostingController(rootView: loginViewWithTransition)
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        navController.navigationBar.isHidden = true
+        UIApplication.shared.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
+        
+        presentationMode.wrappedValue.dismiss()
     }
     
     private func verify() -> Bool {
@@ -207,3 +244,13 @@ struct CheckboxStyle: ToggleStyle {
             .onTapGesture { configuration.isOn.toggle() }
         }
 }
+
+struct HomeView: View {
+    var body: some View {
+        Text("Welcome home!")
+    }
+}
+
+
+
+

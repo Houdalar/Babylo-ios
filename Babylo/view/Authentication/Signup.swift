@@ -15,6 +15,11 @@ struct SignupView: View {
     @State private var usernameError: String = ""
     @State private var passwordError: String = ""
     @State private var isLoading = false
+    @ObservedObject var viewModel = UserViewModel()
+    @State private var showError = false
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    @State private var isActive = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -82,7 +87,7 @@ struct SignupView: View {
                 // Perform sign up action
                 withAnimation {
                     isLoading = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         isLoading = false
                         if validate() {
                                         signUp()
@@ -127,11 +132,35 @@ struct SignupView: View {
             .padding(.top,30)
         }
         .padding(.horizontal, 20)
+        .disabled(viewModel.isLoading)
+        .alert(isPresented: $showError) {
+                    Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                }
+        .background(
+                    NavigationLink(destination: LoginView(), isActive: $isActive) {
+                        EmptyView()
+                    }
+                    .hidden()
+                )
+                .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
+                    isActive = isAuthenticated
+                }
+        
         
     }
     
     private func signUp() {
-        // Handle signup logic
+        viewModel.Signup(email: email, password: password, name :username , onSuccess: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        }, onFailure: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        })
     }
     
     private func switchToLogin() {
