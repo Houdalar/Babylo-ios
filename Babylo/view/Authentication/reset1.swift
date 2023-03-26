@@ -10,10 +10,17 @@ import SwiftUI
 struct Reset1View: View {
     @State private var email: String = ""
     @State private var isLoading = false
+    @ObservedObject var viewModel = UserViewModel()
+    @State private var showError = false
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    @State private var token: String?
+    @State private var isReset2Active = false
+    @State private var isPresentingReset2 = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView {
+       
         VStack {
             Image("Mailbox")
                 .resizable()
@@ -49,8 +56,9 @@ struct Reset1View: View {
                     // Perform sign up action
                     withAnimation {
                         isLoading = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             isLoading = false
+                            send()
                         }
                     }
                 }) {
@@ -60,14 +68,13 @@ struct Reset1View: View {
                             .scaleEffect(2)
                             .padding()
                     } else {
-                        Text("Send")
-                            .padding(.horizontal,110)
-                            .foregroundColor(.black)
-                            .padding()
-                            .background(Color.yellow)
-                            .cornerRadius(30)
-                            .frame(maxWidth: .infinity)
-                        
+                            Text("Send")
+                                .padding(.horizontal,110)
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(Color.yellow)
+                                .cornerRadius(30)
+                                .frame(maxWidth: .infinity)
                     }
                 }
                 .padding(.horizontal, 20)
@@ -75,34 +82,34 @@ struct Reset1View: View {
             
             Spacer()
         }
-        
-    }
+        .alert(isPresented: $showError) {
+            Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+        }
+        .background(
+                        NavigationLink(
+                            destination: Reset2View(token: token ?? "", email: email),
+                            isActive: $isReset2Active
+                        ) { EmptyView() }
+                        .hidden()
+                    )
+        .navigationBarHidden(true)
+    
     }
     
     private func send() {
-        // Handle signup logic
+        viewModel.resetPasswordEmail(email: email, onSuccess: { code in
+            self.token = code
+            isReset2Active = true
+        }, onFailure: { title, message in
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        })
     }
     
-    
-    
-    private func switchToSignup() {
-        let signupView = Reset2View()
-        let transition = AnyTransition.move(edge: .bottom)
-            .animation(.easeInOut(duration: 2))
-        let signupViewWithTransition = signupView
-            .transition(transition)
-        let signupVC = UIHostingController(rootView: signupViewWithTransition)
-        let navController = UINavigationController(rootViewController: signupVC)
-        navController.modalPresentationStyle = .fullScreen
-        navController.navigationBar.isHidden = true
-        
-        if let windowScene = UIApplication.shared.windows.first?.windowScene {
-            windowScene.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
-        }
-        signupView.presentationMode.wrappedValue.dismiss()
-    }
 
 }
+
 
 struct Previews_Reset1_Previews: PreviewProvider {
     static var previews: some View {

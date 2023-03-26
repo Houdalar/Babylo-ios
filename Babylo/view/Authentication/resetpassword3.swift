@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct Reset3View: View {
-    @State private var email: String = ""
+    var email: String
+    @State private var password: String = ""
+    @State private var confirmpassword: String = ""
     @State private var isLoading = false
+    @State private var isShowingAlert = false
+    @State private var alertTitle: String = ""
+    @State private var alertMessage: String = ""
+    @ObservedObject var viewModel = UserViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -31,7 +37,7 @@ struct Reset3View: View {
                                 .foregroundColor(.gray)
                                 .padding(.top,10)
             
-            TextField("New Password", text: $email)
+            TextField("New Password", text: $password)
                 .frame(height: 50)
                 .foregroundColor(.black)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
@@ -41,7 +47,7 @@ struct Reset3View: View {
                 .padding(.horizontal,20)
                 .padding(.top,30)
             
-            TextField("Confirm Password", text: $email)
+            TextField("Confirm Password", text: $confirmpassword)
                 .frame(height: 50)
                 .foregroundColor(.black)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
@@ -57,8 +63,14 @@ struct Reset3View: View {
                     // Perform sign up action
                     withAnimation {
                         isLoading = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             isLoading = false
+                            if validate(password: password, confirmPassword: confirmpassword){
+                                reset()
+                            }
+                            else {
+                                
+                            }
                         }
                     }
                 }) {
@@ -83,35 +95,42 @@ struct Reset3View: View {
             
             Spacer()
         }
+        .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text(alertTitle).foregroundColor(.red), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+           }
         
     }
     
-    private func send() {
-        // Handle signup logic
+    private func reset() {
+        viewModel.resetPassword(email: self.email, password : password , onSuccess: { title, message in
+            alertTitle = title
+            alertMessage = message
+            isShowingAlert = true
+        }, onFailure: { title, message in
+            alertTitle = title
+            alertMessage = message
+            isShowingAlert = true
+        })
+    }
+        
+    
+    func validate(password: String, confirmPassword: String) -> Bool {
+        if password != confirmPassword {
+                alertTitle = "Passwords don't match"
+                alertMessage = "Please make sure your passwords match and try again."
+                isShowingAlert = true
+                return false
+            } else {
+                return true
+            }
     }
     
-    private func switchToSignup() {
-        let signupView = SignupView()
-        let transition = AnyTransition.move(edge: .bottom)
-            .animation(.easeInOut(duration: 2))
-        let signupViewWithTransition = signupView
-            .transition(transition)
-        let signupVC = UIHostingController(rootView: signupViewWithTransition)
-        let navController = UINavigationController(rootViewController: signupVC)
-        navController.modalPresentationStyle = .fullScreen
-        navController.navigationBar.isHidden = true
-        
-        if let windowScene = UIApplication.shared.windows.first?.windowScene {
-            windowScene.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
-        }
-        signupView.presentationMode.wrappedValue.dismiss()
-    }
 
 }
 
 struct Previews_Reset3_Previews: PreviewProvider {
     static var previews: some View {
-        Reset3View()
+        Reset3View(email:"")
     }
 }
 

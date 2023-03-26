@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var isActive = false
+    @State private var isSignupActive = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var username: String = ""
@@ -20,133 +21,149 @@ struct LoginView: View {
     @State private var showError = false
     @State private var errorTitle = ""
     @State private var errorMessage = ""
+    @State private var isReset1Active = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
-        VStack {
-            Image("Authentication-bro")
-                .resizable()
-                .frame(width: 300, height: 300 , alignment: .center)
-                .padding(.horizontal, 20)
-            
-            TextField("Email", text: $email)
-                .frame(height: 50)
-                .foregroundColor(.black)
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
-                .textFieldStyle(PlainTextFieldStyle())
-                .background(Color(.systemGray6).opacity(0.7))
-                .cornerRadius(30)
-                .padding(.horizontal,20)
-                .padding(.top,40)
-            
-            Text(emailError)
-                .foregroundColor(.red)
-                .padding(.horizontal, 20)
-                .padding(.top, 0)
-                .font(Font.system(size: 13))
-                .multilineTextAlignment(.leading)
-            
-            SecureField("Password", text: $password)
-                .frame(height: 50)
-                .foregroundColor(.black)
-                .padding(EdgeInsets(top:0, leading: 20, bottom: 0, trailing: 15))
-                .textFieldStyle(PlainTextFieldStyle())
-                .background(Color(.systemGray6).opacity(0.7))
-                .cornerRadius(30)
-                .padding(.horizontal,20)
-                .padding(.top,10)
-            
-            Text(passwordError)
-                .multilineTextAlignment(.leading)
-                .foregroundColor(.red)
-                .padding(.horizontal, 20)
-                .padding(.top, 0)
-                .font(Font.system(size: 13))
-            
-            HStack(alignment: .firstTextBaseline){
-                Toggle(isOn: $rememberMe) {
-                    Text("Remember me")
-                        .font(Font.system(size: 15))
-                        
-                }
-                .toggleStyle(CheckboxStyle())
-                .padding(.horizontal, 15)
-                .padding(.top,15)
+            VStack {
+                Image("Authentication-bro")
+                    .resizable()
+                    .frame(width: 300, height: 300 , alignment: .center)
+                    .padding(.horizontal, 20)
                 
-                NavigationLink(destination: Reset1View()){
-                    Text("Forgot Password?")
-                        .foregroundColor(AppColors.primarydark)
-                        .underline()
-                        .padding(.horizontal, 20)
-                        .font(Font.system(size: 15))
-                }
-            }
-            
-            
-            Button(
-                action: {
-                // Perform sign up action
-                withAnimation {
-                    isLoading = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        isLoading = false
-                        if verify() {
-                                        signUp()
-                            
-                                    }
-                    }
-                }
-            }) {
-                if isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
-                        .scaleEffect(2)
-                        .padding()
-                } else {
-                    Text("Sign In")
-                        .padding(.horizontal,110)
-                        .foregroundColor(.black)
-                        .padding()
-                        .background(Color.yellow)
-                        .cornerRadius(30)
-                        .frame(maxWidth: .infinity)
+                TextField("Email", text: $email)
+                    .frame(height: 50)
+                    .foregroundColor(.black)
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .background(Color(.systemGray6).opacity(0.7))
+                    .cornerRadius(30)
+                    .padding(.horizontal,20)
+                    .padding(.top,40)
+                
+                Text(emailError)
+                    .foregroundColor(.red)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 0)
+                    .font(Font.system(size: 13))
+                    .multilineTextAlignment(.leading)
+                
+                SecureField("Password", text: $password)
+                    .frame(height: 50)
+                    .foregroundColor(.black)
+                    .padding(EdgeInsets(top:0, leading: 20, bottom: 0, trailing: 15))
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .background(Color(.systemGray6).opacity(0.7))
+                    .cornerRadius(30)
+                    .padding(.horizontal,20)
+                    .padding(.top,10)
+                
+                Text(passwordError)
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(.red)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 0)
+                    .font(Font.system(size: 13))
+                
+                HStack(alignment: .firstTextBaseline){
+                    Toggle(isOn: $rememberMe) {
+                        Text("Remember me")
+                            .font(Font.system(size: 15))
                         
+                    }
+                    .toggleStyle(CheckboxStyle())
+                    .padding(.horizontal, 15)
+                    .padding(.top,15)
+                    
+                    
+                    
+                    Button(
+                        action: {
+                            isReset1Active = true
+                        }) {
+                            
+                            Text("Forgot Password?")
+                                .foregroundColor(AppColors.primarydark)
+                                .underline()
+                                .padding(.horizontal, 20)
+                                .font(Font.system(size: 15))
+                            
+                        }
+                    
+                    
                 }
+                
+                
+                Button(
+                    action: {
+                        // Perform sign up action
+                        withAnimation {
+                            isLoading = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                isLoading = false
+                                if verify() {
+                                    signUp()
+                                    
+                                }
+                            }
+                        }
+                    }) {
+                        if isLoading {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
+                                .scaleEffect(2)
+                                .padding()
+                        } else {
+                            Text("Sign In")
+                                .padding(.horizontal,110)
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(Color.yellow)
+                                .cornerRadius(30)
+                                .frame(maxWidth: .infinity)
+                            
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 40)
+                
+                
+                
+                HStack {
+                    Text("Have an account ?")
+                        .foregroundColor(Color.black)
+                    
+                    
+                    NavigationLink(
+                                            destination: SignupView().navigationBarHidden(true),
+                                            isActive: $isSignupActive
+                                        ) {
+                                            Text("Sign up")
+                                                .foregroundColor(AppColors.primarydark)
+                                                .underline()
+                                        }
+                }
+                .padding(.top,30)
             }
             .padding(.horizontal, 20)
-            .padding(.top, 40)
-           
-            
-            
-            HStack {
-                Text("Have an account ?")
-                    .foregroundColor(Color.black)
-                    
-                
-                Button(action: switchToSignup) {
-                    Text("Sign up")
-                        .foregroundColor(AppColors.primarydark)
-                        .underline()
-                        
-                    
-                }
+            .disabled(viewModel.isLoading)
+            .alert(isPresented: $showError) {
+                Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
-            .padding(.top,30)
+            
+            .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
+                isActive = isAuthenticated
+                
+            }
+            .background(
+                NavigationLink(
+                    destination: Reset1View().navigationBarHidden(false),
+                    isActive: $isReset1Active
+                ) { EmptyView() })
+          
         }
-        .padding(.horizontal, 20)
-        .disabled(viewModel.isLoading)
-        .alert(isPresented: $showError) {
-                    Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
-                }
-       
-                .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
-                    isActive = isAuthenticated
-                    
-                }
-        
-        
-    }
+      
     }
     
     private func signUp() {
@@ -200,22 +217,7 @@ struct LoginView: View {
         return isValid
     }
     
-    private func switchToSignup() {
-        let signupView = SignupView()
-        let transition = AnyTransition.move(edge: .bottom)
-            .animation(.easeInOut(duration: 2))
-        let signupViewWithTransition = signupView
-            .transition(transition)
-        let signupVC = UIHostingController(rootView: signupViewWithTransition)
-        let navController = UINavigationController(rootViewController: signupVC)
-        navController.modalPresentationStyle = .fullScreen
-        navController.navigationBar.isHidden = true
-        
-        if let windowScene = UIApplication.shared.windows.first?.windowScene {
-            windowScene.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
-        }
-        signupView.presentationMode.wrappedValue.dismiss()
-    }
+    
 
 }
 

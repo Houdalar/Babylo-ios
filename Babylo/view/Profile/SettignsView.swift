@@ -11,10 +11,15 @@ struct SettignsView: View {
     @State var notifEnabled: Bool = true
     @State var previewIndex = 0
     @State var showUsernameDialog = false
-    @State var username = "John Doe"
+    @State var username = UserDefaults.standard.string(forKey: "username") ?? "username"
+    @State var id = UserDefaults.standard.string(forKey: "token") ?? ""
     @State var showpasswordDialog = false
     @State var curentPassword = ""
     @State var newPassword = ""
+    @ObservedObject var viewModel = UserViewModel()
+    @State private var showError = false
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
     
     var body: some View {
         NavigationView {
@@ -59,7 +64,7 @@ struct SettignsView: View {
                         Image(systemName: "chevron.right").foregroundColor(Color.yellow)
                     }
                 }
-                        
+                
                 Section {
                     HStack(spacing: 10) {
                         Image("logout")
@@ -71,32 +76,63 @@ struct SettignsView: View {
                     }
                 }
             }
+            .alert(isPresented: $showError) {
+                Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            }
             .navigationTitle("Settings")
             .alert("Change your username", isPresented: $showUsernameDialog, actions: {
-                        TextField("Username", text: $username)
-                        Button("save", action: {updateUsername()})
-                        Button("Cancel", role: .cancel, action: {})
-                    }, message: {
-                        Text("Enter your new username")
-                    })
+                TextField("Username", text: $username)
+                Button("save", action: {if !username.isEmpty {updateUsername()}})
+                Button("Cancel", role: .cancel, action: {})
+            }, message: {
+                Text("Enter your new username")
+            })
             .navigationTitle("Settings")
             .alert("Change your Password", isPresented: $showpasswordDialog, actions: {
-                        TextField("Current password", text: $curentPassword)
-                        TextField("New password", text: $newPassword)
-                        Button("save", action: {updateUsername()})
-                        Button("Cancel", role: .cancel, action: {})
-                    }, message: {
-                        
-                            
-                    })
-       
+                SecureField("Current password", text: $curentPassword)
+                SecureField("New password", text: $newPassword)
+                Button("save", action: {if !curentPassword.isEmpty && !newPassword.isEmpty {
+                    updatepassword()}})
+                Button("Cancel", role: .cancel, action: {})
+            }, message: {
+                
+                
+            })
+            
         }
     }
     
     func updateUsername() {
-        // TODO: Call the API to update the username
+        viewModel.updateUsername(token: id , username: username ,onSuccess: { title, message in
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        }, onFailure: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        })
+    }
+    
+    func updatepassword() {
+        viewModel.updatepassword(token:id, password: curentPassword , newpassword :newPassword ,onSuccess: { title, message in
+            errorTitle = title
+            errorMessage = message
+            showError = true
+            curentPassword = ""
+            newPassword = ""
+        }, onFailure: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+            curentPassword = ""
+            newPassword = ""
+        })
     }
 }
+
 
 
 struct SettignsView_Previews: PreviewProvider {

@@ -74,13 +74,15 @@ struct IntroView: View {
                     .scaleEffect(isLast ? 1 : 0.001)
                     .frame(height: isLast ? nil : 0)
                     .opacity(isLast ? 1 : 0)
+                    
                 }
 
                 .frame(width: isLast ? size.width / 1.5 : 55,height: isLast ? 50 : 55)
                 .foregroundColor(.white)
                 .background{
+                    
                     RoundedRectangle(cornerRadius: isLast ? 10 : 30,style: isLast ? .continuous :  .circular)
-                            .fill(.black)
+                            .fill(AppColors.primary)
                     }
                     .onTapGesture {
                         if currentIndex == intros.count{
@@ -107,7 +109,8 @@ struct IntroView: View {
                         
                     }
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .foregroundColor(AppColors.primarydark)
+                    
                 }
                 .offset(y:isLast ? -12 : 100)
                 .animation(.interactiveSpring(response: 0.9,dampingFraction: 0.8,blendDuration: 0.5), value: isLast)
@@ -256,12 +259,3 @@ struct IntroView_Previews: PreviewProvider {
     }
 }
 
-//MARK: Login View
-struct Signup: View{
-    var body: some View{
-        NavigationStack{
-            Text("")
-                .navigationTitle("Signup")
-        }
-    }
-}

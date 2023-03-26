@@ -15,6 +15,7 @@ struct SignupView: View {
     @State private var usernameError: String = ""
     @State private var passwordError: String = ""
     @State private var isLoading = false
+    @State private var loginisactive = false
     @ObservedObject var viewModel = UserViewModel()
     @State private var showError = false
     @State private var errorTitle = ""
@@ -24,7 +25,7 @@ struct SignupView: View {
     
     var body: some View {
         
-                   
+        NavigationView{
         VStack {
             Image("Signup")
                 .resizable()
@@ -121,7 +122,7 @@ struct SignupView: View {
                     .foregroundColor(Color.black)
                     
                 
-                Button(action: switchToLogin ) {
+                Button(action: {isActive = true} ) {
                     Text("Sign In")
                         .foregroundColor(AppColors.primarydark)
                         .underline()
@@ -137,7 +138,7 @@ struct SignupView: View {
                     Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
                 }
         .background(
-                    NavigationLink(destination: LoginView(), isActive: $isActive) {
+                    NavigationLink(destination: LoginView().navigationBarHidden(true), isActive: $isActive ) {
                         EmptyView()
                     }
                     .hidden()
@@ -146,7 +147,7 @@ struct SignupView: View {
                     isActive = isAuthenticated
                 }
         
-        
+        }
     }
     
     private func signUp() {
@@ -163,20 +164,7 @@ struct SignupView: View {
         })
     }
     
-    private func switchToLogin() {
-        let loginView = LoginView()
-        let transition = AnyTransition.move(edge: .bottom)
-            .animation(.easeInOut(duration: 5))
-        let loginViewWithTransition = loginView
-            .transition(transition)
-        let loginVC = UIHostingController(rootView: loginViewWithTransition)
-        let navController = UINavigationController(rootViewController: loginVC)
-        navController.modalPresentationStyle = .fullScreen
-        navController.navigationBar.isHidden = true
-        UIApplication.shared.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
-        
-        presentationMode.wrappedValue.dismiss()
-    }
+   
 
     private func validate() -> Bool {
         var isValid = true
