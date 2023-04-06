@@ -7,15 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
+		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
+		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
+		A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67429DEC314001517E2 /* BabyProfile.swift */; };
+		A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67629DECFAD001517E2 /* HomeView.swift */; };
+		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
+		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38329C229DE0024806A /* BabyloApp.swift */; };
 		B16BE38629C229DE0024806A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38529C229DE0024806A /* ContentView.swift */; };
 		B16BE38829C229DF0024806A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16BE38729C229DF0024806A /* Assets.xcassets */; };
 		B16BE38B29C229DF0024806A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16BE38A29C229DF0024806A /* Preview Assets.xcassets */; };
 		B16BE38D29C229DF0024806A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38C29C229DF0024806A /* Persistence.swift */; };
 		B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38E29C229DF0024806A /* Babylo.xcdatamodeld */; };
+		B16BE39829C22AF40024806A /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39729C22AF40024806A /* IntroView.swift */; };
+		B16BE39B29C22B2C0024806A /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39A29C22B2C0024806A /* Intro.swift */; };
+		B16BE39E29C22E100024806A /* SettignsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39D29C22E100024806A /* SettignsView.swift */; };
+		B16BE3A429C2300E0024806A /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A029C2300D0024806A /* Signup.swift */; };
+		B16BE3A529C2300E0024806A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A129C2300D0024806A /* Login.swift */; };
+		B16BE3AA29C230550024806A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A929C230550024806A /* AppColors.swift */; };
+		B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3B329C278C30024806A /* resetpassword3.swift */; };
+		B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BA9D7029C7D44A0078DAC0 /* reset1.swift */; };
+		B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BA9D7229C7D4810078DAC0 /* reset2.swift */; };
+		B1E2207529C5D6CB001D50A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E2207429C5D6CB001D50A8 /* User.swift */; };
+		B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F316A129C2D66F00C88D78 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
+		A5ABA67229DEC2E0001517E2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		A5ABA67429DEC314001517E2 /* BabyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfile.swift; sourceTree = "<group>"; };
+		A5ABA67629DECFAD001517E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
+		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B16BE38029C229DE0024806A /* Babylo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babylo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16BE38329C229DE0024806A /* BabyloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyloApp.swift; sourceTree = "<group>"; };
 		B16BE38529C229DE0024806A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +47,20 @@
 		B16BE38A29C229DF0024806A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B16BE38C29C229DF0024806A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B16BE38F29C229DF0024806A /* Babylo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Babylo.xcdatamodel; sourceTree = "<group>"; };
+		B16BE39729C22AF40024806A /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		B16BE39A29C22B2C0024806A /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
+		B16BE39D29C22E100024806A /* SettignsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettignsView.swift; sourceTree = "<group>"; };
+		B16BE3A029C2300D0024806A /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
+		B16BE3A129C2300D0024806A /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		B16BE3A929C230550024806A /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		B16BE3B329C278C30024806A /* resetpassword3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetpassword3.swift; sourceTree = "<group>"; };
+		B1BA9D7029C7D44A0078DAC0 /* reset1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset1.swift; sourceTree = "<group>"; };
+		B1BA9D7229C7D4810078DAC0 /* reset2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset2.swift; sourceTree = "<group>"; };
+		B1E2207429C5D6CB001D50A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B1F316A129C2D66F00C88D78 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.debug.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.debug.xcconfig"; sourceTree = "<group>"; };
+		C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.release.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.release.xcconfig"; sourceTree = "<group>"; };
+		EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +68,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64B4DD008D2537518A002AD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5ABA67129DEC2C8001517E2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABA67229DEC2E0001517E2 /* HomePage.swift */,
+				A5ABA67629DECFAD001517E2 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B16BE37729C229DE0024806A = {
 			isa = PBXGroup;
 			children = (
 				B16BE38229C229DE0024806A /* Babylo */,
 				B16BE38129C229DE0024806A /* Products */,
+				CEA11F12E87AC0FF9CB8CA96 /* Pods */,
+				64B4DD008D2537518A002AD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +113,9 @@
 		B16BE38229C229DE0024806A /* Babylo */ = {
 			isa = PBXGroup;
 			children = (
+				B1F316A029C2D64A00C88D78 /* ViewModel */,
+				B16BE39929C22B180024806A /* Model */,
+				B16BE39629C22ADB0024806A /* view */,
 				B16BE38329C229DE0024806A /* BabyloApp.swift */,
 				B16BE38529C229DE0024806A /* ContentView.swift */,
 				B16BE38729C229DF0024806A /* Assets.xcassets */,
@@ -73,6 +134,76 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B16BE39629C22ADB0024806A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABA67129DEC2C8001517E2 /* Home */,
+				B16BE3A829C230490024806A /* Components */,
+				B16BE39F29C22FEC0024806A /* Authentication */,
+				B16BE39C29C22DAD0024806A /* Profile */,
+				B16BE39729C22AF40024806A /* IntroView.swift */,
+				A5C4753B29DEE67700A56858 /* Rootview.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B16BE39929C22B180024806A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B16BE39A29C22B2C0024806A /* Intro.swift */,
+				B1E2207429C5D6CB001D50A8 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B16BE39C29C22DAD0024806A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B16BE39D29C22E100024806A /* SettignsView.swift */,
+				A5ABA66F29DEC261001517E2 /* AddBaby.swift */,
+				A5ABA67429DEC314001517E2 /* BabyProfile.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B16BE39F29C22FEC0024806A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B16BE3A129C2300D0024806A /* Login.swift */,
+				B16BE3A029C2300D0024806A /* Signup.swift */,
+				B16BE3B329C278C30024806A /* resetpassword3.swift */,
+				B1BA9D7029C7D44A0078DAC0 /* reset1.swift */,
+				B1BA9D7229C7D4810078DAC0 /* reset2.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		B16BE3A829C230490024806A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B16BE3A929C230550024806A /* AppColors.swift */,
+				B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B1F316A029C2D64A00C88D78 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B1F316A129C2D66F00C88D78 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEA11F12E87AC0FF9CB8CA96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */,
+				C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +211,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B16BE39329C229DF0024806A /* Build configuration list for PBXNativeTarget "Babylo" */;
 			buildPhases = (
+				420D2A344E88FE0E45DE8C9B /* [CP] Check Pods Manifest.lock */,
 				B16BE37C29C229DE0024806A /* Sources */,
 				B16BE37D29C229DE0024806A /* Frameworks */,
 				B16BE37E29C229DE0024806A /* Resources */,
+				F6662F0A4BAF90F059A97255 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,14 +271,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		420D2A344E88FE0E45DE8C9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Babylo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6662F0A4BAF90F059A97255 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Babylo/Pods-Babylo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Babylo/Pods-Babylo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Babylo/Pods-Babylo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B16BE37C29C229DE0024806A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */,
+				A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */,
 				B16BE38D29C229DF0024806A /* Persistence.swift in Sources */,
+				B16BE39B29C22B2C0024806A /* Intro.swift in Sources */,
+				B16BE39829C22AF40024806A /* IntroView.swift in Sources */,
 				B16BE38629C229DE0024806A /* ContentView.swift in Sources */,
+				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
+				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
+				A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */,
+				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
+				A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */,
+				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
+				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
+				A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */,
+				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
+				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
+				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
+				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,
+				B16BE3AA29C230550024806A /* AppColors.swift in Sources */,
+				A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */,
 				B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +461,7 @@
 		};
 		B16BE39429C229DF0024806A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +490,7 @@
 		};
 		B16BE39529C229DF0024806A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2390A1ED600BFAEC999C846 /* Pods-Babylo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
