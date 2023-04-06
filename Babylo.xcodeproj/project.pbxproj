@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
+		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
+		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
+		A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67429DEC314001517E2 /* BabyProfile.swift */; };
+		A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67629DECFAD001517E2 /* HomeView.swift */; };
+		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38329C229DE0024806A /* BabyloApp.swift */; };
 		B16BE38629C229DE0024806A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38529C229DE0024806A /* ContentView.swift */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
+		A5ABA67229DEC2E0001517E2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		A5ABA67429DEC314001517E2 /* BabyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfile.swift; sourceTree = "<group>"; };
+		A5ABA67629DECFAD001517E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B16BE38029C229DE0024806A /* Babylo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babylo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16BE38329C229DE0024806A /* BabyloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyloApp.swift; sourceTree = "<group>"; };
@@ -71,6 +81,15 @@
 				EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5ABA67129DEC2C8001517E2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABA67229DEC2E0001517E2 /* HomePage.swift */,
+				A5ABA67629DECFAD001517E2 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B16BE37729C229DE0024806A = {
@@ -118,10 +137,12 @@
 		B16BE39629C22ADB0024806A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A5ABA67129DEC2C8001517E2 /* Home */,
 				B16BE3A829C230490024806A /* Components */,
 				B16BE39F29C22FEC0024806A /* Authentication */,
 				B16BE39C29C22DAD0024806A /* Profile */,
 				B16BE39729C22AF40024806A /* IntroView.swift */,
+				A5C4753B29DEE67700A56858 /* Rootview.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -139,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				B16BE39D29C22E100024806A /* SettignsView.swift */,
+				A5ABA66F29DEC261001517E2 /* AddBaby.swift */,
+				A5ABA67429DEC314001517E2 /* BabyProfile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -296,20 +319,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */,
+				A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */,
 				B16BE38D29C229DF0024806A /* Persistence.swift in Sources */,
 				B16BE39B29C22B2C0024806A /* Intro.swift in Sources */,
 				B16BE39829C22AF40024806A /* IntroView.swift in Sources */,
 				B16BE38629C229DE0024806A /* ContentView.swift in Sources */,
 				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
+				A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
+				A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */,
 				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
+				A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */,
 				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
 				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
 				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
 				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,
 				B16BE3AA29C230550024806A /* AppColors.swift in Sources */,
+				A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */,
 				B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

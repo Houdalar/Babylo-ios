@@ -22,6 +22,7 @@ struct LoginView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var isReset1Active = false
+    @State private var isHomeActive = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -105,6 +106,7 @@ struct LoginView: View {
                                 if verify() {
                                     signUp()
                                     
+                                    
                                 }
                             }
                         }
@@ -157,10 +159,17 @@ struct LoginView: View {
                 
             }
             .background(
-                NavigationLink(
-                    destination: Reset1View().navigationBarHidden(false),
-                    isActive: $isReset1Active
-                ) { EmptyView() })
+                ZStack {
+                        NavigationLink(
+                            destination: Reset1View().navigationBarHidden(false),
+                            isActive: $isReset1Active
+                        ) { EmptyView() }
+                        
+                        NavigationLink(
+                            destination: HomePage().navigationBarHidden(true),
+                            isActive: $isHomeActive
+                        ) { EmptyView() }
+                    })
           
         }
       
@@ -168,6 +177,7 @@ struct LoginView: View {
     
     private func signUp() {
         viewModel.login(email: email, password: password, onSuccess: { token in
+            isHomeActive=true
            
         }, onFailure: { title, message in
             // Show dialog with title and message
@@ -177,21 +187,7 @@ struct LoginView: View {
         })
     }
     
-    private func switchToHome() {
-        let loginView = HomeView()
-        let transition = AnyTransition.move(edge: .bottom)
-            .animation(.easeInOut(duration: 5))
-        let loginViewWithTransition = loginView
-            .transition(transition)
-        let loginVC = UIHostingController(rootView: loginViewWithTransition)
-        let navController = UINavigationController(rootViewController: loginVC)
-        navController.modalPresentationStyle = .fullScreen
-        navController.navigationBar.isHidden = true
-        UIApplication.shared.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
-        
-        presentationMode.wrappedValue.dismiss()
-    }
-    
+   
     private func verify() -> Bool {
         var isValid = true
         
@@ -247,11 +243,6 @@ struct CheckboxStyle: ToggleStyle {
         }
 }
 
-struct HomeView: View {
-    var body: some View {
-        Text("Welcome home!")
-    }
-}
 
 
 

@@ -12,11 +12,16 @@ struct IntroView: View {
     @State var showWalkThroughScreens: Bool = false
     @State var currentIndex : Int = 0
     @State var showSignupView : Bool = false
+    @State var showLoginView : Bool = false
+    var onFinish: () -> Void
     var body: some View {
         ZStack{
             if showSignupView{
                 SignupView()
                     .transition(.move(edge: .trailing))
+            }
+            else if showLoginView{
+                LoginView().transition(.move(edge: .trailing))
             }
             else{
                 ZStack{
@@ -87,7 +92,9 @@ struct IntroView: View {
                     .onTapGesture {
                         if currentIndex == intros.count{
                             //Sign up
-                            showSignupView = true
+                            //showSignupView = true
+                            //showLoginView=true
+                            onFinish()
                         }
                         else{
                             //MARK: Updating Index
