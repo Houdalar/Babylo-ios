@@ -10,19 +10,39 @@ import SwiftUI
 struct RootView: View {
     @State private var showIntro: Bool = UserDefaults.standard.bool(forKey: "hasShownIntro") ? false : true
     @State private var showLogin: Bool = false
+    @State private var showSignup: Bool = false
+    @ObservedObject var viewModel = UserViewModel()
 
     var body: some View {
         ZStack {
             if showIntro {
-                IntroView(onFinish: {
+                IntroView(onFinish: { signUpSelected in
                     UserDefaults.standard.set(true, forKey: "hasShownIntro")
                     showIntro = false
-                    showLogin = true
+                    if signUpSelected {
+                        showSignup = true
+                    } else {
+                        showLogin = true
+                    }
                 })
-            } else{
+            } else if showLogin {
                 // Replace 'LoginView()' with your actual login view
                 LoginView()
+            } else if showSignup {
+                // Replace 'SignupView()' with your actual signup view
+                SignupView()
             }
+            else{
+                LoginView()
+            }
+            
+            if viewModel.isAuthenticated {
+                // Replace 'MainAppView()' with your actual main app view
+                HomePage()
+            } else {
+                LoginView(viewModel: viewModel)
+            }
+
         }
     }
 }

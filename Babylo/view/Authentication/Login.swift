@@ -155,9 +155,11 @@ struct LoginView: View {
             }
             
             .onReceive(viewModel.$isAuthenticated) { isAuthenticated in
-                isActive = isAuthenticated
-                
+                if isAuthenticated {
+                    isHomeActive = true
+                }
             }
+
             .background(
                 ZStack {
                         NavigationLink(

@@ -9,7 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var searchText = ""
+    private let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw"
     
+    @StateObject private var babyViewModel : BabyViewModel
+    
+    init(token: String) {
+            _babyViewModel = StateObject(wrappedValue: BabyViewModel(token: token))
+        }
     var body: some View {
         NavigationView {
             ZStack {
@@ -38,64 +44,91 @@ struct HomeView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 10)
                     
-                    ZStack {
+                    TagLineView().padding()
+                    
+                   /* ZStack {
                         RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(Color.white)
+                            .fill(AppColors.lightColor).frame(height: 80)
                         
-                        VStack(alignment: .leading) {
-                            Text("Quote of the day")
-                                .font(.headline)
-                                .foregroundColor(Color.black)
-                                .padding(.bottom, 5)
                             
-                            Text("The only limit to our realization of tomorrow will be our doubts of today.")
-                                .font(.body)
+                            Text("Because every moment with your little one is precious !")
+                            .font(.title3)
                                 .foregroundColor(Color.black)
-                                .padding(.bottom, 20)
-                        }
+                                
+                        
+                        
                         .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 30)
+                    */
+            
                     
-                    Text("Babies")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding(.top, 20)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(0..<5) { _ in
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack(spacing: 20) {
+                            
+                           /* ForEach(0..<5) { _ in
                                 BabyCardView()
+                            }*/
+                            
+                            ForEach(babyViewModel.babies){
+                                baby in BabyCardView(baby: baby)
                             }
                         }
-                        .padding(.horizontal, 20)
+                        
                         .padding(.top, 20)
+                        .padding(.trailing)
                     }
+                    .padding(.horizontal)
                     
                     Spacer()
                 }
             }
             .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarHidden(true)
+        }.onAppear{
+            babyViewModel.fetchBabies()
         }
     }
 }
 
-struct BabyCardView: View {
+struct TagLineView: View {
     var body: some View {
-        VStack(alignment: .center) {
-            Image("baby-image")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100)
-                .clipShape(Circle())
+        Text("Because every moment with your little one is ")
+            .font(.custom("DancingScript-VariableFont_wght", size: 20))
             
-            Text("Baby Name")
-                .foregroundColor(Color.black)
-                .font(.headline)
+            + Text("precious !")
+            .font(.custom("DancingScript-VariableFont_wght", size: 20))
+            .fontWeight(.bold)
+            
+    }
+}
+
+struct BabyCardView: View {
+    let baby : Baby
+    var body: some View {
+        VStack {
+            if let babyPic = baby.babyPic , let url = URL(string: babyPic), let imageData = try? Data(contentsOf: url), let uiImage = UIImage(data: imageData){
+                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 200, height: 210)
+                                    .cornerRadius(20)
+            }
+            else{
+                Image("placeholder-image")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 200, height: 210)
+                                    .cornerRadius(20)
+
+            }
+            Text(baby.babyName)
+                            .font(.title3)
+                            .fontWeight(.bold)
         }
-        .padding(20)
+        .frame(width: 210)
+        .padding()
         .background(Color.white)
         .cornerRadius(20)
         .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 4)
@@ -104,7 +137,9 @@ struct BabyCardView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw")
     }
 }
+
+
 

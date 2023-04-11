@@ -14,9 +14,22 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     var currentUser: User?
     @Published var isLoading: Bool = false
-    @Published var isAuthenticated = false
+    @Published var isAuthenticated: Bool = false {
+            didSet {
+                UserDefaults.standard.set(isAuthenticated, forKey: "isAuthenticated")
+            }
+        }
     @Published var isRegistred = false
     private let baseURL = "http://localhost:8080/"
+    
+    init() {
+            isAuthenticated = UserDefaults.standard.bool(forKey: "isAuthenticated")
+        }
+
+    func logout() {
+        isAuthenticated = false
+    }
+
     
     func login(email: String, password: String, onSuccess: @escaping (_ token: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
         AF.request(baseURL+"user/login" ,

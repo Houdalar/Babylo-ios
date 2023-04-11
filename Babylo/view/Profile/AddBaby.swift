@@ -14,6 +14,8 @@ struct AddBaby: View {
     @State private var selectedDate = Date()
 
     @State private var selectedImage: UIImage?
+    
+    @State private var selectedGender = 0
 
     @State private var showGallery = false
 
@@ -25,7 +27,7 @@ struct AddBaby: View {
 
     var body: some View {
 
-        VStack(spacing: 20){
+        VStack(spacing: 50){
 
             Button(action:{showGallery = true}){
 
@@ -66,8 +68,15 @@ struct AddBaby: View {
                 .background(RoundedRectangle(cornerRadius: 8).stroke(Color.yellow).padding(.horizontal,8))
 
             
+            Picker("Gender",selection: $selectedGender){
+                Text("Boy").tag(0)
+                Text("Girl").tag(1)
+                
+            }.pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal,20)
+            
 
-            DatePicker("Select baby birthday", selection: $selectedDate, displayedComponents: .date).padding(.horizontal,20)
+            DatePicker(selection: $selectedDate, displayedComponents: .date){Text("Select baby's birthday" ).bold()}.padding(.horizontal,20)
 
             
 

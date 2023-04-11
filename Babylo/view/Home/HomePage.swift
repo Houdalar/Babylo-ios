@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HomePage: View {
-
+    @State private var isAuthenticated = true
+    
     var body: some View {
 
         TabView{
 
-                            HomeView().tabItem(){
+                            HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw").tabItem(){
 
                                 Image(systemName: "house")
 
@@ -37,13 +38,10 @@ struct HomePage: View {
 
                             }
 
-                            SettignsView().tabItem(){
-
-                                Image(systemName: "gear")
-
-                                Text("Settings")
-
-                            }
+            SettignsView(isAuthenticated: $isAuthenticated).tabItem {
+                            Image(systemName: "gear")
+                            Text("Settings")
+            }
 
         }.accentColor(.yellow)
 
@@ -61,93 +59,6 @@ struct HomePage: View {
 
 }
 
-
-
-/*struct BabyCardView: View {
-
-    var body: some View {
-
-        VStack {
-
-            Image("baby-image")
-
-                .resizable()
-
-                .aspectRatio(contentMode: .fit)
-
-                .cornerRadius(10)
-
-            
-
-            Text("Nom du bébé")
-
-                .font(.headline)
-
-                .fontWeight(.bold)
-
-        }
-
-        .padding()
-
-        .frame(height: 200)
-
-        .background(Color.white)
-
-        .cornerRadius(10)
-
-        .shadow(radius: 5)
-
-        .padding(.horizontal)
-
-        .frame(width: 300)
-
-        
-
-        
-
-    }
-
-}*/
-
-/*struct HomeView: View{
-
-    @State private var selectedTab = "home"
-    @State private var quote = "Loading quote..."
-    @State private var searchText = ""
-    var body: some View {
-        NavigationView{
-
-            VStack{
-
-                List {
-
-                    ForEach(0..<5) { index in
-
-                        NavigationLink(destination: BabyProfile()) {
-
-                            BabyCardView()
-
-                        }
-
-                    }
-
-                }.listStyle(PlainListStyle())
-
-                    .padding()
-
-                    .navigationTitle("Babylo")
-
-                
-
-            }
-
-            
-
-        }
-
-    }
-}*/
-
 struct MusicView: View {
 
     var body: some View {
@@ -157,8 +68,6 @@ struct MusicView: View {
     }
 
 }
-
-
 
 struct AudioBooksView: View {
 

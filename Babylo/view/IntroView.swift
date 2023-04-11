@@ -13,7 +13,7 @@ struct IntroView: View {
     @State var currentIndex : Int = 0
     @State var showSignupView : Bool = false
     @State var showLoginView : Bool = false
-    var onFinish: () -> Void
+    var onFinish: (Bool) -> Void
     var body: some View {
         ZStack{
             if showSignupView{
@@ -94,12 +94,13 @@ struct IntroView: View {
                             //Sign up
                             //showSignupView = true
                             //showLoginView=true
-                            onFinish()
+                            onFinish(true)
                         }
                         else{
                             //MARK: Updating Index
                             currentIndex += 1
                         }
+                       
                     }
                     .offset(y:isLast ? -40 : -90)
                 //Animation
@@ -113,7 +114,7 @@ struct IntroView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
                     Button("Login"){
-                        
+                        onFinish(false)
                     }
                     .fontWeight(.bold)
                     .foregroundColor(AppColors.primarydark)
@@ -262,7 +263,7 @@ struct IntroView: View {
 
 struct IntroView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView()
     }
 }
 
