@@ -18,93 +18,108 @@ struct AddBaby: View {
     @State private var selectedGender = 0
 
     @State private var showGallery = false
+    
+    @State private var showAlert = false
 
+    @EnvironmentObject var babyViewModel : BabyViewModel
     
 
+    @Environment(\.presentationMode) var presentationMode
+
     
-
-
-
     var body: some View {
 
-        VStack(spacing: 50){
+       
+            VStack(spacing: 50){
 
-            Button(action:{showGallery = true}){
+                Button(action:{showGallery = true}){
 
-                ZStack {
+                    ZStack {
 
-                                    Circle()
+                                        Circle()
 
-                                        .fill(Color.gray.opacity(0.1))
+                                            .fill(Color.gray.opacity(0.1))
 
-                                        .frame(width: 150, height: 150)
+                                            .frame(width: 150, height: 150)
 
-                    if let image = selectedImage{
+                        if let image = selectedImage{
 
-                        Image(uiImage: image)
+                            Image(uiImage: image)
 
-                            .resizable()
+                                .resizable()
 
-                            .scaledToFit()
+                                .scaledToFit()
 
-                    }else{
+                        }else{
 
-                        Image(systemName: "plus")
+                            Image(systemName: "plus")
 
-                            .font(.system(size: 70))
+                                .font(.system(size: 70))
 
-                            .foregroundColor(.yellow)
+                                .foregroundColor(.yellow)
 
-                    }
+                        }
+                                    }
+                }
 
-                                    
+                TextField("Baby name", text: $babyName).padding(.horizontal,20).padding(.vertical,10)
 
-                                }
+                    .background(RoundedRectangle(cornerRadius: 8).stroke(Color.yellow).padding(.horizontal,8))
+
+                
+                Picker("Gender",selection: $selectedGender){
+                    Text("Boy").tag(0)
+                    Text("Girl").tag(1)
+                    
+                }.pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal,20)
+                
+
+                DatePicker(selection: $selectedDate, displayedComponents: .date){Text("Select baby's birthday" ).bold()}.padding(.horizontal,20)
+
+                
+
+                Button("Add Baby", action: {
+                    let genderString = selectedGender == 0 ? "Boy" : "Girl"
+                    if let selectedImage = selectedImage {
+                        babyViewModel.addBaby(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw", babyName: babyName, birthday: selectedDate, gender: genderString, babyPic: selectedImage) { result in
+                                            switch result {
+                                            case .success:
+                                                showAlert=true
+                                            case .failure(let error):
+                                                print("Error adding baby: \(error.localizedDescription)")
+                                            }
+                                        }
+                                    }
+                    
+                })
+
+                    .frame(width: 100)
+
+                    .padding()
+
+                    .foregroundColor(.white)
+
+                    .background(Color.yellow)
+
+                    .cornerRadius(10)
+
+                                
 
             }
 
-            TextField("Baby name", text: $babyName).padding(.horizontal,20).padding(.vertical,10)
+            .padding()
 
-                .background(RoundedRectangle(cornerRadius: 8).stroke(Color.yellow).padding(.horizontal,8))
+            .sheet(isPresented: $showGallery){
 
-            
-            Picker("Gender",selection: $selectedGender){
-                Text("Boy").tag(0)
-                Text("Girl").tag(1)
-                
-            }.pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal,20)
-            
-
-            DatePicker(selection: $selectedDate, displayedComponents: .date){Text("Select baby's birthday" ).bold()}.padding(.horizontal,20)
-
-            
-
-            Button("Add Baby", action: {})
-
-                .frame(width: 100)
-
-                .padding()
-
-                .foregroundColor(.white)
-
-                .background(Color.yellow)
-
-                .cornerRadius(10)
-
-                            
-
+                ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
+        }
+            .alert(isPresented: $showAlert){
+                        Alert(title: Text("Success"),message: Text("Baby added successfully"),dismissButton: .default(Text("OK")))
+                    }
         }
 
-        .padding()
-
-        .sheet(isPresented: $showGallery){
-
-            ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
-
-        }
-
-    }
+    
 
 }
 

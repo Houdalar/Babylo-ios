@@ -9,10 +9,31 @@ import SwiftUI
 
 struct HomePage: View {
     @State private var isAuthenticated = true
+    @State private var selectedItem = 0
     
     var body: some View {
+        NavigationView {
+            VStack(spacing: 0){
+                switch selectedItem{
+                case 0 :
+                    HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw")
+                    
+                case 1 :
+                    MusicView()
+                case 2:
+                    AudioBooksView()
+                case 3:
+                    SettignsView(isAuthenticated: $isAuthenticated)
+                default:
+                    HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw")
+                }
+                Spacer()
+                BottomNavBar(selectedItem: $selectedItem)
+            }
+        }
+        
 
-        TabView{
+       /* TabView{
 
                             HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw").tabItem(){
 
@@ -43,8 +64,8 @@ struct HomePage: View {
                             Text("Settings")
             }
 
-        }.accentColor(.yellow)
-
+        }.accentColor(.yellow)*/
+        
     }
 
     struct HomePage_Previews: PreviewProvider {

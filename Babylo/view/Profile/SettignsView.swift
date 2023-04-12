@@ -46,18 +46,20 @@ struct SettignsView: View {
                             Image(systemName: "chevron.right").foregroundColor(Color.yellow)
                         }
                     }
-                    
-                    Button(action: {
-                        
-                        showpasswordDialog = true
-                    }) {
-                        HStack {
-                            Text("Change Password")
-                                .foregroundColor(Color.black)
-                            Spacer(minLength: 15)
-                            Image(systemName: "chevron.right").foregroundColor(Color.yellow)
+                   
+                        Button(action: {
+                            
+                            showpasswordDialog = true
+                        }) {
+                            HStack {
+                                Text("Change Password")
+                                    .foregroundColor(Color.black)
+                                Spacer(minLength: 15)
+                                Image(systemName: "chevron.right").foregroundColor(Color.yellow)
+                            }
                         }
-                    }
+                    
+            
                 }
                 
                 Section {
