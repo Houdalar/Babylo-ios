@@ -13,7 +13,7 @@ struct BabyloApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            HomePage()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
