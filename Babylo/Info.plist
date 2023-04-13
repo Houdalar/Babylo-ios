@@ -4,7 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/DancingScript-VariableFont_wght.ttf</string>
+		<string>DancingScript-Regular.ttf</string>
+		<string>DancingScript-Bold.ttf</string>
 	</array>
 </dict>
 </plist>

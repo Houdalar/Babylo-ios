@@ -13,7 +13,7 @@ import Alamofire
 class BabyViewModel: ObservableObject {
     @Published var babies = [Baby]()
     private var cancellables = Set<AnyCancellable>()
-    private let token: String
+    let token: String
     
     
     init(token: String) {
@@ -89,5 +89,27 @@ class BabyViewModel: ObservableObject {
         
         
     }
+    
+    func deleteBaby(token:String,babyName:String,completion: @escaping (Result<Bool, Error>) -> Void) {
+        let url = URL(string: "http://localhost:8080/user/baby/deleteBaby")!
+            let parameters: [String: Any] = [
+                "token": token,
+                "babyName": babyName
+            ]
+
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        completion(.success(true))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+
+    }
+        
+        
+        
     
 }

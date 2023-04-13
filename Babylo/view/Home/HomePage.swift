@@ -67,6 +67,15 @@ struct HomePage: View {
         }.accentColor(.yellow)*/
         
     }
+    
+    init(){
+        for familyName in UIFont.familyNames {
+            print(familyName)
+            for fontName in UIFont.fontNames(forFamilyName: familyName){
+                print ("-- \(fontName)")
+            }
+        }
+    }
 
     struct HomePage_Previews: PreviewProvider {
 

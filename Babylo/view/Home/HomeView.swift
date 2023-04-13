@@ -22,7 +22,7 @@ struct HomeView: View {
                 Color.white.edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    HStack {
+                    /*HStack {
                         TextField("Search...", text: $searchText)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                             .frame(height: 40)
@@ -42,40 +42,16 @@ struct HomeView: View {
                         }
                     }
                     .padding(.horizontal, 20)
-                    .padding(.top, 10)
+                    .padding(.top, 10)*/
                     
                     TagLineView().padding()
-                    
-                   /* ZStack {
-                        RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(AppColors.lightColor).frame(height: 80)
-                        
-                            
-                            Text("Because every moment with your little one is precious !")
-                            .font(.title3)
-                                .foregroundColor(Color.black)
-                                
-                        
-                        
-                        .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 30)
-                    */
-            
-                    
+        
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 20) {
-                            
-                           /* ForEach(0..<5) { _ in
-                                BabyCardView()
-                            }*/
-                            
                             ForEach(babyViewModel.babies){
-                                baby in BabyCardView(baby: baby)
+                                baby in BabyCardView(baby:baby,babyViewModel: babyViewModel)
                             }
                         }
-                        
                         .padding(.top, 20)
                         .padding(.trailing)
                     }
@@ -94,26 +70,46 @@ struct HomeView: View {
 
 struct TagLineView: View {
     var body: some View {
-        Text("Because every moment with your little one is ")
-            .font(.custom("DancingScript-VariableFont_wght", size: 20))
+        Text("Because every moment with your little one is ").font(.custom("DancingScript-Regular", size: 16))
             
-            + Text("precious !")
-            .font(.custom("DancingScript-VariableFont_wght", size: 20))
-            .fontWeight(.bold)
+            
+        + Text("\nprecious !").font(.custom("DancingScript-Bold", size: 25))
+            
             
     }
 }
 
 struct BabyCardView: View {
     let baby : Baby
+    //@State private var showAlert = false
+   @ObservedObject var babyViewModel: BabyViewModel
+
     var body: some View {
         VStack {
-            if let babyPic = baby.babyPic , let url = URL(string: babyPic), let imageData = try? Data(contentsOf: url), let uiImage = UIImage(data: imageData){
-                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 200, height: 210)
-                                    .cornerRadius(20)
+            if let babyPic = baby.babyPic , let url = URL(string: babyPic){
+                AsyncImage(url: url){
+                    phase in
+                    switch phase{
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 200, height: 210)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 200, height: 210)
+                            .cornerRadius(20)
+                    case .failure:
+                        Image("placeholder-image")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 200, height: 210)
+                            .cornerRadius(20)
+                    @unknown default:
+                        fatalError()
+                    }
+                }
+                                   
             }
             else{
                 Image("placeholder-image")
@@ -132,6 +128,52 @@ struct BabyCardView: View {
         .background(Color.white)
         .cornerRadius(20)
         .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 4)
+        .contextMenu{
+            Button(action: {
+                babyViewModel.deleteBaby(token: babyViewModel.token, babyName: baby.babyName) { result in
+                    switch result {
+                    case .success(let success):
+                        if success {
+                            print("Baby deleted")
+                            babyViewModel.fetchBabies()
+                        } else {
+                            print("Failed to delete baby")
+                        }
+                    case .failure(let error):
+                        print("Error deleting baby: \(error.localizedDescription)")
+                    }
+                }
+            })
+            {
+                            Label("Delete Baby", systemImage: "trash")
+                        }
+
+        }
+        //.gesture(LongPressGesture(minimumDuration: 0.5).onEnded{_ in
+           // showAlert = true
+       // })
+        //.alert(isPresented: $showAlert){
+          //  Alert(
+             //       title: Text("Delete Baby"),
+             //       message: Text("Are you sure you want to remove \(baby.babyName)?"),
+               //     primaryButton: .destructive(Text("Delete")) {
+                //        babyViewModel.deleteBaby(token: babyViewModel.token, babyName: baby.babyName) { result in
+                 //           switch result {
+                  //          case .success(let success):
+                  //              if success {
+                  //                  print("Baby deleted")
+                  //                  babyViewModel.fetchBabies()
+                   //             } else {
+                    //                print("Failed to delete baby")
+                    //            }
+                    //        case .failure(let error):
+                     //           print("Error deleting baby: \(error.localizedDescription)")
+                     //       }
+                    //    }
+                   // },
+                 // secondaryButton: .cancel()
+               // )
+        //}
     }
 }
 

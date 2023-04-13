@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
+		A5100A8729E76E8C00E20E50 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */; };
+		A5100A8929E76F0600E20E50 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */; };
 		A5A1AE8029E6C0D800A5F553 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A1AE7F29E6C0D800A5F553 /* BottomNavBar.swift */; };
-		A5A1AE8229E6D10600A5F553 /* DancingScript-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5A1AE8129E6D10600A5F553 /* DancingScript-VariableFont_wght.ttf */; };
 		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
 		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
 		A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67429DEC314001517E2 /* BabyProfile.swift */; };
@@ -38,9 +39,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Regular.ttf"; sourceTree = "<group>"; };
+		A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
 		A55374FE29E589B5009CF996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A5A1AE7F29E6C0D800A5F553 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
-		A5A1AE8129E6D10600A5F553 /* DancingScript-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DancingScript-VariableFont_wght.ttf"; path = "../../../../Downloads/Dancing_Script/DancingScript-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
 		A5ABA67229DEC2E0001517E2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		A5ABA67429DEC314001517E2 /* BabyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfile.swift; sourceTree = "<group>"; };
@@ -95,7 +97,8 @@
 		A55374F429E58054009CF996 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				A5A1AE8129E6D10600A5F553 /* DancingScript-VariableFont_wght.ttf */,
+				A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */,
+				A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -286,9 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A1AE8229E6D10600A5F553 /* DancingScript-VariableFont_wght.ttf in Resources */,
+				A5100A8729E76E8C00E20E50 /* DancingScript-Regular.ttf in Resources */,
 				B16BE38B29C229DF0024806A /* Preview Assets.xcassets in Resources */,
 				B16BE38829C229DF0024806A /* Assets.xcassets in Resources */,
+				A5100A8929E76F0600E20E50 /* DancingScript-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
