@@ -16,7 +16,8 @@ class BabyViewModel: ObservableObject {
     let token: String
     
     
-    init(token: String) {
+    init(token: String = UserDefaults.standard.string(forKey: "token") ?? "")
+    {
         self.token = token
     }
     
@@ -109,7 +110,37 @@ class BabyViewModel: ObservableObject {
 
     }
         
-        
-        
-    
-}
+    func getBaby(token:String,babyName:String, completion: @escaping (Result<Baby, Error>) -> Void){
+        let url = URL(string: "http://localhost:8080/user/baby/getBaby")!
+                let authHeader = ["Authorization": "Bearer \(token)"]
+                let body = ["babyName": babyName]
+                
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.allHTTPHeaderFields = authHeader
+                request.httpBody = try? JSONEncoder().encode(body)
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                URLSession.shared.dataTask(with: request) { data, response, error in
+                    if let error = error {
+                        DispatchQueue.main.async {
+                            completion(.failure(error))
+                        }
+                        return
+                    }
+                    
+                    if let data = data {
+                        do {
+                            let babyResponse = try JSONDecoder().decode(Baby.self, from: data)
+                            DispatchQueue.main.async {
+                                completion(.success(babyResponse))
+                            }
+                        } catch {
+                            DispatchQueue.main.async {
+                                completion(.failure(error))
+                            }
+                        }
+                    }
+                }.resume()
+            }
+    }

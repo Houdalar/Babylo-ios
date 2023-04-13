@@ -27,12 +27,12 @@
 import Foundation
 
 struct Baby: Codable, Identifiable {
-    let id: String
+    let id: String?
     let babyName: String
     let birthday: String?
     let gender: String?
     let babyPic: String?
-    let parent:String
+    let parent:String?
     
     private enum CodingKeys: String, CodingKey {
         case id = "_id"

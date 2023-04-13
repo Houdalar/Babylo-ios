@@ -11,12 +11,14 @@ struct HomePage: View {
     @State private var isAuthenticated = true
     @State private var selectedItem = 0
     
+    @State private var userToken : String = UserDefaults.standard.string(forKey: "token") ?? ""
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0){
                 switch selectedItem{
                 case 0 :
-                    HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw")
+                    HomeView(token: userToken)
                     
                 case 1 :
                     MusicView()
@@ -25,46 +27,14 @@ struct HomePage: View {
                 case 3:
                     SettignsView(isAuthenticated: $isAuthenticated)
                 default:
-                    HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw")
+                    HomeView(token: userToken)
                 }
                 Spacer()
-                BottomNavBar(selectedItem: $selectedItem)
+                BottomNavBar(selectedItem: $selectedItem,token: userToken)
             }
         }
         
 
-       /* TabView{
-
-                            HomeView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw").tabItem(){
-
-                                Image(systemName: "house")
-
-                                Text("Home")
-
-                            }
-
-                            MusicView().tabItem(){
-
-                                Image(systemName: "music.note")
-
-                                Text("Music")
-
-                            }
-
-                            AudioBooksView().tabItem(){
-
-                                Image(systemName: "headphones")
-
-                                Text("Audiobooks")
-
-                            }
-
-            SettignsView(isAuthenticated: $isAuthenticated).tabItem {
-                            Image(systemName: "gear")
-                            Text("Settings")
-            }
-
-        }.accentColor(.yellow)*/
         
     }
     

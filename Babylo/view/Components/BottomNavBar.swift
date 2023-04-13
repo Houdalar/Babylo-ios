@@ -11,7 +11,16 @@ struct BottomNavBar: View {
     
     @Binding var selectedItem : Int
     @State private var showAddBabyView = false
-    @StateObject private var babyViewModel = BabyViewModel(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw")
+    
+    let token : String
+    
+    @StateObject private var babyViewModel : BabyViewModel
+    
+    init(selectedItem: Binding<Int>, token: String) {
+            _selectedItem = selectedItem
+            self.token = token
+            _babyViewModel = StateObject(wrappedValue: BabyViewModel(token: token))
+        }
     
     var body: some View {
     
@@ -20,13 +29,13 @@ struct BottomNavBar: View {
                 BottomNavBarItem(image: Image(systemName: "house"), action: {selectedItem=0},isSelected: selectedItem==0).foregroundColor(selectedItem==0 ? .yellow : .gray)
                 BottomNavBarItem(image:Image(systemName: "music.note"), action: {selectedItem=1},isSelected: selectedItem==1).foregroundColor(selectedItem==1 ? .yellow : .gray)
                 
-                NavigationLink(destination: AddBaby().environmentObject(babyViewModel), isActive: $showAddBabyView){
+                NavigationLink(destination: AddBaby(token: token).environmentObject(babyViewModel), isActive: $showAddBabyView){
                     addButton
                 }
                 
                 
-                BottomNavBarItem(image: Image(systemName: "headphones"), action: {selectedItem=2},isSelected: selectedItem==2).foregroundColor(selectedItem==2 ? .yellow : .gray)
-                BottomNavBarItem(image: Image(systemName: "gear"), action: {selectedItem=3},isSelected: selectedItem==3).foregroundColor(selectedItem==3 ? .yellow : .gray)
+                BottomNavBarItem(image: Image(systemName: "books.vertical"), action: {selectedItem=2},isSelected: selectedItem==2).foregroundColor(selectedItem==2 ? .yellow : .gray)
+                BottomNavBarItem(image: Image(systemName: "gearshape"), action: {selectedItem=3},isSelected: selectedItem==3).foregroundColor(selectedItem==3 ? .yellow : .gray)
             }
             .padding()
             .background(Color.white)
@@ -73,7 +82,7 @@ struct BottomNavBarItem: View {
 
 struct BottomNavBar_Previews: PreviewProvider {
     static var previews: some View {
-        BottomNavBar(selectedItem: .constant(0))
+        BottomNavBar(selectedItem: .constant(0),token: UserDefaults.standard.string(forKey: "token") ?? "")
     }
 }
 

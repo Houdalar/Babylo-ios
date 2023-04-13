@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var showIntro: Bool = UserDefaults.standard.bool(forKey: "hasShownIntro") ? false : true
+    //@State private var showIntro: Bool = UserDefaults.standard.bool(forKey: "hasShownIntro") ? false : true
+    @State private var showIntro: Bool = false
     @State private var showLogin: Bool = false
     @State private var showSignup: Bool = false
     @ObservedObject var viewModel = UserViewModel()
-
+    
     var body: some View {
         ZStack {
             if showIntro {
@@ -42,8 +43,16 @@ struct RootView: View {
             } else {
                 LoginView(viewModel: viewModel)
             }
-
+            
         }
+    }
+    
+    
+    func getAppVersion() -> String {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            return version
+        }
+        return ""
     }
 }
 

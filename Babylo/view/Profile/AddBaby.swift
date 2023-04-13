@@ -23,8 +23,15 @@ struct AddBaby: View {
 
     @EnvironmentObject var babyViewModel : BabyViewModel
     
-
     @Environment(\.presentationMode) var presentationMode
+    
+    // Add token as a property
+        let token: String
+
+        // Add token as a parameter to the initializer
+        init(token: String) {
+            self.token = token
+        }
 
     
     var body: some View {
@@ -82,7 +89,7 @@ struct AddBaby: View {
                 Button("Add Baby", action: {
                     let genderString = selectedGender == 0 ? "Boy" : "Girl"
                     if let selectedImage = selectedImage {
-                        babyViewModel.addBaby(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzU1OWU1NjFiZjlhNzhlNTNlMjQ5YyIsImlhdCI6MTY4MTIxODA2NX0.DVD3QYKhfTiHz_ftFV8lmXvgggUtuAHIdwGfLrZr8hw", babyName: babyName, birthday: selectedDate, gender: genderString, babyPic: selectedImage) { result in
+                        babyViewModel.addBaby(token:token, babyName: babyName, birthday: selectedDate, gender: genderString, babyPic: selectedImage) { result in
                                             switch result {
                                             case .success:
                                                 showAlert=true
@@ -129,7 +136,7 @@ struct AddBaby_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        AddBaby()
+        AddBaby(token: UserDefaults.standard.string(forKey: "token") ?? "")
 
     }
 
