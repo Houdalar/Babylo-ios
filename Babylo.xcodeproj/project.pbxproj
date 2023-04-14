@@ -14,6 +14,18 @@
 		A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67629DECFAD001517E2 /* HomeView.swift */; };
 		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
+		B115D9B629EA0A0B00DA0F63 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B529EA0A0B00DA0F63 /* login.png */; };
+		B115D9B829EA0A1600DA0F63 /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B729EA0A1600DA0F63 /* signup.png */; };
+		B115D9C229EA0A2000DA0F63 /* music-overview.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B929EA0A1F00DA0F63 /* music-overview.png */; };
+		B115D9C329EA0A2000DA0F63 /* reset1.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9BA29EA0A1F00DA0F63 /* reset1.png */; };
+		B115D9C429EA0A2000DA0F63 /* reset3..png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9BB29EA0A1F00DA0F63 /* reset3..png */; };
+		B115D9C529EA0A2000DA0F63 /* intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B115D9BC29EA0A2000DA0F63 /* intro.mp4 */; };
+		B115D9C629EA0A2000DA0F63 /* music.gif in Resources */ = {isa = PBXBuildFile; fileRef = B115D9BD29EA0A2000DA0F63 /* music.gif */; };
+		B115D9C729EA0A2000DA0F63 /* reset2.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9BE29EA0A2000DA0F63 /* reset2.png */; };
+		B115D9C829EA0A2000DA0F63 /* tracks.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9BF29EA0A2000DA0F63 /* tracks.png */; };
+		B115D9C929EA0A2000DA0F63 /* playlis2.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9C029EA0A2000DA0F63 /* playlis2.png */; };
+		B115D9CA29EA0A2000DA0F63 /* playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9C129EA0A2000DA0F63 /* playlist.png */; };
+		B115D9CC29EA0A6B00DA0F63 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B115D9CB29EA0A6B00DA0F63 /* README.md */; };
 		B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38329C229DE0024806A /* BabyloApp.swift */; };
 		B16BE38629C229DE0024806A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38529C229DE0024806A /* ContentView.swift */; };
 		B16BE38829C229DF0024806A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16BE38729C229DF0024806A /* Assets.xcassets */; };
@@ -52,6 +64,18 @@
 		A5ABA67629DECFAD001517E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
+		B115D9B529EA0A0B00DA0F63 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		B115D9B729EA0A1600DA0F63 /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
+		B115D9B929EA0A1F00DA0F63 /* music-overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music-overview.png"; sourceTree = "<group>"; };
+		B115D9BA29EA0A1F00DA0F63 /* reset1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset1.png; sourceTree = "<group>"; };
+		B115D9BB29EA0A1F00DA0F63 /* reset3..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset3..png; sourceTree = "<group>"; };
+		B115D9BC29EA0A2000DA0F63 /* intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.mp4; sourceTree = "<group>"; };
+		B115D9BD29EA0A2000DA0F63 /* music.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = music.gif; sourceTree = "<group>"; };
+		B115D9BE29EA0A2000DA0F63 /* reset2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset2.png; sourceTree = "<group>"; };
+		B115D9BF29EA0A2000DA0F63 /* tracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tracks.png; sourceTree = "<group>"; };
+		B115D9C029EA0A2000DA0F63 /* playlis2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playlis2.png; sourceTree = "<group>"; };
+		B115D9C129EA0A2000DA0F63 /* playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playlist.png; sourceTree = "<group>"; };
+		B115D9CB29EA0A6B00DA0F63 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B16BE38029C229DE0024806A /* Babylo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babylo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16BE38329C229DE0024806A /* BabyloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyloApp.swift; sourceTree = "<group>"; };
 		B16BE38529C229DE0024806A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +140,24 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		B115D9B429EA09EB00DA0F63 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B115D9BC29EA0A2000DA0F63 /* intro.mp4 */,
+				B115D9B929EA0A1F00DA0F63 /* music-overview.png */,
+				B115D9BD29EA0A2000DA0F63 /* music.gif */,
+				B115D9C029EA0A2000DA0F63 /* playlis2.png */,
+				B115D9C129EA0A2000DA0F63 /* playlist.png */,
+				B115D9BA29EA0A1F00DA0F63 /* reset1.png */,
+				B115D9BE29EA0A2000DA0F63 /* reset2.png */,
+				B115D9BB29EA0A1F00DA0F63 /* reset3..png */,
+				B115D9BF29EA0A2000DA0F63 /* tracks.png */,
+				B115D9B729EA0A1600DA0F63 /* signup.png */,
+				B115D9B529EA0A0B00DA0F63 /* login.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		B16BE37729C229DE0024806A = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +179,7 @@
 		B16BE38229C229DE0024806A /* Babylo */ = {
 			isa = PBXGroup;
 			children = (
+				B115D9B429EA09EB00DA0F63 /* images */,
 				B1F316A029C2D64A00C88D78 /* ViewModel */,
 				B16BE39929C22B180024806A /* Model */,
 				B16BE39629C22ADB0024806A /* view */,
@@ -146,6 +189,7 @@
 				B16BE38C29C229DF0024806A /* Persistence.swift */,
 				B16BE38E29C229DF0024806A /* Babylo.xcdatamodeld */,
 				B16BE38929C229DF0024806A /* Preview Content */,
+				B115D9CB29EA0A6B00DA0F63 /* README.md */,
 			);
 			path = Babylo;
 			sourceTree = "<group>";
@@ -309,7 +353,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16BE38B29C229DF0024806A /* Preview Assets.xcassets in Resources */,
+				B115D9B629EA0A0B00DA0F63 /* login.png in Resources */,
+				B115D9C629EA0A2000DA0F63 /* music.gif in Resources */,
+				B115D9C829EA0A2000DA0F63 /* tracks.png in Resources */,
+				B115D9C429EA0A2000DA0F63 /* reset3..png in Resources */,
+				B115D9C729EA0A2000DA0F63 /* reset2.png in Resources */,
 				B16BE38829C229DF0024806A /* Assets.xcassets in Resources */,
+				B115D9CA29EA0A2000DA0F63 /* playlist.png in Resources */,
+				B115D9C929EA0A2000DA0F63 /* playlis2.png in Resources */,
+				B115D9C529EA0A2000DA0F63 /* intro.mp4 in Resources */,
+				B115D9CC29EA0A6B00DA0F63 /* README.md in Resources */,
+				B115D9B829EA0A1600DA0F63 /* signup.png in Resources */,
+				B115D9C229EA0A2000DA0F63 /* music-overview.png in Resources */,
+				B115D9C329EA0A2000DA0F63 /* reset1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
