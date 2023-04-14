@@ -1,57 +1,92 @@
-//
-//  NowPlaying.swift
-//  Babylo
-//
-//  Created by houda lariani on 12/4/2023.
-//
-
 import SwiftUI
 import AVFoundation
 import CoreImage
-import CoreImage.CIFilterShape
-
-
+import CoreImage.CIFilterBuiltins
+import UIImageColors
 
 struct MusicPlayerView: View {
+
     let coverImage: Image
     let songName: String
     let artistName: String
-    
+
     @State private var isPlaying: Bool = false
     @State private var progressColor: Color = .green
-    
+    @State private var progress: Double = 0.8
+   
+
     var body: some View {
         VStack {
-            Spacer()
-            ZStack {
-                Circle()
-                    .fill(Color.white)
-                    .frame(width: 280, height: 280)
-                Circle()
-                    .trim(from: 0, to: 0.8)
-                    .stroke(progressColor, lineWidth: 8)
-                    .frame(width: 280, height: 280)
-                    .rotationEffect(Angle(degrees: isPlaying ? 360 : 0))
-                    .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isPlaying)
-                    .clipShape(Circle())
-                CDView(image: coverImage)
-                    .frame(width: 250, height: 250)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 5))
-                    .rotationEffect(Angle(degrees: isPlaying ? 360 : 0))
-                    .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isPlaying)
-                    .shadow(radius: 10)
-                    .padding(30)
-            }
-            .padding(.bottom, 50)
+            HStack{
+                            Button(action: {
+                                // Back button tapped
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .font(Font.system(size: 22, weight: .bold))
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
+                            Text("Now Playing")
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(Color(.label))
+                            Spacer()
+                            Circle()
+                                .fill(Color.gray)
+                                .frame(width: 6, height: 6)
+                            Circle()
+                                .fill(Color.gray)
+                                .frame(width: 6, height: 6)
+                                .padding(.trailing, 20)
+                        }
+            .padding(.bottom,50)
+                       
             
-            Text(songName)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color(.label))
-            Text(artistName)
-                .font(.headline)
-                .foregroundColor(.gray)
+            ZStack {
+                           Circle()
+                               .fill(Color.white)
+                               .frame(width: 280, height: 280)
+                           Circle()
+                               .trim(from: 0, to: CGFloat(progress))
+                               .stroke(progressColor, lineWidth: 8)
+                               .frame(width: 280, height: 280)
+                               .rotationEffect(Angle(degrees: -90))
+
+                           CDView(image: coverImage)
+                               .frame(width: 250, height: 250)
+                               .clipShape(Circle())
+                               .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                               .rotationEffect(Angle(degrees: isPlaying ? 360 : 0))
+                               .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isPlaying)
+                               .shadow(radius: 10)
+                               .padding(30)
+                       }
+                       .padding(.bottom, 50)
+
+                       Text(songName)
+                           .font(.custom("YourCustomFontName-ExtraBold", size: 24))
+                           .foregroundColor(Color(.label))
+
+                       Text(artistName)
+                           .font(.custom("YourCustomFontName-Regular", size: 18))
+                           .foregroundColor(.gray)
+                           .padding(.bottom, 10)
+
+            ProgressBar(value: $progress, progressColor: $progressColor, thumbPosition: CGFloat(progress))
+                .frame(height: 8)
+                .padding(.bottom, 10)
+                
+
+                       HStack {
+                           Text("0:00")
+                               .font(.caption)
+                               .foregroundColor(.gray)
+
+                           Spacer()
+
+                           Text("-0:00")
+                               .font(.caption)
+                               .foregroundColor(.gray)
+                       }
             
             Spacer()
             
@@ -62,151 +97,109 @@ struct MusicPlayerView: View {
                     Image(systemName: "chevron.backward")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(.gray)
                 }
+                
                 Spacer()
+                
                 Button(action: {
                     self.isPlaying.toggle()
                 }) {
-                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: 60, height: 60)
+                        .overlay(
+                            Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                                 .resizable()
-                                .frame(width: 40, height: 40)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(Color.white.opacity(0))
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color.white, lineWidth: 2)
-                                )
+                                .scaledToFit()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.black)
+                        )
+                        .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 3)
                 }
+                
                 Spacer()
+                
                 Button(action: {
                     // Next button tapped
                 }) {
                     Image(systemName: "chevron.forward")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.gray)
                 }
-            }
-            
-            Spacer()
-            
-            HStack(spacing: 50) {
-                Button(action: {
-                    // Heart button tapped
-                }) {
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.blue)
-                }
-                Button(action: {
-                    // Add button tapped
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.blue)
-                }
+                
             }
             .padding(.bottom, 20)
+            
         }
         .padding(.horizontal, 50)
         .padding(.vertical, 30)
         .background(
-            coverImage
-                .resizable()
-                .scaledToFill()
-                .blur(radius: 30)
-                .brightness(-0.1)
-                .ignoresSafeArea()
-        )
-        
-    }
+                    Color.white
+                        .ignoresSafeArea()
+                )
+        .onAppear {
+            if let image = UIImage(named: "Education Is The Way Up") {
+                if let dominantColor = self.dominantColor(for: image) {
+                               progressColor = Color(dominantColor)
+                           }
+            }
+        }
+            }
+
     func dominantColor(for image: UIImage) -> UIColor? {
-        guard let ciImage = CIImage(image: image) else {
-            return nil
+        if let colors = image.getColors() {
+            return colors.primary
         }
-        
-        // Apply a filter to extract the dominant color
-        let params: [String: AnyObject] = [
-            kCIInputImageKey: ciImage,
-            "inputCubeDimension": 64 as AnyObject,
+        return nil
+    }
+        }
 
-            "InputNormalizeVectorKey": [0.0, 0.0, 0.0] as AnyObject
-        ]
-        
-        guard let colorCube = CIFilter(name: "CIColorCube", parameters: params),
-              let outputImage = colorCube.outputImage else {
-            return nil
+        struct MusicPlayerView_Previews: PreviewProvider {
+            static var previews: some View {
+                MusicPlayerView(coverImage: Image("Education Is The Way Up"), songName: "Example Song", artistName: "Example Artist")
+            }
         }
-        
-        // Render the filtered image
-        let context = CIContext(options: nil)
-        let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
-        
-        // Get the pixel data from the rendered image
-        guard let data = cgImage?.dataProvider?.data,
-              let buffer = CFDataGetBytePtr(data) else {
-            return nil
-        }
-        
-        // Compute the average color of the pixels
-        let length = CFDataGetLength(data)
-        var red: CGFloat = 0.0
-        var green: CGFloat = 0.0
-        var blue: CGFloat = 0.0
-        
-        for i in stride(from: 0, to: length, by: 4) {
-            red += CGFloat(buffer[i]) / 255.0
-            green += CGFloat(buffer[i+1]) / 255.0
-            blue += CGFloat(buffer[i+2]) / 255.0
-        }
-        
-        let count = CGFloat(length / 4)
-        let color = UIColor(red: red/count, green: green/count, blue: blue/count, alpha: 1.0)
-        
-        return color
-    }
-    
-}
-struct MusicPlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-       
-        MusicPlayerView(coverImage: Image("Mamafrog"), songName: "Example Song", artistName: "Example Artist")
-    }
-}
 
-struct BlurView: UIViewRepresentable {
-    typealias UIViewType = UIVisualEffectView
-    var style: UIBlurEffect.Style = .systemMaterial
-    
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView {
-        return UIVisualEffectView(effect: UIBlurEffect(style: style))
-    }
-    
-    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) {
-        uiView.effect = UIBlurEffect(style: style)
-    }
-}
+        struct ProgressBar: View {
+            @Binding var value: Double
+             var progressColor: Binding<Color>
+             var thumbPosition: CGFloat
+
+            var body: some View {
+                GeometryReader { geometry in
+                    ZStack(alignment: .leading) {
+                        Rectangle()
+                            .opacity(0.3)
+                            .foregroundColor(.gray)
+                        Rectangle()
+                            .foregroundColor(progressColor.wrappedValue)
+                            .frame(width: CGFloat(self.value) * geometry.size.width)
+                        Circle()
+                            .frame(width: 10, height: 10)
+                            .foregroundColor(progressColor.wrappedValue)
+                            .position(x: thumbPosition * geometry.size.width, y: geometry.size.height / 2)
+                    }
+                    .cornerRadius(4)
+                }
+            }
+        }
 
 struct CDView: View {
     let image: Image
     @State private var isRotating = false
-    
     var body: some View {
         image
             .resizable()
-            .frame(width: 250, height: 250)
+            .frame(width: 300, height: 300)
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 5))
             .mask(
                 Circle()
                     .inset(by: 30)
-                    .stroke(style: StrokeStyle(lineWidth: 150, lineCap: .round, lineJoin: .round))
-                    .path(in: CGRect(x: 0, y: 0, width: 250, height: 250))
+                    .stroke(style: StrokeStyle(lineWidth: 180, lineCap: .round, lineJoin: .round))
+                    .path(in: CGRect(x: 0, y: 0, width:300, height: 300))
             )
             .rotationEffect(Angle(degrees: isRotating ? 360 : 0))
             .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isRotating)
@@ -216,5 +209,4 @@ struct CDView: View {
             .background(Color.clear)
     }
 }
-
 

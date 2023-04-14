@@ -1,16 +1,24 @@
 PODS:
   - Alamofire (5.6.4)
+  - Kingfisher (7.6.2)
+  - UIImageColors (2.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher
+  - UIImageColors
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
+    - UIImageColors
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
+  UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
 
-PODFILE CHECKSUM: d86b1c6f33fe9276bff6983ab3e344ba19042d36
+PODFILE CHECKSUM: 8fd78f51827bab42621efdc33590d11f384267f2
 
 COCOAPODS: 1.11.3

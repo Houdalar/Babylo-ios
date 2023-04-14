@@ -15,20 +15,48 @@ class Library: ObservableObject {
 }
 
 struct Track: Identifiable, Codable {
-    let id : String?
-    let name: String
-    let artist: String
-    let cover: String
-    let category: String
-    let url: String
+    var id: String
+    var name: String
+    var artist: String
+    var cover: String
+    var category: String
+    var url: String
     var listened: Int
-    let date: String
-}
+    var date: String
+    let duration: String
 
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+        case artist
+        case cover
+        case category
+        case url
+        case listened
+        case date
+        case duration
+    }
+}
 struct Playlist: Codable, Identifiable {
     let id: String
     let name: String
     let cover: String
     let owner: String
     let tracks: [String]
+}
+
+struct Albums: Identifiable, Codable {
+    let id: String
+    let name: String
+    let cover: String
+    let tracks: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+        case cover
+        case tracks
+        
+    }
 }

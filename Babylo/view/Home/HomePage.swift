@@ -48,13 +48,13 @@ struct CustomTabBar: View {
             TabBarButton(selectedIndex: $selectedIndex, assignedIndex: 3, systemImageName: "gearshape")
         }
         .padding(.horizontal, 16)
-        .padding(.bottom)
-        .padding(.top, 6)
+        .padding(.bottom,5)
+        .padding(.top,5)
         .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-        .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4)
+        .clipShape(RoundedRectangle(cornerRadius: 40, style: .continuous))
+        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
         .padding(.horizontal)
-        .frame(height: 56) // Set a smaller fixed height for the custom navigation tab
+        .frame(height: 50) // Set a smaller fixed height for the custom navigation tab
     }
 }
 
