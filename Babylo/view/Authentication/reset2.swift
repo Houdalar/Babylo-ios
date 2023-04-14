@@ -107,7 +107,6 @@ struct Reset2View: View {
             }
             .alert(isPresented: $isShowingAlert) {
                 Alert(title: Text("Wrong code").foregroundColor(.red), message: Text("Please check the code we sent you via your email"), dismissButton: .default(Text("OK")) {
-                    code = ""
                 })
             }
 

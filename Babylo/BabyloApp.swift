@@ -10,11 +10,16 @@ import SwiftUI
 @main
 struct BabyloApp: App {
     let persistenceController = PersistenceController.shared
-
+    
+    // Create an instance of MusicViewModel
+    let musicViewModel = MusicViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //HomePage()
+               // .environmentObject(musicViewModel)
+            ContentView()
         }
     }
 }
+

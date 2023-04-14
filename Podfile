@@ -7,5 +7,7 @@ target 'Babylo' do
 
   # Pods for Babylo
 pod 'Alamofire'
+pod 'UIImageColors'
+pod 'Kingfisher'
 
 end
