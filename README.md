@@ -1,10 +1,3 @@
-//
-//  README.md
-//  Babylo
-//
-//  Created by houda lariani on 14/4/2023.
-//
-
 <h1 align="center">👶 Babylo 💛</h1>
 <p align="center">
   <img src="banner.gif" alt="Babylo banner" />
