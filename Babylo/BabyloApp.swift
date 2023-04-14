@@ -16,9 +16,9 @@ struct BabyloApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomePage()
-                .environmentObject(musicViewModel)
-            
+            //HomePage()
+               // .environmentObject(musicViewModel)
+            ContentView()
         }
     }
 }
