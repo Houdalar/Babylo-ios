@@ -14,6 +14,9 @@ struct RootView: View {
     @State private var showSignup: Bool = false
     @ObservedObject var viewModel = UserViewModel()
     
+    
+    
+    
     var body: some View {
         ZStack {
             if showIntro {
@@ -48,12 +51,6 @@ struct RootView: View {
     }
     
     
-    func getAppVersion() -> String {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            return version
-        }
-        return ""
-    }
 }
 
 struct RootView_Previews: PreviewProvider {

@@ -18,7 +18,7 @@ struct HomePage: View {
             VStack(spacing: 0){
                 switch selectedItem{
                 case 0 :
-                    HomeView(token: userToken)
+                    HomeScreen(token: userToken)
                     
                 case 1 :
                     MusicView()

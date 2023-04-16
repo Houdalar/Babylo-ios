@@ -11,10 +11,15 @@ import SwiftUI
 struct BabyloApp: App {
     let persistenceController = PersistenceController.shared
 
+
+
     var body: some Scene {
         WindowGroup {
-            RootView()
+             RootView()
+            
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+
         }
     }
 }
