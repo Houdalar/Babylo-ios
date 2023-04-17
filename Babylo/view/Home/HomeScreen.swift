@@ -136,7 +136,7 @@ struct CardView : View {
    @ObservedObject var babyViewModel: BabyViewModel
 
     var body: some View {
-        NavigationLink(destination:ProfileBaby(token: babyViewModel.token, babyName: baby.babyName)) {
+        NavigationLink(destination: Profile(token: babyViewModel.token, babyName: baby.babyName)) {
             VStack {
                 if let babyPic = baby.babyPic , let url = URL(string: babyPic){
                     AsyncImage(url: url){
@@ -173,9 +173,8 @@ struct CardView : View {
 
                 }
                 Text(baby.babyName)
-               
-                    .font(.custom("CormorantGaramond-BoldItalic", size: 35))
-                                .foregroundColor(.black)
+                    .font(.custom("CormorantGaramond-BoldItalic", size: 15))
+                    .foregroundColor(.black)
             }
             .frame(width: UIScreen.main.bounds.width / 2)
             .padding(.bottom)

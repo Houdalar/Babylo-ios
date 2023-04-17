@@ -25,6 +25,7 @@ struct AppColors{
     static let primarydark = Color(red:166/255 , green:109/255 , blue:9/255)
     static let lightColor = Color(red:253/255 , green: 248/255 , blue: 229/255)
     static let lighter = Color(red:252/255 , green: 240/255 , blue: 200/255)
+    static let moreLighter = Color(red: 254/255 , green:248/255 , blue:231/255)
     static let lightBlue = Color(hex: "#C8D4FC")
     static let blue = Color(hex: "#557af6")
     
