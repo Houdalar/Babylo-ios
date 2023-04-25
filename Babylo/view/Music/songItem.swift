@@ -14,13 +14,15 @@ struct TrackRow: View {
     let isPlaylistSong: Bool
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: track.cover)!) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
+            if let url = URL(string: track.cover) {
+                AsyncImage(url: url) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 60, height: 60)
+                .cornerRadius(10)
             }
-            .frame(width: 60, height: 60)
-            .cornerRadius(10)
             VStack(alignment: .leading) {
                 Text(track.name)
                     .font(.headline)

@@ -108,33 +108,7 @@ struct MusicPlayerHomeView: View {
 
                      //  FavoritesView()
 
-                       Favorites(tracks: [
-
-                        Track(id: "1", name: "Track 1", artist: "Artist 1", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 1", url: "http://localhost:8080/media/tracks/track1.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                                           Track(id: "2", name: "Track 2", artist: "Artist 2", cover: "http://localhost:8080/media/images/EducationIsTheWayUp.png", category: "Category 2", url: "http://localhost:8080/media/tracks/track1.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                                           Track(id: "3", name: "Track 3", artist: "Artist 1", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 1", url: "https://example.com/track1.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                                           Track(id: "4", name: "Track 4", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                                           Track(id: "5", name: "Track 5", artist: "Artist 1", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 1", url: "https://example.com/track1.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                                           Track(id: "6", name: "Track 6", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                        Track(id: "7", name: "Track 4", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                        Track(id: "88", name: "Track 5", artist: "Artist 1", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 1", url: "https://example.com/track1.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                       
-
-                        Track(id: "10", name: "Track 4", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                        Track(id: "11", name: "Track 5", artist: "Artist 1", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 1", url: "https://example.com/track1.mp3", listened: 0, date: "2023-01-01",duration: "04:32"),
-
-                        Track(id: "12", name: "Track 6", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32")
-
-                                          ], currentlyPlayingTrack: Track(id: "2", name: "Track 2", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32"))
+                       Favorites( currentlyPlayingTrack: Track(id: "2", name: "Track 2", artist: "Artist 2", cover: "http://localhost:8080/media/images/Duck.png1681338914683.png", category: "Category 2", url: "https://example.com/track2.mp3", listened: 0, date: "2023-01-01",duration: "04:32"))
 
                    }
 

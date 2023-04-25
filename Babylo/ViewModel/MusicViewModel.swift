@@ -12,6 +12,7 @@ class MusicViewModel: ObservableObject {
     @Published var trendingTracks: [Track] = []
     @Published var ALbums: [Albums] = []
     @Published var tracks: [Track] = []
+    @Published var favoriteTracks: [Track] = []
     
     private let baseURL = "http://localhost:8080/"
 
@@ -49,7 +50,7 @@ class MusicViewModel: ObservableObject {
                 case .success(let tracks):
                     DispatchQueue.main.async {
                         self.ALbums = tracks
-                        print("Fetched albums: \(self.ALbums)")
+                        
                     }
                 case .failure(let error):
                     print("Error decoding new tracks: \(error)")
@@ -69,5 +70,23 @@ class MusicViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchFavoriteTracks() {
+            guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+
+            AF.request(baseURL+"user/music/getFavoritesTracks/"+token,method: .get)
+            .validate(contentType: ["application/json"])
+                .validate()
+                .responseDecodable(of: [Track].self) { response in
+                    switch response.result {
+                    case .success(let tracks):
+                        DispatchQueue.main.async {
+                            self.favoriteTracks = tracks
+                        }
+                    case .failure(let error):
+                        print("Error fetching favorite tracks: \(error)")
+                    }
+                }
+        }
 
 }

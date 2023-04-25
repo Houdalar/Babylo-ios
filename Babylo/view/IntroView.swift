@@ -260,9 +260,4 @@ struct IntroView: View {
     
 }
 
-struct IntroView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
 

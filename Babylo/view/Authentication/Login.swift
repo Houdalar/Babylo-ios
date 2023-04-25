@@ -24,6 +24,7 @@ struct LoginView: View {
     @State private var isReset1Active = false
     @State private var isHomeActive = false
     @Environment(\.presentationMode) var presentationMode
+    let musicViewModel = MusicViewModel()
     
     var body: some View {
         NavigationView {
@@ -166,7 +167,8 @@ struct LoginView: View {
                         ) { EmptyView() }
                         
                         NavigationLink(
-                            destination: HomePage().navigationBarHidden(true),
+                            destination:  HomePage()
+                                .environmentObject(musicViewModel).navigationBarHidden(true),
                             isActive: $isHomeActive
                         ) { EmptyView() }
                     })
