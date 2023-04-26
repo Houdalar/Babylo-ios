@@ -29,4 +29,7 @@ struct AppColors{
     static let lightBlue = Color(hex: "#C8D4FC")
     static let blue = Color(hex: "#557af6")
     
+    static let yellow = Color(red: 242/255, green: 196/255, blue: 37/255)
+    static let lightYellow = Color(red: 254/255, green: 249/255, blue: 232/255)
+    
 }

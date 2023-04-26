@@ -83,6 +83,7 @@ struct Profile: View {
         let token: String
         let babyName: String
         @State private var showHeightScreen = false
+        @State private var showWeightScreen = false
         
         init(token: String, babyName: String, baby: Binding<Baby?>) {
             self.token = token
@@ -126,6 +127,7 @@ struct Profile: View {
                     
                     Button(action: {
                         // Weight action
+                        showWeightScreen.toggle()
                     }) {
                         Text("Weight")
                             .padding()
@@ -134,6 +136,10 @@ struct Profile: View {
                             .background(Color.yellow.opacity(0.2))
                             .cornerRadius(10)
                     }
+                    .sheet(isPresented: $showWeightScreen){
+                        WeightView(babyViewModel: babyViewModel, babyName: babyName)
+                    }
+                    
                 }
                 Text("Medical parameters")
                     .font(.custom("CormorantGaramond-BoldItalic", size: 30))

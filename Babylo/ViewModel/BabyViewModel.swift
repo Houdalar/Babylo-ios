@@ -13,7 +13,8 @@ import Alamofire
 class BabyViewModel: ObservableObject {
     @Published var babies = [Baby]()
     @Published var heights : [Height] = []
-    private var cancellables = Set<AnyCancellable>()
+    @Published var weights : [Weight] = []
+    private var cancellables : Set<AnyCancellable> = []
     let token: String
     let baseUrl = "http://localhost:8080/user/baby"
     
@@ -21,7 +22,17 @@ class BabyViewModel: ObservableObject {
     init(token: String = UserDefaults.standard.string(forKey: "token") ?? "")
     {
         self.token = token
+        setupPublisher()
     }
+    
+    
+    private func setupPublisher() {
+            $heights
+                .sink { [weak self] _ in
+                    self?.objectWillChange.send()
+                }
+                .store(in: &cancellables)
+        }
     
     func fetchBabies() {
         let url = URL(string: "\(baseUrl)/getbabylist")!
@@ -190,36 +201,93 @@ class BabyViewModel: ObservableObject {
         }
     }
 
-    func deleteHeight(token: String, date: String, completion: @escaping (Result<String, Error>) -> Void) {
-            let headers: HTTPHeaders = [
-                "Content-Type": "application/json"
-            ]
-
-            let parameters: [String: Any] = [
-                "token": token,
-                "date": date
-            ]
-
-            AF.request("\(baseUrl)/deleteHeight",
-                       method: .put,
-                       parameters: parameters,
-                       encoding: JSONEncoding.default,
-                       headers: headers).responseJSON { response in
-                        switch response.result {
-                        case .success:
-                            if let statusCode = response.response?.statusCode {
-                                if statusCode == 200 {
-                                    completion(.success("Height deleted"))
-                                } else {
-                                    completion(.failure(NSError(domain: "", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "Error occurred"])))
-                                }
-                            }
-                        case .failure(let error):
-                            completion(.failure(error))
-                        }
+    
+    func deleteHeight(token: String, date: String, babyName: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let url = "\(baseUrl)/deleteHeight"
+        let headers: HTTPHeaders = [
+                   "Content-Type": "application/json"
+               ]
+               
+               let parameters: [String: Any] = [
+                   "token": token,
+                   "date": date,
+                   "babyName": babyName
+               ]
+               
+               AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                   switch response.result {
+                   case .success:
+                       completion(.success("Height deleted"))
+                   case .failure(let error):
+                       completion(.failure(error))
+                   }
+               }
+        }
+    
+    
+    func addWeight(token: String, weight: String, babyName: String, completion: @escaping (Result<Weight, Error>) -> Void) {
+        let url = "\(baseUrl)/addWeight"
+        let headers: HTTPHeaders = [        "Authorization": "Bearer \(token)",        "Content-Type": "application/json"    ]
+        let parameters: [String: Any] = [        "weight": weight,        "babyName": babyName    ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Weight.self) { response in
+            switch response.result {
+            case .success(let weight):
+                completion(.success(weight))
+                print("weight added successfully.")
+            case .failure(let error):
+                completion(.failure(error))
+                print("Error adding height: \(error)")
             }
         }
-
+    }
     
+    func getBabyWeights(token: String, babyName: String, completion: @escaping (Result<[Weight], Error>) -> Void) {
+        let url = "\(baseUrl)/getBabyWeights"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)",
+            "Content-Type": "application/json"
+        ]
+        let parameters: [String: Any] = [
+            "babyName": babyName
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: [Weight].self) { response in
+            switch response.result {
+            case .success(let weights):
+                DispatchQueue.main.async {
+                    self.weights = weights
+                }
+                completion(.success(weights))
+                print("Baby weights loaded successfully.")
+            case .failure(let error):
+                completion(.failure(error))
+                print("Error loading baby weights: \(error)")
+            }
+        }
+    }
+    
+    
+    func deleteWeight(token: String, date: String, babyName: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let url = "\(baseUrl)/deleteWeight"
+        let headers: HTTPHeaders = [
+                   "Content-Type": "application/json"
+               ]
+               
+               let parameters: [String: Any] = [
+                   "token": token,
+                   "date": date,
+                   "babyName": babyName
+               ]
+               
+               AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                   switch response.result {
+                   case .success:
+                       completion(.success("Weight deleted"))
+                   case .failure(let error):
+                       completion(.failure(error))
+                   }
+               }
+        }
     
 }

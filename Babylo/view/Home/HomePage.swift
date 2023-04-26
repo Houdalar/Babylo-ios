@@ -27,7 +27,7 @@ struct HomePage: View {
                 case 3:
                     SettignsView(isAuthenticated: $isAuthenticated)
                 default:
-                    HomeView(token: userToken)
+                    HomeScreen(token: userToken)
                 }
                 Spacer()
                 BottomNavBar(selectedItem: $selectedItem,token: userToken)

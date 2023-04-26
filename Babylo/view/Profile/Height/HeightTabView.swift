@@ -10,7 +10,9 @@ import SwiftUI
 struct HeightTabView: View {
     @ObservedObject var babyViewModel: BabyViewModel
     @State private var errorMessage: String?
+    @State private var showAlert = false
     @State private var showAddHeightModal = false
+    @State private var heightIndexToDelete: Int?
     let babyName: String
 
     private var addButton: some View {
@@ -26,16 +28,52 @@ struct HeightTabView: View {
                 .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
         }
     }
-
-
-    var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(babyViewModel.heights) { height in
-                    HeightCard(height: height.height, date: height.date).id(height.id)
-                }
-            }
+    
+    private func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let heightToDelete = babyViewModel.heights[index]
+            showAlert = true
+            heightIndexToDelete = index
         }
+    }
+
+    
+
+       private func confirmDelete() {
+           guard let index = heightIndexToDelete else { return }
+           let heightToDelete = babyViewModel.heights[index]
+           babyViewModel.deleteHeight(token: UserDefaults.standard.string(forKey: "token") ?? "", date: heightToDelete.date, babyName: babyName) { result in
+               switch result {
+               case .success(_):
+                   DispatchQueue.main.async {
+                       babyViewModel.heights.removeAll { height in
+                           height.id == heightToDelete.id
+                       }
+                   }
+               case .failure(let error):
+                   DispatchQueue.main.async {
+                       errorMessage = error.localizedDescription
+                   }
+               }
+           }
+           showAlert = false
+       }
+    
+    var body: some View {
+        NavigationView {
+            List {
+                        ForEach(babyViewModel.heights) { height in
+                            HeightCard(height: height)
+                        }
+                        .onDelete(perform: delete)
+                    }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Delete Height"), message: Text("Are you sure you want to remove this height?"), primaryButton: .destructive(Text("Delete")) {
+                confirmDelete()
+            }, secondaryButton: .cancel())
+        }
+        .navigationBarItems(trailing: addButton)
         .overlay(
             VStack {
                 Spacer()
@@ -81,12 +119,13 @@ struct HeightTabView: View {
 }
 
 struct HeightCard: View {
-    let height: String
-    let date: String
+    let height: Height
+    //var onDelete: ((Height) -> Void)?
+    @State private var offset: CGFloat = 0
    
     var body: some View {
         HStack {
-            Text(height)
+            Text(height.height)
                 .font(.system(size: 18))
                 .fontWeight(.bold)
                 .foregroundColor(.black)
@@ -99,16 +138,18 @@ struct HeightCard: View {
            
             Spacer()
            
-            Text(date)
+            Text(height.date)
                 .font(.system(size: 16))
                 .foregroundColor(.black)
                 .padding(.trailing)
+            
         }
         .padding()
         .background(AppColors.moreLighter)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
         .padding(.horizontal)
+        
     }
 }
 
@@ -171,6 +212,8 @@ struct CustomDialog: View {
         }
     }
 }
+
+
 
 
 struct HeightTabView_Previews: PreviewProvider {
