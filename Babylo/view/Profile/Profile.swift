@@ -16,10 +16,10 @@ struct Profile: View {
     @State var width = UIScreen.main.bounds.width
     
     var body: some View {
-        ZStack{
-            Color.white
-                .edgesIgnoringSafeArea(.all)
-            
+            ZStack{
+                Color.white
+                    .edgesIgnoringSafeArea(.all)
+                
                 VStack{
                     if let babyPic = baby?.babyPic, let url = URL(string: babyPic){
                         
@@ -34,7 +34,7 @@ struct Profile: View {
                                     .aspectRatio(contentMode: .fill)
                                     .edgesIgnoringSafeArea(.top)
                                     .frame(width: width, height: height / 2)
-
+                                
                             case .failure:
                                 Image("placeholder-image")
                                     .resizable()
@@ -55,17 +55,18 @@ struct Profile: View {
                     
                     
                 }
-        }
-        .onAppear{
-            babyViewModel.getBaby(token: token, babyName: babyName){ result in
-                switch result {
-                case .success(let fetchedBaby):
-                    baby = fetchedBaby
-                case .failure(let error):
-                    print("Error fetching baby: \(error.localizedDescription)")
+            }
+            .onAppear{
+                babyViewModel.getBaby(token: token, babyName: babyName){ result in
+                    switch result {
+                    case .success(let fetchedBaby):
+                        baby = fetchedBaby
+                    case .failure(let error):
+                        print("Error fetching baby: \(error.localizedDescription)")
+                    }
                 }
             }
-        }
+    
     }
     
     struct Profile_Previews: PreviewProvider {
@@ -81,6 +82,7 @@ struct Profile: View {
         @StateObject private var babyViewModel = BabyViewModel()
         let token: String
         let babyName: String
+        @State private var showHeightScreen = false
         
         init(token: String, babyName: String, baby: Binding<Baby?>) {
             self.token = token
@@ -109,6 +111,7 @@ struct Profile: View {
                 HStack(spacing: 20){
                     Button(action: {
                         // Height action
+                        showHeightScreen.toggle()
                     }) {
                         Text("Height")
                             .padding()
@@ -116,6 +119,9 @@ struct Profile: View {
                             .fontWeight(.bold)
                             .background(Color.yellow.opacity(0.2))
                             .cornerRadius(10)
+                    }
+                    .sheet(isPresented: $showHeightScreen){
+                        HeightView(babyViewModel: babyViewModel, babyName: babyName)
                     }
                     
                     Button(action: {

@@ -15,6 +15,13 @@
 		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
 		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
 		A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67629DECFAD001517E2 /* HomeView.swift */; };
+		A5C4249229F8768300FD7FA8 /* HeightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249129F8768300FD7FA8 /* HeightTabView.swift */; };
+		A5C4249429F87E6700FD7FA8 /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249329F87E6700FD7FA8 /* HeightView.swift */; };
+		A5C4249629F87F9100FD7FA8 /* GrowthTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249529F87F9100FD7FA8 /* GrowthTabView.swift */; };
+		A5C4249829F8801F00FD7FA8 /* TopTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249729F8801F00FD7FA8 /* TopTabBar.swift */; };
+		A5C4249B29F8916000FD7FA8 /* WeightGrowthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249A29F8916000FD7FA8 /* WeightGrowthView.swift */; };
+		A5C4249D29F8917600FD7FA8 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249C29F8917600FD7FA8 /* WeightView.swift */; };
+		A5C4249F29F8918500FD7FA8 /* WeightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4249E29F8918500FD7FA8 /* WeightTabView.swift */; };
 		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
 		A5D2D6BF29EB556200983DE0 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D6BE29EB556100983DE0 /* HomeScreen.swift */; };
 		A5D2D6C529EB800D00983DE0 /* Satisfy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D6C429EB800D00983DE0 /* Satisfy-Regular.ttf */; };
@@ -22,6 +29,7 @@
 		A5D2D6C929EB819B00983DE0 /* CormorantGaramond-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D6C829EB819B00983DE0 /* CormorantGaramond-BoldItalic.ttf */; };
 		A5F2CA0C29E5766700390E5A /* Baby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F2CA0B29E5766700390E5A /* Baby.swift */; };
 		A5F2CA0E29E5774B00390E5A /* BabyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F2CA0D29E5774B00390E5A /* BabyViewModel.swift */; };
+		A5FC476429F7F11A00579C96 /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC476329F7F11A00579C96 /* Height.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38329C229DE0024806A /* BabyloApp.swift */; };
 		B16BE38629C229DE0024806A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38529C229DE0024806A /* ContentView.swift */; };
@@ -51,6 +59,13 @@
 		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
 		A5ABA67229DEC2E0001517E2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		A5ABA67629DECFAD001517E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A5C4249129F8768300FD7FA8 /* HeightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightTabView.swift; sourceTree = "<group>"; };
+		A5C4249329F87E6700FD7FA8 /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
+		A5C4249529F87F9100FD7FA8 /* GrowthTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthTabView.swift; sourceTree = "<group>"; };
+		A5C4249729F8801F00FD7FA8 /* TopTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBar.swift; sourceTree = "<group>"; };
+		A5C4249A29F8916000FD7FA8 /* WeightGrowthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightGrowthView.swift; sourceTree = "<group>"; };
+		A5C4249C29F8917600FD7FA8 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		A5C4249E29F8918500FD7FA8 /* WeightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTabView.swift; sourceTree = "<group>"; };
 		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
 		A5D2D6BE29EB556100983DE0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		A5D2D6C429EB800D00983DE0 /* Satisfy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satisfy-Regular.ttf"; sourceTree = "<group>"; };
@@ -58,6 +73,7 @@
 		A5D2D6C829EB819B00983DE0 /* CormorantGaramond-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-BoldItalic.ttf"; sourceTree = "<group>"; };
 		A5F2CA0B29E5766700390E5A /* Baby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baby.swift; sourceTree = "<group>"; };
 		A5F2CA0D29E5774B00390E5A /* BabyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyViewModel.swift; sourceTree = "<group>"; };
+		A5FC476329F7F11A00579C96 /* Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Height.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B16BE38029C229DE0024806A /* Babylo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babylo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16BE38329C229DE0024806A /* BabyloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyloApp.swift; sourceTree = "<group>"; };
@@ -124,6 +140,27 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		A5C4249929F8914200FD7FA8 /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				A5C4249A29F8916000FD7FA8 /* WeightGrowthView.swift */,
+				A5C4249C29F8917600FD7FA8 /* WeightView.swift */,
+				A5C4249E29F8918500FD7FA8 /* WeightTabView.swift */,
+			);
+			path = Weight;
+			sourceTree = "<group>";
+		};
+		A5FC476029F7EED100579C96 /* Height */ = {
+			isa = PBXGroup;
+			children = (
+				A5C4249129F8768300FD7FA8 /* HeightTabView.swift */,
+				A5C4249329F87E6700FD7FA8 /* HeightView.swift */,
+				A5C4249529F87F9100FD7FA8 /* GrowthTabView.swift */,
+				A5C4249729F8801F00FD7FA8 /* TopTabBar.swift */,
+			);
+			path = Height;
+			sourceTree = "<group>";
+		};
 		B16BE37729C229DE0024806A = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +224,7 @@
 				B16BE39A29C22B2C0024806A /* Intro.swift */,
 				B1E2207429C5D6CB001D50A8 /* User.swift */,
 				A5F2CA0B29E5766700390E5A /* Baby.swift */,
+				A5FC476329F7F11A00579C96 /* Height.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +232,8 @@
 		B16BE39C29C22DAD0024806A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A5C4249929F8914200FD7FA8 /* Weight */,
+				A5FC476029F7EED100579C96 /* Height */,
 				B16BE39D29C22E100024806A /* SettignsView.swift */,
 				A5ABA66F29DEC261001517E2 /* AddBaby.swift */,
 				A5267FB829ECA07900150739 /* Profile.swift */,
@@ -360,8 +400,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C4249829F8801F00FD7FA8 /* TopTabBar.swift in Sources */,
 				B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */,
+				A5C4249F29F8918500FD7FA8 /* WeightTabView.swift in Sources */,
 				A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */,
+				A5C4249429F87E6700FD7FA8 /* HeightView.swift in Sources */,
 				B16BE38D29C229DF0024806A /* Persistence.swift in Sources */,
 				B16BE39B29C22B2C0024806A /* Intro.swift in Sources */,
 				B16BE39829C22AF40024806A /* IntroView.swift in Sources */,
@@ -373,6 +416,7 @@
 				A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */,
 				A5F2CA0C29E5766700390E5A /* Baby.swift in Sources */,
 				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
+				A5C4249B29F8916000FD7FA8 /* WeightGrowthView.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
 				A5F2CA0E29E5774B00390E5A /* BabyViewModel.swift in Sources */,
 				A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */,
@@ -380,11 +424,15 @@
 				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
 				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
 				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,
+				A5FC476429F7F11A00579C96 /* Height.swift in Sources */,
 				A5A1AE8029E6C0D800A5F553 /* BottomNavBar.swift in Sources */,
 				B16BE3AA29C230550024806A /* AppColors.swift in Sources */,
+				A5C4249D29F8917600FD7FA8 /* WeightView.swift in Sources */,
+				A5C4249629F87F9100FD7FA8 /* GrowthTabView.swift in Sources */,
 				A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */,
 				A5267FB929ECA07900150739 /* Profile.swift in Sources */,
 				B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */,
+				A5C4249229F8768300FD7FA8 /* HeightTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

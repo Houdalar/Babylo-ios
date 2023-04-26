@@ -12,8 +12,10 @@ import Alamofire
 
 class BabyViewModel: ObservableObject {
     @Published var babies = [Baby]()
+    @Published var heights : [Height] = []
     private var cancellables = Set<AnyCancellable>()
     let token: String
+    let baseUrl = "http://localhost:8080/user/baby"
     
     
     init(token: String = UserDefaults.standard.string(forKey: "token") ?? "")
@@ -22,7 +24,7 @@ class BabyViewModel: ObservableObject {
     }
     
     func fetchBabies() {
-        let url = URL(string: "http://localhost:8080/user/baby/getbabylist")!
+        let url = URL(string: "\(baseUrl)/getbabylist")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -92,7 +94,7 @@ class BabyViewModel: ObservableObject {
     }
     
     func deleteBaby(token:String,babyName:String,completion: @escaping (Result<Bool, Error>) -> Void) {
-        let url = URL(string: "http://localhost:8080/user/baby/deleteBaby")!
+        let url = URL(string: "\(baseUrl)/deleteBaby")!
             let parameters: [String: Any] = [
                 "token": token,
                 "babyName": babyName
@@ -111,7 +113,7 @@ class BabyViewModel: ObservableObject {
     }
         
     func getBaby(token:String,babyName:String, completion: @escaping (Result<Baby, Error>) -> Void){
-        let url = URL(string: "http://localhost:8080/user/baby/getBaby")!
+        let url = URL(string: "\(baseUrl)/getBaby")!
                 let authHeader = ["Authorization": "Bearer \(token)"]
                 let body = ["babyName": babyName]
                 
@@ -143,4 +145,81 @@ class BabyViewModel: ObservableObject {
                     }
                 }.resume()
             }
+    
+    
+    func addHeight(token: String, height: String, babyName: String, completion: @escaping (Result<Height, Error>) -> Void) {
+        let url = "\(baseUrl)/addHeight"
+        let headers: HTTPHeaders = [        "Authorization": "Bearer \(token)",        "Content-Type": "application/json"    ]
+        let parameters: [String: Any] = [        "height": height,        "babyName": babyName    ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Height.self) { response in
+            switch response.result {
+            case .success(let height):
+                completion(.success(height))
+                print("Height added successfully.")
+            case .failure(let error):
+                completion(.failure(error))
+                print("Error adding height: \(error)")
+            }
+        }
     }
+
+
+    func getBabyHeights(token: String, babyName: String, completion: @escaping (Result<[Height], Error>) -> Void) {
+        let url = "http://localhost:8080/user/baby/getBabyHeights"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)",
+            "Content-Type": "application/json"
+        ]
+        let parameters: [String: Any] = [
+            "babyName": babyName
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: [Height].self) { response in
+            switch response.result {
+            case .success(let heights):
+                DispatchQueue.main.async {
+                    self.heights = heights
+                }
+                completion(.success(heights))
+                print("Baby heights loaded successfully.")
+            case .failure(let error):
+                completion(.failure(error))
+                print("Error loading baby heights: \(error)")
+            }
+        }
+    }
+
+    func deleteHeight(token: String, date: String, completion: @escaping (Result<String, Error>) -> Void) {
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json"
+            ]
+
+            let parameters: [String: Any] = [
+                "token": token,
+                "date": date
+            ]
+
+            AF.request("\(baseUrl)/deleteHeight",
+                       method: .put,
+                       parameters: parameters,
+                       encoding: JSONEncoding.default,
+                       headers: headers).responseJSON { response in
+                        switch response.result {
+                        case .success:
+                            if let statusCode = response.response?.statusCode {
+                                if statusCode == 200 {
+                                    completion(.success("Height deleted"))
+                                } else {
+                                    completion(.failure(NSError(domain: "", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "Error occurred"])))
+                                }
+                            }
+                        case .failure(let error):
+                            completion(.failure(error))
+                        }
+            }
+        }
+
+    
+    
+}
