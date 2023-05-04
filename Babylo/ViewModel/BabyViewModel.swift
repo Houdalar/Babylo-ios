@@ -14,6 +14,8 @@ class BabyViewModel: ObservableObject {
     @Published var babies = [Baby]()
     @Published var heights : [Height] = []
     @Published var weights : [Weight] = []
+    @Published var vaccines: [Vaccine] = []
+    @Published var appointments: [Doctor] = []
     private var cancellables : Set<AnyCancellable> = []
     let token: String
     let baseUrl = "http://localhost:8080/user/baby"
@@ -289,5 +291,146 @@ class BabyViewModel: ObservableObject {
                    }
                }
         }
+    
+    func addVaccine(token: String, vaccine: String, date: String, babyName: String, completion: @escaping (Result<Vaccine, Error>) -> Void){
+        
+        let url = "\(baseUrl)/addVaccine"
+        let headers: HTTPHeaders = [        "Authorization": "Bearer \(token)",        "Content-Type": "application/json"    ]
+        let parameters: [String: Any] = [        "vaccine": vaccine,        "babyName": babyName, "date": date,    ]
+        
+        AF.request(url,method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Vaccine.self) { response in
+            
+            switch response.result {
+            case .success(let newVaccine) :
+                DispatchQueue.main.async {
+                    self.vaccines.append(newVaccine)
+                }
+            case .failure(let error) :
+                print("Error adding vaccine: \(error)")
+            }
+        }
+        
+    }
+    
+    func deleteVaccine(token: String, date: String, babyName: String, vaccine: String, completion: @escaping (Result<String, Error>) -> Void){
+        let url = "\(baseUrl)/deleteVaccine"
+        let headers: HTTPHeaders = [
+                   "Content-Type": "application/json"
+               ]
+               
+               let parameters: [String: Any] = [
+                   "token": token,
+                   "date": date,
+                   "babyName": babyName,
+                   "vaccine": vaccine
+               ]
+        
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                completion(.success("Vaccine deleted"))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
+    }
+    
+    func getVaccines (token: String, babyName: String, completion: @escaping (Result<[Vaccine], Error>) -> Void){
+        
+        let url = "\(baseUrl)/getbabyvaccines"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)",
+            "Content-Type": "application/json"
+        ]
+        let parameters: [String: Any] = [
+            "babyName": babyName
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: [Vaccine].self) { response in
+            switch response.result {
+            case .success(let vaccines):
+                DispatchQueue.main.async {
+                    self.vaccines = vaccines
+                }
+                completion(.success(vaccines))
+                print("Baby vaccines loaded successfully.")
+            case .failure(let error):
+                completion(.failure(error))
+                print("Error loading baby vaccines: \(error)")
+            }
+        }
+    }
+    
+    func addAppointment(token: String, doctor: String, date: String, babyName: String, time: String, completion: @escaping (Result<Doctor, Error>) -> Void){
+        
+        let url = "\(baseUrl)/addConsultation"
+        let headers: HTTPHeaders = [        "Authorization": "Bearer \(token)",        "Content-Type": "application/json"    ]
+        let parameters: [String: Any] = [        "doctor": doctor,        "babyName": babyName, "date": date,  "time": time  ]
+        
+        AF.request(url,method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Doctor.self) { response in
+            
+            switch response.result {
+            case .success(let newAppointment) :
+                DispatchQueue.main.async {
+                    self.appointments.append(newAppointment)
+                }
+            case .failure(let error) :
+                print("Error adding vaccine: \(error)")
+            }
+        }
+        
+    }
+    
+    func deleteAppointment(token: String, date: String, babyName: String, time: String, completion: @escaping (Result<String, Error>) -> Void){
+        
+        let url = "\(baseUrl)/deleteConsultation"
+        let headers: HTTPHeaders = [
+                   "Content-Type": "application/json"
+               ]
+               
+               let parameters: [String: Any] = [
+                   "token": token,
+                   "date": date,
+                   "babyName": babyName,
+                   "time" : time
+               ]
+        
+        AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                completion(.success("Appointment deleted"))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getAppointments(token: String, babyName: String, completion: @escaping (Result<[Doctor], Error>) -> Void){
+        
+        let url = "\(baseUrl)/getDoctorConsultations"
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)",
+            "Content-Type": "application/json"
+        ]
+        let parameters: [String: Any] = [
+            "babyName": babyName
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: [Doctor].self) { response in
+            switch response.result {
+            case .success(let appointments):
+                DispatchQueue.main.async {
+                    self.appointments = appointments
+                }
+                completion(.success(appointments))
+                print("Doctor appointments loaded successfully.")
+            case .failure(let error):
+                completion(.failure(error))
+                print("Error loading doctor appointments: \(error)")
+            }
+        }
+        
+    }
     
 }

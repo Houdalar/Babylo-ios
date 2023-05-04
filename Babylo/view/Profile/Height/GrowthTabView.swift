@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GrowthTabView: View {
     @ObservedObject var babyViewModel: BabyViewModel
+   @State private var animationProgress: CGFloat = 0.0
+
 
     var body: some View {
         VStack {
@@ -26,8 +28,13 @@ struct GrowthTabView: View {
 
 
                     // Draw the chart
-                    chartPath(chartHeight, chartWidth, heights, minY, maxY, yRange, pointSpacing)
-                    .stroke(Color.orange, lineWidth: 2)
+                    /*chartPath(chartHeight, chartWidth, heights, minY, maxY, yRange, pointSpacing)*/
+                    
+                    AnimatedChartPath(chartHeight: chartHeight, chartWidth: chartWidth, heights: heights, minY: minY, maxY: maxY, yRange: yRange, pointSpacing: pointSpacing, animationProgress: animationProgress)
+                        
+
+
+                    .stroke(Color.orange, lineWidth: 3)
                     .background(
                 chartAreaPath(chartHeight, chartWidth, heights, minY, yRange, pointSpacing)
                    )
@@ -50,7 +57,7 @@ struct GrowthTabView: View {
                     
                     
                     // Display height values
-                    /*ForEach(heights, id: \.id) { height in
+                  /*  ForEach(heights, id: \.id) { height in
                         let y = chartHeight - (CGFloat(Double(height.height) ?? 0) - CGFloat(Double(minY) ?? 0)) / yRange * chartHeight
                         Text(height.height)
                             .font(.footnote)
@@ -60,6 +67,13 @@ struct GrowthTabView: View {
                 .frame(height: 250)
                 .padding(.bottom)
                 .padding(.top,100)
+                .onAppear {
+                    withAnimation(.linear(duration: 1.2)) {
+                        animationProgress = 1.0
+                    }
+                }
+
+
             } else {
                 Text("Not enough data to display the chart.")
             }
@@ -93,6 +107,23 @@ func chartPath(_ chartHeight: CGFloat, _ chartWidth: CGFloat, _ heights: [Height
     }
 }
 
+/*func chartPath(_ chartHeight: CGFloat, _ chartWidth: CGFloat, _ heights: [Height], _ minY: String, _ maxY: String, _ yRange: CGFloat, _ pointSpacing: CGFloat, _ animationProgress: CGFloat) -> Path {
+    Path { path in
+        for (index, height) in heights.enumerated() {
+            let x = CGFloat(index) * pointSpacing
+            let y = chartHeight - (CGFloat(Double(height.height) ?? 0) - CGFloat(Double(minY) ?? 0)) / yRange * chartHeight
+
+            if CGFloat(index) / CGFloat(heights.count) <= animationProgress {
+                if index == 0 {
+                    path.move(to: CGPoint(x: x, y: y))
+                } else {
+                    path.addLine(to: CGPoint(x: x, y: y))
+                }
+            }
+        }
+    }
+}*/
+
 
 // Define the sub-expression for the axes path
 func axesPath(_ geometry: GeometryProxy, _ chartWidth: CGFloat, _ chartHeight: CGFloat) -> Path {
@@ -116,6 +147,40 @@ func chartAreaPath(_ chartHeight: CGFloat, _ chartWidth: CGFloat, _ heights: [He
         path.closeSubpath()
     }
 }
+
+struct AnimatedChartPath: Shape {
+    let chartHeight: CGFloat
+    let chartWidth: CGFloat
+    let heights: [Height]
+    let minY: String
+    let maxY: String
+    let yRange: CGFloat
+    let pointSpacing: CGFloat
+    var animationProgress: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        for (index, height) in heights.enumerated() {
+            let x = CGFloat(index) * pointSpacing
+            let y = chartHeight - (CGFloat(Double(height.height) ?? 0) - CGFloat(Double(minY) ?? 0)) / yRange * chartHeight
+
+            if CGFloat(index) / CGFloat(heights.count) <= animationProgress {
+                if index == 0 {
+                    path.move(to: CGPoint(x: x, y: y))
+                } else {
+                    path.addLine(to: CGPoint(x: x, y: y))
+                }
+            }
+        }
+        return path
+    }
+
+    var animatableData: CGFloat {
+        get { animationProgress }
+        set { animationProgress = newValue }
+    }
+}
+
 
 
 

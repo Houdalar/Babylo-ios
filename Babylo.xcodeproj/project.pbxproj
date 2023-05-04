@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
+		A5079B142A0435F3002E386C /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079B132A0435F3002E386C /* Vaccine.swift */; };
+		A5079B162A043B9B002E386C /* VaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079B152A043B9B002E386C /* VaccineView.swift */; };
+		A5079B182A044795002E386C /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079B172A044795002E386C /* Doctor.swift */; };
+		A5079B1B2A04557E002E386C /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079B1A2A04557E002E386C /* AppointmentsView.swift */; };
 		A5100A8729E76E8C00E20E50 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */; };
 		A5100A8929E76F0600E20E50 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */; };
 		A5267FB929ECA07900150739 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5267FB829ECA07900150739 /* Profile.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5079B132A0435F3002E386C /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		A5079B152A043B9B002E386C /* VaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineView.swift; sourceTree = "<group>"; };
+		A5079B172A044795002E386C /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		A5079B1A2A04557E002E386C /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
 		A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Regular.ttf"; sourceTree = "<group>"; };
 		A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
 		A5267FB829ECA07900150739 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -116,6 +124,29 @@
 				EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5079B112A043358002E386C /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		A5079B122A04335F002E386C /* Vaccines */ = {
+			isa = PBXGroup;
+			children = (
+				A5079B152A043B9B002E386C /* VaccineView.swift */,
+			);
+			path = Vaccines;
+			sourceTree = "<group>";
+		};
+		A5079B192A045563002E386C /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				A5079B1A2A04557E002E386C /* AppointmentsView.swift */,
+			);
+			path = Appointments;
 			sourceTree = "<group>";
 		};
 		A55374F429E58054009CF996 /* Fonts */ = {
@@ -224,6 +255,8 @@
 				A5F2CA0B29E5766700390E5A /* Baby.swift */,
 				A5FC476329F7F11A00579C96 /* Height.swift */,
 				A5CBF5D829F97A5500B3AE21 /* Weight.swift */,
+				A5079B132A0435F3002E386C /* Vaccine.swift */,
+				A5079B172A044795002E386C /* Doctor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +264,9 @@
 		B16BE39C29C22DAD0024806A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A5079B192A045563002E386C /* Appointments */,
+				A5079B122A04335F002E386C /* Vaccines */,
+				A5079B112A043358002E386C /* Doctor */,
 				A5C4249929F8914200FD7FA8 /* Weight */,
 				A5FC476029F7EED100579C96 /* Height */,
 				B16BE39D29C22E100024806A /* SettignsView.swift */,
@@ -410,16 +446,20 @@
 				B16BE38629C229DE0024806A /* ContentView.swift in Sources */,
 				A5CBF5DD29F9848100B3AE21 /* WeightTabView.swift in Sources */,
 				A5D2D6BF29EB556200983DE0 /* HomeScreen.swift in Sources */,
+				A5079B1B2A04557E002E386C /* AppointmentsView.swift in Sources */,
 				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
 				A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */,
+				A5079B182A044795002E386C /* Doctor.swift in Sources */,
 				A5F2CA0C29E5766700390E5A /* Baby.swift in Sources */,
+				A5079B142A0435F3002E386C /* Vaccine.swift in Sources */,
 				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
 				A5F2CA0E29E5774B00390E5A /* BabyViewModel.swift in Sources */,
 				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
 				A5CBF5DB29F983A600B3AE21 /* WeightView.swift in Sources */,
+				A5079B162A043B9B002E386C /* VaccineView.swift in Sources */,
 				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
 				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
 				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeightChartView: View {
     let weights: [Weight]
+    @State private var animationProgress: CGFloat = 0.0
 
     var body: some View {
         GeometryReader { geometry in
@@ -23,7 +24,8 @@ struct WeightChartView: View {
             let pointSpacing = chartWidth / CGFloat(weights.count - 1)
 
             // Draw the chart
-            weightChartPath(chartHeight, chartWidth, weights, minY, maxY, yRange, pointSpacing)
+//            weightChartPath(chartHeight, chartWidth, weights, minY, maxY, yRange, pointSpacing)
+            AnimatedWeightChartPath(chartHeight: chartHeight, chartWidth: chartWidth, weights: weights, minY: minY, maxY: maxY, yRange: yRange, pointSpacing: pointSpacing, animationProgress: animationProgress)
             .stroke(Color.orange, lineWidth: 2)
             .background(
         weightChartAreaPath(chartHeight, chartWidth, weights, minY, yRange, pointSpacing)
@@ -56,6 +58,11 @@ struct WeightChartView: View {
         .frame(height: 250)
         .padding(.bottom)
         .padding(.top,100)
+        .onAppear {
+            withAnimation(.linear(duration: 1.2)) {
+                animationProgress = 1.0
+            }
+        }
     }
 }
 
@@ -112,3 +119,35 @@ func weightChartAreaPath(_ chartHeight: CGFloat, _ chartWidth: CGFloat, _ weight
     }
 }
 
+struct AnimatedWeightChartPath: Shape {
+    let chartHeight: CGFloat
+    let chartWidth: CGFloat
+    let weights: [Weight]
+    let minY: String
+    let maxY: String
+    let yRange: CGFloat
+    let pointSpacing: CGFloat
+    var animationProgress: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        for (index, weight) in weights.enumerated() {
+            let x = CGFloat(index) * pointSpacing
+            let y = chartHeight - (CGFloat(Double(weight.weight) ?? 0) - CGFloat(Double(minY) ?? 0)) / yRange * chartHeight
+
+            if CGFloat(index) / CGFloat(weights.count) <= animationProgress {
+                if index == 0 {
+                    path.move(to: CGPoint(x: x, y: y))
+                } else {
+                    path.addLine(to: CGPoint(x: x, y: y))
+                }
+            }
+        }
+        return path
+    }
+
+    var animatableData: CGFloat {
+        get { animationProgress }
+        set { animationProgress = newValue }
+    }
+}

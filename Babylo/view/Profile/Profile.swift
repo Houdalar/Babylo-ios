@@ -84,6 +84,8 @@ struct Profile: View {
         let babyName: String
         @State private var showHeightScreen = false
         @State private var showWeightScreen = false
+        @State private var showVaccineScreen = false
+        @State private var showDoctorScreen = false
         
         init(token: String, babyName: String, baby: Binding<Baby?>) {
             self.token = token
@@ -149,6 +151,7 @@ struct Profile: View {
                 HStack(spacing:30){
                     Button(action: {
                         // Doctor appointments action
+                        showDoctorScreen.toggle()
                     }) {
                         Text("Doctor Appointments")
                             .padding()
@@ -157,9 +160,13 @@ struct Profile: View {
                             .fontWeight(.bold)
                             .cornerRadius(10)
                     }
+                    .sheet(isPresented: $showDoctorScreen){
+                        AppointmentsView(babyViewModel: babyViewModel, babyName: babyName)
+                    }
                     
                     Button(action: {
                         // Vaccines action
+                        showVaccineScreen.toggle()
                     }) {
                         Text("Vaccines")
                             .padding()
@@ -167,6 +174,9 @@ struct Profile: View {
                             .foregroundColor(.black)
                             .fontWeight(.bold)
                             .cornerRadius(10)
+                    }
+                    .sheet(isPresented: $showVaccineScreen){
+                        VaccineView(babyViewModel: babyViewModel, babyName: babyName)
                     }
                 }
                 
