@@ -111,6 +111,7 @@ struct HomeScreen: View {
                             .padding(.top,8)
                             
                             Spacer()
+
                         }
                         .background(Color.white)
                         .clipShape(Corners(corner: .topLeft, size: CGSize(width: 70, height: 70)))
@@ -119,8 +120,6 @@ struct HomeScreen: View {
                 }
                 .offset(y: height * 0.322)
                 
-                
-                Spacer()
             }
             .edgesIgnoringSafeArea(.all)
             .statusBar(hidden: true)
@@ -131,7 +130,6 @@ struct HomeScreen: View {
             babyViewModel.getUpcomingVaccines(token:UserDefaults.standard.string(forKey: "token") ?? "") { result in
                     switch result {
                     case .success(let vaccines):
-                        print("Upcoming vaccines loaded")
                         upcomingVaccines = vaccines
                     case .failure(let error):
                         print("Error loading upcoming vaccines: \(error.localizedDescription)")

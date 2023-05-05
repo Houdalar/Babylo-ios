@@ -15,7 +15,8 @@ struct UpcomingVaccineCard: View {
         VStack {
             HStack {
                 Text(upcomingVaccine.babyName)
-                    .font(.custom("CormorantGaramond-BoldItalic", size: 24))
+                    .font(.title3)
+                    .fontWeight(.bold)
                     .foregroundColor(.black)
                 .padding(.bottom, 4)
                 .padding(.leading)
@@ -25,15 +26,15 @@ struct UpcomingVaccineCard: View {
 
             HStack {
                 Text(upcomingVaccine.vaccine)
-                    .font(.system(size: 18))
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
+                    .font(.system(size: 17))
+                    .fontWeight(.medium)
+                    .foregroundColor(AppColors.darkGray)
                     .padding(.leading)
 
                 Spacer()
 
                 Text(upcomingVaccine.date)
-                    .font(.system(size: 18))
+                    .font(.system(size: 15))
                     .foregroundColor(.orange)
                     .fontWeight(.bold)
                     .padding(.trailing)

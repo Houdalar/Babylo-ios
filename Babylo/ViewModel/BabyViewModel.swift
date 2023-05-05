@@ -18,6 +18,7 @@ class BabyViewModel: ObservableObject {
     @Published var appointments: [Doctor] = []
     private var cancellables : Set<AnyCancellable> = []
     @Published var upcomingVaccines: [UpcomingVaccine] = []
+    @Published var baby: Baby?
     
     let token: String
     let baseUrl = "http://localhost:8080/user/baby"
@@ -477,6 +478,29 @@ class BabyViewModel: ObservableObject {
             }
         }
     }
+    
+
+    func updateBaby(token: String, babyName: String, image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
+        let url = "\(baseUrl)/updateBaby"
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer \(token)"
+            ]
+
+          
+            AF.upload(multipartFormData: { multipartFormData in
+                if let imageData = image.jpegData(compressionQuality: 1.0) {
+                    multipartFormData.append(imageData, withName: "babyPic", fileName: "babyPic.jpg", mimeType: "image/jpeg")
+                }
+                multipartFormData.append(Data(babyName.utf8), withName: "babyName")
+            }, to: url, method: .put, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success:
+                    completion(.success("Baby photo updated"))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
     
 }
 
