@@ -15,6 +15,8 @@
 		A5100A8729E76E8C00E20E50 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */; };
 		A5100A8929E76F0600E20E50 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */; };
 		A5267FB929ECA07900150739 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5267FB829ECA07900150739 /* Profile.swift */; };
+		A532B42C2A0527CF009554EA /* UpcomingVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532B42B2A0527CF009554EA /* UpcomingVaccine.swift */; };
+		A532B4302A0529B6009554EA /* UpcomingVaccineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532B42F2A0529B6009554EA /* UpcomingVaccineCard.swift */; };
 		A5A1AE8029E6C0D800A5F553 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A1AE7F29E6C0D800A5F553 /* BottomNavBar.swift */; };
 		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
 		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
@@ -62,6 +64,8 @@
 		A5100A8629E76E8C00E20E50 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Regular.ttf"; sourceTree = "<group>"; };
 		A5100A8829E76F0600E20E50 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
 		A5267FB829ECA07900150739 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		A532B42B2A0527CF009554EA /* UpcomingVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVaccine.swift; sourceTree = "<group>"; };
+		A532B42F2A0529B6009554EA /* UpcomingVaccineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVaccineCard.swift; sourceTree = "<group>"; };
 		A55374FE29E589B5009CF996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A5A1AE7F29E6C0D800A5F553 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
 		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				A5CBF5D829F97A5500B3AE21 /* Weight.swift */,
 				A5079B132A0435F3002E386C /* Vaccine.swift */,
 				A5079B172A044795002E386C /* Doctor.swift */,
+				A532B42B2A0527CF009554EA /* UpcomingVaccine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				B16BE39D29C22E100024806A /* SettignsView.swift */,
 				A5ABA66F29DEC261001517E2 /* AddBaby.swift */,
 				A5267FB829ECA07900150739 /* Profile.swift */,
+				A532B42F2A0529B6009554EA /* UpcomingVaccineCard.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C4249829F8801F00FD7FA8 /* TopTabBar.swift in Sources */,
+				A532B42C2A0527CF009554EA /* UpcomingVaccine.swift in Sources */,
 				B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */,
 				A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */,
 				A5C4249429F87E6700FD7FA8 /* HeightView.swift in Sources */,
@@ -460,6 +467,7 @@
 				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
 				A5CBF5DB29F983A600B3AE21 /* WeightView.swift in Sources */,
 				A5079B162A043B9B002E386C /* VaccineView.swift in Sources */,
+				A532B4302A0529B6009554EA /* UpcomingVaccineCard.swift in Sources */,
 				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
 				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
 				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,

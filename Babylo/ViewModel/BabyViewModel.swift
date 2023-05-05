@@ -17,6 +17,8 @@ class BabyViewModel: ObservableObject {
     @Published var vaccines: [Vaccine] = []
     @Published var appointments: [Doctor] = []
     private var cancellables : Set<AnyCancellable> = []
+    @Published var upcomingVaccines: [UpcomingVaccine] = []
+    
     let token: String
     let baseUrl = "http://localhost:8080/user/baby"
     
@@ -64,6 +66,7 @@ class BabyViewModel: ObservableObject {
                 self.babies = babies
             }
             .store(in: &cancellables)
+
     }
     
     func addBaby(token: String, babyName: String, birthday: Date, gender: String, babyPic: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) {
@@ -433,4 +436,48 @@ class BabyViewModel: ObservableObject {
         
     }
     
+    func getUpcomingVaccines(token:String, completion: @escaping (Result<[UpcomingVaccine], Error>) -> Void) {
+        let url = "\(baseUrl)/getUpcomingVaccines"
+        let headers: HTTPHeaders = [
+                    "Authorization": "Bearer \(token)"
+                ]
+        AF.request(url, method: .post,headers: headers).validate().responseDecodable(of: [UpcomingVaccine].self) { (response: DataResponse<[UpcomingVaccine], AFError>) in
+                switch response.result {
+                case .success(let vaccines):
+                    DispatchQueue.main.async {
+                        self.upcomingVaccines = vaccines
+                    }
+                    completion(.success(vaccines))
+                case .failure(let error):
+                    completion(.failure(error))
+                    print("Error loading upcoming vaccines: \(error)")
+                }
+            }
+
+        
+    }
+    
+    
+    func fetchUpcomingConsultations(babyName: String, completion: @escaping (Result<[Doctor], Error>) -> Void){
+        let url = "\(baseUrl)/getUpcomingConsultations"
+        let headers: HTTPHeaders = [
+                    "Authorization": "Bearer \(token)"
+                ]
+                
+                let parameters: Parameters = [
+                    "babyName": babyName
+                ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: [Doctor].self) { response in
+            switch response.result {
+            case .success(let appointments):
+                completion(.success(appointments))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
+
+

@@ -32,7 +32,9 @@ struct HomePage: View {
                 Spacer()
                 BottomNavBar(selectedItem: $selectedItem,token: userToken)
             }
+            
         }
+        
         
 
         

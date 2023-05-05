@@ -14,6 +14,10 @@ struct HomeScreen: View {
     
     @StateObject private var babyViewModel : BabyViewModel
     
+    @State private var upcomingVaccines: [UpcomingVaccine] = []
+   
+
+    
     init(token: String) {
             _babyViewModel = StateObject(wrappedValue: BabyViewModel(token: token))
         }
@@ -22,81 +26,99 @@ struct HomeScreen: View {
         VStack(spacing:0){
             GeometryReader { geometry in
                 HStack{
-                    
                     Spacer()
-                    
                     
                 }
                 
                 .padding(.top,geometry.safeAreaInsets.top + 90)
-                .padding(.bottom,75)
+                .padding(.bottom,50)
                 .background(Color.yellow)
-                .clipShape(Corners(corner: .bottomRight, size: CGSize(width: 56, height: 56)))
+                .clipShape(Corners(corner: .bottomRight, size: CGSize(width: 60, height: 56)))
                 
                 HStack{
                     VStack{
                         HStack{
                             Spacer()
                             
-                            Image("pic")
+                            Image("mom_and_son")
                                 .resizable()
-                                .frame(width: 150,height: 125)
-                                .offset(y: 0.26)
+                                .frame(width: 130,height: 130)
+                                .offset(x:8, y: -9)
                         }
                         
                         HStack{
                             VStack(alignment:.leading){
-                                Text("Because every moment with ").font(.custom("DancingScript-Regular", size: 25))
-                                + Text("\nyour little one is").font(.custom("DancingScript-Regular", size: 30))
+                                Text("Because every moment  ").font(.custom("DancingScript-Regular", size: 21))
+                                + Text("\nwith your little one is").font(.custom("DancingScript-Regular", size: 26))
                                     
-                                + Text("\nprecious !").font(.custom("DancingScript-SemiBold", size: 48))
+                                + Text("\nprecious !").font(.custom("DancingScript-SemiBold", size: 40))
                             }
                         }
-                        .padding(.top,-20)
-                        .padding(.trailing,32)
+                        .padding(.top,-50)
+                        .padding(.trailing,36)
                         
                     }
-                    .padding(.bottom,70)
-                    .frame(width: UIScreen.main.bounds.width - 100)
+                    .padding(.bottom,20)
+                    .frame(width: UIScreen.main.bounds.width - 130)
                     .background(AppColors.lighter)
-                    .clipShape(Corners(corner: [.topLeft,.topRight,.bottomRight], size: CGSize(width: 70, height: 70)))
+                    .clipShape(Corners(corner: [.topLeft,.topRight,.bottomRight], size: CGSize(width: 60, height: 60)))
                     
                     Spacer()
 
                 }
-                .padding(.top,100)
+                .padding(.top,88)
                 
                 ZStack{
                     AppColors.lighter
                     
-                    VStack{
-                        HStack{
-                            Text("My precious ones")
-                                .font(.custom("CormorantGaramond-BoldItalic", size: 35))
+                    ScrollView{
+                        VStack{
+                            
+                            HStack{
+                                Text("Upcoming Vaccines")
+                                    .font(.custom("CormorantGaramond-BoldItalic", size: 30))
+                                
+                                
+                                Spacer()
+                            }
+                            .padding(.leading,35)
+                            .padding(.top,30)
+                            
+                            ForEach(upcomingVaccines) { vaccine in
+                                UpcomingVaccineCard(upcomingVaccine: vaccine)
+                            }
+
+                            
+                            HStack{
+                                Text("My precious ones")
+                                    .font(.custom("CormorantGaramond-BoldItalic", size: 30))
                                 
                                 
                                 
+                                Spacer()
+                            }
+                            .padding(.leading,35)
+                            .padding(.top)
+                            
+                            ScrollView(.horizontal,showsIndicators: false){
+                                HStack(spacing: 25){
+                                    ForEach(babyViewModel.babies){
+                                        baby in BabyCardView(baby:baby,babyViewModel: babyViewModel)
+                                    }
+                                }.padding(.leading,22)
+                                Spacer()
+                            }
+                            .padding(.top,8)
+                            
                             Spacer()
                         }
-                        .padding(.leading,35)
-                        .padding(.top,25)
-                        
-                        ScrollView(.horizontal,showsIndicators: false){
-                            HStack(spacing: 25){
-                                ForEach(babyViewModel.babies){
-                                    baby in BabyCardView(baby:baby,babyViewModel: babyViewModel)
-                                }
-                            }.padding(.leading,22)
-                        Spacer()
-                        }
-                        .padding(.top,8)
-                        
-                        Spacer()
+                        .background(Color.white)
+                        .clipShape(Corners(corner: .topLeft, size: CGSize(width: 70, height: 70)))
                     }
-                    .background(Color.white)
-                    .clipShape(Corners(corner: .topLeft, size: CGSize(width: 70, height: 70)))
+                    
                 }
-                .offset(y: height * 0.435)
+                .offset(y: height * 0.322)
+                
                 
                 Spacer()
             }
@@ -106,9 +128,19 @@ struct HomeScreen: View {
         }
         .onAppear{
             babyViewModel.fetchBabies()
+            babyViewModel.getUpcomingVaccines(token:UserDefaults.standard.string(forKey: "token") ?? "") { result in
+                    switch result {
+                    case .success(let vaccines):
+                        print("Upcoming vaccines loaded")
+                        upcomingVaccines = vaccines
+                    case .failure(let error):
+                        print("Error loading upcoming vaccines: \(error.localizedDescription)")
+                    }
+                }
+            
+        }
         }
     }
-}
 
 struct Corners : Shape {
     
