@@ -29,6 +29,7 @@
 		A5CBF5DB29F983A600B3AE21 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBF5DA29F983A600B3AE21 /* WeightView.swift */; };
 		A5CBF5DD29F9848100B3AE21 /* WeightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBF5DC29F9848100B3AE21 /* WeightTabView.swift */; };
 		A5CBF5DF29F98C5C00B3AE21 /* WeightGrowthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBF5DE29F98C5C00B3AE21 /* WeightGrowthTab.swift */; };
+		A5D03B3D2A079CB500DE754F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D03B3C2A079CB500DE754F /* NotificationManager.swift */; };
 		A5D2D6BF29EB556200983DE0 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D6BE29EB556100983DE0 /* HomeScreen.swift */; };
 		A5D2D6C529EB800D00983DE0 /* Satisfy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D6C429EB800D00983DE0 /* Satisfy-Regular.ttf */; };
 		A5D2D6C729EB809D00983DE0 /* DancingScript-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D6C629EB809D00983DE0 /* DancingScript-SemiBold.ttf */; };
@@ -79,6 +80,7 @@
 		A5CBF5DA29F983A600B3AE21 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		A5CBF5DC29F9848100B3AE21 /* WeightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTabView.swift; sourceTree = "<group>"; };
 		A5CBF5DE29F98C5C00B3AE21 /* WeightGrowthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightGrowthTab.swift; sourceTree = "<group>"; };
+		A5D03B3C2A079CB500DE754F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A5D2D6BE29EB556100983DE0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		A5D2D6C429EB800D00983DE0 /* Satisfy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satisfy-Regular.ttf"; sourceTree = "<group>"; };
 		A5D2D6C629EB809D00983DE0 /* DancingScript-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				B16BE39C29C22DAD0024806A /* Profile */,
 				B16BE39729C22AF40024806A /* IntroView.swift */,
 				A5C4753B29DEE67700A56858 /* Rootview.swift */,
+				A5D03B3C2A079CB500DE754F /* NotificationManager.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
 				A5F2CA0E29E5774B00390E5A /* BabyViewModel.swift in Sources */,
+				A5D03B3D2A079CB500DE754F /* NotificationManager.swift in Sources */,
 				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
 				A5CBF5DB29F983A600B3AE21 /* WeightView.swift in Sources */,
 				A5079B162A043B9B002E386C /* VaccineView.swift in Sources */,

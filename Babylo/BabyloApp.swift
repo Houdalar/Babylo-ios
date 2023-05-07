@@ -11,7 +11,9 @@ import SwiftUI
 struct BabyloApp: App {
     let persistenceController = PersistenceController.shared
 
-
+    init() {
+            NotificationManager.shared.requestAuthorization()
+        }
 
     var body: some Scene {
         WindowGroup {

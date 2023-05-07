@@ -66,10 +66,10 @@ struct Profile: View {
                                     .foregroundColor(.white)
                                     .shadow(radius: 2)
                                     .padding(.leading , 350)
-                                    .padding(.bottom, 350)
+                                    .padding(.bottom , 350)
                                     .zIndex(1) // Make sure the pencil image is on top
                                     .onTapGesture {
-                                        print("Button tapped")
+                                        //print("Button tapped")
                                         isImagePickerPresented.toggle()
                                     }
                             }
