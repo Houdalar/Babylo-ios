@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct SettignsView: View {
     @State var notifEnabled: Bool = true
@@ -23,6 +24,8 @@ struct SettignsView: View {
     @State private var showLogoutConfirmation = false
     @Binding var isAuthenticated: Bool
     @State private var isLoggedIn = false
+
+    
     
     var body: some View {
         NavigationView {

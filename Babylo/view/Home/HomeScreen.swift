@@ -38,14 +38,14 @@ struct HomeScreen: View {
             if existingRequest == nil {
                 // Schedule the notification only if it doesn't exist
                 let content = UNMutableNotificationContent()
-                content.body = "Reminder 📣: Your baby's vaccine is scheduled for tomorrow!"
+                content.body = "Reminder 📣:\nYou're doing an amazing job as a parent! Keep up the great work by bringing your baby in for their vaccine appointment tomorrow 💉"
 
                 content.sound = .default
 
                 let dateString = vaccine.date
                 if let date = stringToDate(dateString) {
                     let triggerDate = Calendar.current.date(byAdding: .second, value: 3, to: Date())!
-//                    let triggerDate = Calendar.current.date(byAdding: .hour, value: -24, to: date)!
+                    // let triggerDate = Calendar.current.date(byAdding: .hour, value: -24, to: date)!
                     let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: triggerDate)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
 
@@ -117,8 +117,10 @@ struct HomeScreen: View {
                 .padding(.top,88)
                 
                 ZStack{
-                    Color.white
+                    //Color.white
                     //AppColors.lighter
+                    (upcomingVaccines.count <= 1 ? Color.white : AppColors.lighter)
+
                     
                     ScrollView{
                         VStack{
