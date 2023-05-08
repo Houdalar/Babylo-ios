@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
-		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
-		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
-		A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67429DEC314001517E2 /* BabyProfile.swift */; };
-		A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67629DECFAD001517E2 /* HomeView.swift */; };
+		A58A7FB12A061341005C2133 /* BookShelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB02A061341005C2133 /* BookShelf.swift */; };
+		A58A7FB32A0619A5005C2133 /* Bookdetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB22A0619A5005C2133 /* Bookdetails.swift */; };
+		A58A7FB52A061C31005C2133 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB42A061C31005C2133 /* Rating.swift */; };
+		A5BA0AF52A08BBF40054F1F6 /* AudioBookviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA0AF42A08BBF40054F1F6 /* AudioBookviewModel.swift */; };
+		A5BA0AF72A08E6A20054F1F6 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */; };
 		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B115D9B629EA0A0B00DA0F63 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B529EA0A0B00DA0F63 /* login.png */; };
@@ -34,7 +35,6 @@
 		B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38E29C229DF0024806A /* Babylo.xcdatamodeld */; };
 		B16BE39829C22AF40024806A /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39729C22AF40024806A /* IntroView.swift */; };
 		B16BE39B29C22B2C0024806A /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39A29C22B2C0024806A /* Intro.swift */; };
-		B16BE39E29C22E100024806A /* SettignsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39D29C22E100024806A /* SettignsView.swift */; };
 		B16BE3A429C2300E0024806A /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A029C2300D0024806A /* Signup.swift */; };
 		B16BE3A529C2300E0024806A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A129C2300D0024806A /* Login.swift */; };
 		B16BE3AA29C230550024806A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A929C230550024806A /* AppColors.swift */; };
@@ -44,6 +44,10 @@
 		B172A34B29E9806D00A43237 /* PlaylistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172A34A29E9806D00A43237 /* PlaylistItem.swift */; };
 		B172A34D29E9808A00A43237 /* CurrentlyPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172A34C29E9808A00A43237 /* CurrentlyPlaying.swift */; };
 		B172A34F29E994FE00A43237 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172A34E29E994FE00A43237 /* MusicViewModel.swift */; };
+		B186ABE22A04FC7B00739EAD /* AudioBookHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE12A04FC7B00739EAD /* AudioBookHomePage.swift */; };
+		B186ABE42A05358E00739EAD /* AudioBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE32A05358E00739EAD /* AudioBook.swift */; };
+		B186ABE62A05364700739EAD /* AudioBookItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE52A05364700739EAD /* AudioBookItems.swift */; };
+		B186ABE82A05369800739EAD /* AudioBookOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE72A05369800739EAD /* AudioBookOverviewView.swift */; };
 		B18F15D329E60E17009F6F3B /* MusicHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15D229E60E17009F6F3B /* MusicHomePage.swift */; };
 		B18F15D629E6153F009F6F3B /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15D529E6153F009F6F3B /* OverviewView.swift */; };
 		B18F15D829E616AF009F6F3B /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15D729E616AF009F6F3B /* PageControl.swift */; };
@@ -51,17 +55,20 @@
 		B18F15DC29E7651B009F6F3B /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15DB29E7651B009F6F3B /* Tracks.swift */; };
 		B18F15E029E7669B009F6F3B /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15DF29E7669B009F6F3B /* MusicModels.swift */; };
 		B18F15E229E7A45D009F6F3B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15E129E7A45C009F6F3B /* Playlist.swift */; };
+		B1AF906E2A084405001A2977 /* playedbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF906D2A084405001A2977 /* playedbook.swift */; };
 		B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BA9D7029C7D44A0078DAC0 /* reset1.swift */; };
 		B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BA9D7229C7D4810078DAC0 /* reset2.swift */; };
+		B1BB834529F99C4200E5F917 /* addPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB834429F99C4200E5F917 /* addPlaylist.swift */; };
 		B1E2207529C5D6CB001D50A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E2207429C5D6CB001D50A8 /* User.swift */; };
 		B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F316A129C2D66F00C88D78 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
-		A5ABA67229DEC2E0001517E2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		A5ABA67429DEC314001517E2 /* BabyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfile.swift; sourceTree = "<group>"; };
-		A5ABA67629DECFAD001517E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A58A7FB02A061341005C2133 /* BookShelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelf.swift; sourceTree = "<group>"; };
+		A58A7FB22A0619A5005C2133 /* Bookdetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookdetails.swift; sourceTree = "<group>"; };
+		A58A7FB42A061C31005C2133 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A5BA0AF42A08BBF40054F1F6 /* AudioBookviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookviewModel.swift; sourceTree = "<group>"; };
+		A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B115D9B529EA0A0B00DA0F63 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -85,7 +92,6 @@
 		B16BE38F29C229DF0024806A /* Babylo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Babylo.xcdatamodel; sourceTree = "<group>"; };
 		B16BE39729C22AF40024806A /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		B16BE39A29C22B2C0024806A /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
-		B16BE39D29C22E100024806A /* SettignsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettignsView.swift; sourceTree = "<group>"; };
 		B16BE3A029C2300D0024806A /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		B16BE3A129C2300D0024806A /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B16BE3A929C230550024806A /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -95,6 +101,10 @@
 		B172A34A29E9806D00A43237 /* PlaylistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistItem.swift; sourceTree = "<group>"; };
 		B172A34C29E9808A00A43237 /* CurrentlyPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentlyPlaying.swift; sourceTree = "<group>"; };
 		B172A34E29E994FE00A43237 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		B186ABE12A04FC7B00739EAD /* AudioBookHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookHomePage.swift; sourceTree = "<group>"; };
+		B186ABE32A05358E00739EAD /* AudioBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBook.swift; sourceTree = "<group>"; };
+		B186ABE52A05364700739EAD /* AudioBookItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookItems.swift; sourceTree = "<group>"; };
+		B186ABE72A05369800739EAD /* AudioBookOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookOverviewView.swift; sourceTree = "<group>"; };
 		B18F15D229E60E17009F6F3B /* MusicHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHomePage.swift; sourceTree = "<group>"; };
 		B18F15D529E6153F009F6F3B /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		B18F15D729E616AF009F6F3B /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -102,8 +112,10 @@
 		B18F15DB29E7651B009F6F3B /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		B18F15DF29E7669B009F6F3B /* MusicModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		B18F15E129E7A45C009F6F3B /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		B1AF906D2A084405001A2977 /* playedbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playedbook.swift; sourceTree = "<group>"; };
 		B1BA9D7029C7D44A0078DAC0 /* reset1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset1.swift; sourceTree = "<group>"; };
 		B1BA9D7229C7D4810078DAC0 /* reset2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset2.swift; sourceTree = "<group>"; };
+		B1BB834429F99C4200E5F917 /* addPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPlaylist.swift; sourceTree = "<group>"; };
 		B1E2207429C5D6CB001D50A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B1F316A129C2D66F00C88D78 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.debug.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,15 +141,6 @@
 				EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A5ABA67129DEC2C8001517E2 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				A5ABA67229DEC2E0001517E2 /* HomePage.swift */,
-				A5ABA67629DECFAD001517E2 /* HomeView.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		B115D9B429EA09EB00DA0F63 /* images */ = {
@@ -205,11 +208,10 @@
 		B16BE39629C22ADB0024806A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B186ABE02A04FC5D00739EAD /* AudioBook */,
 				B18F15D129E60E00009F6F3B /* Music */,
-				A5ABA67129DEC2C8001517E2 /* Home */,
 				B16BE3A829C230490024806A /* Components */,
 				B16BE39F29C22FEC0024806A /* Authentication */,
-				B16BE39C29C22DAD0024806A /* Profile */,
 				B16BE39729C22AF40024806A /* IntroView.swift */,
 				A5C4753B29DEE67700A56858 /* Rootview.swift */,
 			);
@@ -222,18 +224,9 @@
 				B16BE39A29C22B2C0024806A /* Intro.swift */,
 				B1E2207429C5D6CB001D50A8 /* User.swift */,
 				B18F15DF29E7669B009F6F3B /* MusicModels.swift */,
+				B186ABE32A05358E00739EAD /* AudioBook.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B16BE39C29C22DAD0024806A /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				B16BE39D29C22E100024806A /* SettignsView.swift */,
-				A5ABA66F29DEC261001517E2 /* AddBaby.swift */,
-				A5ABA67429DEC314001517E2 /* BabyProfile.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		B16BE39F29C22FEC0024806A /* Authentication */ = {
@@ -257,6 +250,20 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B186ABE02A04FC5D00739EAD /* AudioBook */ = {
+			isa = PBXGroup;
+			children = (
+				B186ABE12A04FC7B00739EAD /* AudioBookHomePage.swift */,
+				B186ABE52A05364700739EAD /* AudioBookItems.swift */,
+				B186ABE72A05369800739EAD /* AudioBookOverviewView.swift */,
+				A58A7FB02A061341005C2133 /* BookShelf.swift */,
+				A58A7FB22A0619A5005C2133 /* Bookdetails.swift */,
+				A58A7FB42A061C31005C2133 /* Rating.swift */,
+				B1AF906D2A084405001A2977 /* playedbook.swift */,
+			);
+			path = AudioBook;
+			sourceTree = "<group>";
+		};
 		B18F15D129E60E00009F6F3B /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +277,8 @@
 				B172A34829E9805100A43237 /* songItem.swift */,
 				B172A34A29E9806D00A43237 /* PlaylistItem.swift */,
 				B172A34C29E9808A00A43237 /* CurrentlyPlaying.swift */,
+				B1BB834429F99C4200E5F917 /* addPlaylist.swift */,
+				A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 			children = (
 				B1F316A129C2D66F00C88D78 /* UserViewModel.swift */,
 				B172A34E29E994FE00A43237 /* MusicViewModel.swift */,
+				A5BA0AF42A08BBF40054F1F6 /* AudioBookviewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -419,7 +429,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */,
-				A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */,
+				B186ABE82A05369800739EAD /* AudioBookOverviewView.swift in Sources */,
+				B186ABE22A04FC7B00739EAD /* AudioBookHomePage.swift in Sources */,
 				B18F15D829E616AF009F6F3B /* PageControl.swift in Sources */,
 				B18F15E229E7A45D009F6F3B /* Playlist.swift in Sources */,
 				B172A34729E9803800A43237 /* favorites.swift in Sources */,
@@ -429,28 +440,33 @@
 				B16BE38629C229DE0024806A /* ContentView.swift in Sources */,
 				B172A34F29E994FE00A43237 /* MusicViewModel.swift in Sources */,
 				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
+				A58A7FB32A0619A5005C2133 /* Bookdetails.swift in Sources */,
+				B186ABE62A05364700739EAD /* AudioBookItems.swift in Sources */,
 				B172A34B29E9806D00A43237 /* PlaylistItem.swift in Sources */,
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
-				A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */,
+				A58A7FB52A061C31005C2133 /* Rating.swift in Sources */,
 				B172A34D29E9808A00A43237 /* CurrentlyPlaying.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
 				B18F15DA29E7033E009F6F3B /* NowPlaying.swift in Sources */,
-				A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */,
+				A5BA0AF72A08E6A20054F1F6 /* AlbumView.swift in Sources */,
 				B172A34929E9805100A43237 /* songItem.swift in Sources */,
 				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
+				A58A7FB12A061341005C2133 /* BookShelf.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
+				B1AF906E2A084405001A2977 /* playedbook.swift in Sources */,
 				B18F15D629E6153F009F6F3B /* OverviewView.swift in Sources */,
-				A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */,
 				B18F15DC29E7651B009F6F3B /* Tracks.swift in Sources */,
 				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
 				B18F15D329E60E17009F6F3B /* MusicHomePage.swift in Sources */,
+				B186ABE42A05358E00739EAD /* AudioBook.swift in Sources */,
 				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
-				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
+				B1BB834529F99C4200E5F917 /* addPlaylist.swift in Sources */,
 				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,
 				B16BE3AA29C230550024806A /* AppColors.swift in Sources */,
 				A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */,
 				B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */,
 				B18F15E029E7669B009F6F3B /* MusicModels.swift in Sources */,
+				A5BA0AF52A08BBF40054F1F6 /* AudioBookviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

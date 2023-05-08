@@ -19,7 +19,7 @@ struct Favorites: View {
                         .padding(.top, 10)
 
                     ForEach(musicViewModel.favoriteTracks, id: \.id) { track in
-                        TrackRow(track: track, isPlaylistSong: true)
+                        TrackRow(track: track, isPlaylistSong: false , isFavorite: true,playlistId: nil)
                             .padding(.horizontal)
                             .padding(.vertical, 5)
                     }

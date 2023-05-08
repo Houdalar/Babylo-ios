@@ -33,6 +33,7 @@ struct MusicPlayerHomeView: View {
                
 
                HStack(spacing: 10) {
+                   Spacer()
 
                    ForEach(Tab.allCases, id: \.self) { tab in
 
@@ -66,6 +67,7 @@ struct MusicPlayerHomeView: View {
 
                    }
 
+                   Spacer()
                }
 
                .padding(.top)
@@ -81,6 +83,7 @@ struct MusicPlayerHomeView: View {
                    NavigationView {
 
                        OverviewView()
+                      
 
                    }
 
@@ -153,10 +156,12 @@ struct MusicPlayerHomeView: View {
 
 
 struct MusicPlayerHomeView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
 
         MusicPlayerHomeView()
+      
+          
 
     }
 
