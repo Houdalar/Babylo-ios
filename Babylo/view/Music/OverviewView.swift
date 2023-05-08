@@ -134,9 +134,10 @@ struct OverviewView: View {
                                    }
 
 struct OverviewView_Previews: PreviewProvider {
+    static var musicViewModel = MusicViewModel()
     static var previews: some View {
         OverviewView()
-            .environmentObject(MusicViewModel()) 
+            .environmentObject(musicViewModel)
     }
 }
 

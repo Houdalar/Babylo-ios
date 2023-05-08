@@ -23,5 +23,14 @@ extension Color {
 struct AppColors{
     static let primary = Color.yellow
     static let primarydark = Color(red:166/255 , green:109/255 , blue:9/255)
+    static let lightColor = Color(red:253/255 , green: 248/255 , blue: 229/255)
+    static let lighter = Color(red:252/255 , green: 240/255 , blue: 200/255)
+    static let moreLighter = Color(red: 254/255 , green:248/255 , blue:231/255)
+    static let lightBlue = Color(hex: "#C8D4FC")
+    static let blue = Color(hex: "#557af6")
+    static let darkGray = Color(red: 87/255 , green:87/255 , blue:87/255)
+    
+    static let yellow = Color(red: 242/255, green: 196/255, blue: 37/255)
+    static let lightYellow = Color(red: 254/255, green: 249/255, blue: 232/255)
     
 }

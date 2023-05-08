@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1086E27C-6F30-4D18-B350-D0BABA071F4D"
+            uuid = "586AA326-6F6F-4EE6-916C-25F4951DA561"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Babylo/view/Music/OverviewView.swift"
+            filePath = "Babylo/Model/AudioBook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "AudioBook"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "586AA326-6F6F-4EE6-916C-25F4951DA561 - 4e0eec1b4da7f72a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Babylo.AudioBook.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;Babylo.AudioBook.CodingKeys&gt;"
+                  moduleName = "Babylo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/houdalariani/Desktop/school-projects/ios/Babylo/Babylo/Model/AudioBook.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "586AA326-6F6F-4EE6-916C-25F4951DA561 - 28215d44b6b5bbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Babylo.AudioBook.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "Babylo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/houdalariani/Desktop/school-projects/ios/Babylo/Babylo/Model/AudioBook.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
