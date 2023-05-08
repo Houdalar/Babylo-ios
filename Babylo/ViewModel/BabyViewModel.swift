@@ -164,10 +164,10 @@ class BabyViewModel: ObservableObject {
             }
     
     
-    func addHeight(token: String, height: String, babyName: String, completion: @escaping (Result<Height, Error>) -> Void) {
+    func addHeight(token: String, height: String, babyName: String,date : String, completion: @escaping (Result<Height, Error>) -> Void) {
         let url = "\(baseUrl)/addHeight"
         let headers: HTTPHeaders = [        "Authorization": "Bearer \(token)",        "Content-Type": "application/json"    ]
-        let parameters: [String: Any] = [        "height": height,        "babyName": babyName    ]
+        let parameters: [String: Any] = [        "height": height,        "babyName": babyName, "date": date    ]
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Height.self) { response in
             switch response.result {
@@ -231,10 +231,10 @@ class BabyViewModel: ObservableObject {
         }
     
     
-    func addWeight(token: String, weight: String, babyName: String, completion: @escaping (Result<Weight, Error>) -> Void) {
+    func addWeight(token: String, weight: String, babyName: String,date:String, completion: @escaping (Result<Weight, Error>) -> Void) {
         let url = "\(baseUrl)/addWeight"
         let headers: HTTPHeaders = [        "Authorization": "Bearer \(token)",        "Content-Type": "application/json"    ]
-        let parameters: [String: Any] = [        "weight": weight,        "babyName": babyName    ]
+        let parameters: [String: Any] = [        "weight": weight,        "babyName": babyName,"date":date    ]
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Weight.self) { response in
             switch response.result {
@@ -502,7 +502,76 @@ class BabyViewModel: ObservableObject {
             }
         }
 
+    func stringToDate(_ dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.date(from: dateString)
+    }
+
     
+    func monthlyAverageHeights() -> [Height] {
+        // Group heights by month
+        let monthlyHeights = Dictionary(grouping: heights) { (height) -> String in
+            guard let date = stringToDate(height.date) else {
+                return ""
+            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM"
+            return dateFormatter.string(from: date)
+        }
+
+        // Calculate the average height for each month
+        var monthlyAverageHeights: [Height] = []
+        for (month, monthHeights) in monthlyHeights {
+            let totalHeight = monthHeights.reduce(0) { $0 + (Double($1.height) ?? 0) }
+            let averageHeight = totalHeight / Double(monthHeights.count)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM"
+            if let date = dateFormatter.date(from: month) {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                let dateString = dateFormatter.string(from: date)
+                if let firstHeight = monthHeights.first {
+                    monthlyAverageHeights.append(Height( height: String(format: "%.2f", averageHeight), babyId: firstHeight.babyId, date: dateString))
+                            }
+            }
+        }
+
+        // Sort the heights by month
+        return monthlyAverageHeights.sorted { stringToDate($0.date)! < stringToDate($1.date)! }
+    }
+
+    func monthlyAverageWeights() -> [Weight] {
+        // Group weights by month
+        let monthlyWeights = Dictionary(grouping: weights) { (weight) -> String in
+            guard let date = stringToDate(weight.date) else {
+                return ""
+            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM"
+            return dateFormatter.string(from: date)
+        }
+
+        // Calculate the average weight for each month
+        var monthlyAverageWeights: [Weight] = []
+        for (month, monthWeights) in monthlyWeights {
+            let totalWeight = monthWeights.reduce(0) { $0 + (Double($1.weight) ?? 0) }
+            let averageWeight = totalWeight / Double(monthWeights.count)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM"
+            if let date = dateFormatter.date(from: month) {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                let dateString = dateFormatter.string(from: date)
+                if let firstWeight = monthWeights.first {
+                    monthlyAverageWeights.append(Weight( weight: String(format: "%.2f", averageWeight), babyId: firstWeight.babyId, date: dateString))
+                            }
+            }
+        }
+
+        // Sort the weights by month
+        return monthlyAverageWeights.sorted { stringToDate($0.date)! < stringToDate($1.date)! }
+    }
 
 
 

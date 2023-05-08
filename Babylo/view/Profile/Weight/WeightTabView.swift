@@ -100,7 +100,7 @@ struct WeightTabView: View {
             }
         }
         .overlay(showAddWeightModal ? CustomWeightDialog(isPresented: $showAddWeightModal, addWeight: { weight,date in
-            babyViewModel.addWeight(token: UserDefaults.standard.string(forKey: "token") ?? "", weight: weight, babyName: babyName) { result in
+            babyViewModel.addWeight(token: UserDefaults.standard.string(forKey: "token") ?? "", weight: weight, babyName: babyName,date: date) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let weight):

@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct WeightChartView: View {
-    let weights: [Weight]
+    //let weights: [Weight]
     @State private var animationProgress: CGFloat = 0.0
+    @ObservedObject var babyViewModel: BabyViewModel
 
     var body: some View {
         GeometryReader { geometry in
             let chartHeight: CGFloat = 350
             let chartWidth: CGFloat = 350
             
-            let weights = self.weights.sorted { $0.date < $1.date }
+            //let weights = self.weights.sorted { $0.date < $1.date }
+            let weights = babyViewModel.monthlyAverageWeights()
             let minY = weights.min { Double($0.weight) ?? 0 < Double($1.weight) ?? 0 }?.weight ?? "0"
             let maxY = weights.max { Double($0.weight) ?? 0 < Double($1.weight) ?? 0 }?.weight ?? "0"
             let yRange = CGFloat((Double(maxY) ?? 0) - (Double(minY) ?? 0))
@@ -72,7 +74,7 @@ struct WeightGrowthTab: View {
     var body: some View {
         VStack {
             if babyViewModel.weights.count >= 1 {
-                WeightChartView(weights: babyViewModel.weights)
+                WeightChartView(babyViewModel: babyViewModel)
             } else {
                 Text("Not enough data to display the chart.")
             }

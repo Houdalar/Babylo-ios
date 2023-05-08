@@ -99,7 +99,7 @@ struct HeightTabView: View {
             }
         }
         .overlay(showAddHeightModal ? CustomDialog(isPresented: $showAddHeightModal, addHeight: { height,date in
-            babyViewModel.addHeight(token: UserDefaults.standard.string(forKey: "token") ?? "", height: height, babyName: babyName) { result in
+            babyViewModel.addHeight(token: UserDefaults.standard.string(forKey: "token") ?? "", height: height, babyName: babyName, date: date) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let height):

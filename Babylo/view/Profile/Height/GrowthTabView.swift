@@ -1,4 +1,3 @@
-//
 //  GrowthTabView.swift
 //  Babylo
 //
@@ -19,7 +18,9 @@ struct GrowthTabView: View {
                     let chartHeight: CGFloat = 350
                     let chartWidth: CGFloat = 350
                     
-                    let heights = babyViewModel.heights.sorted { $0.date < $1.date }
+                    //let heights = babyViewModel.heights.sorted { $0.date < $1.date }
+                    let heights = babyViewModel.monthlyAverageHeights()
+
                     let minY = heights.min { Double($0.height) ?? 0 < Double($1.height) ?? 0 }?.height ?? "0"
                     let maxY = heights.max { Double($0.height) ?? 0 < Double($1.height) ?? 0 }?.height ?? "0"
                     let yRange = CGFloat((Double(maxY) ?? 0) - (Double(minY) ?? 0))
@@ -82,7 +83,7 @@ struct GrowthTabView: View {
                     .foregroundColor(.orange)
                     .fontWeight(.bold)
                     
-                Text(": Daily height growth")
+                Text(": Monthly height growth")
             }
             .padding(.top,120)
             .padding(.trailing,170)
@@ -181,6 +182,34 @@ struct AnimatedChartPath: Shape {
     }
 }
 
+struct MonthLabelsView: View {
+    let geometry: GeometryProxy
+    let chartWidth: CGFloat
+    let chartHeight: CGFloat
+    let heights: [Height]
+    let pointSpacing: CGFloat
+    let monthNames: [String]
 
+    var body: some View {
+        ForEach(0..<heights.count, id: \.self) { index in
+            let x = (geometry.size.width - chartWidth) / 2 + CGFloat(index) * pointSpacing
+            Text(monthNames[index % monthNames.count])
+                .font(.footnote)
+                .position(x: x, y: chartHeight + 20)
+        }
+    }
+}
 
+struct HeightLabelsView: View {
+    let geometry: GeometryProxy
+    let chartWidth: CGFloat
+    let chartHeight: CGFloat
+    let minY: String
+    let maxY: String
+    
+    var body: some View {
+        let heightMarks = stride(from: 40, through: 120, by: 10).map { String($0) }
+        let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul","Aug","Sept","Nov","Dec"]
+        
+    }}
 
