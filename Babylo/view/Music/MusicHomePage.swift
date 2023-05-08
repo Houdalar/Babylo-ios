@@ -81,6 +81,7 @@ struct MusicPlayerHomeView: View {
                    NavigationView {
 
                        OverviewView()
+                      
 
                    }
 
@@ -153,10 +154,12 @@ struct MusicPlayerHomeView: View {
 
 
 struct MusicPlayerHomeView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
 
         MusicPlayerHomeView()
+      
+          
 
     }
 

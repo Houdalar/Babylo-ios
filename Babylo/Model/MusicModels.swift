@@ -43,7 +43,15 @@ struct Playlist: Codable, Identifiable {
     let name: String
     let cover: String
     let owner: String
-    let tracks: [String]
+    var tracks: [Track]
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+        case cover
+        case owner
+        case tracks
+        
+    }
 }
 
 struct Albums: Identifiable, Codable {

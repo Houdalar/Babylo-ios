@@ -16,9 +16,12 @@ struct BabyloApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(musicViewModel)
+           // RootView()
+              //  .environment(\.managedObjectContext, persistenceController.container.viewContext)
+          //  MusicPlayerHomeView()
+           // .environmentObject(musicViewModel)
+            HomePage()
+                            .environmentObject(musicViewModel)
         }
     }
 }

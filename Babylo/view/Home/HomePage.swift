@@ -22,7 +22,7 @@ struct HomePage: View {
             case 1:
                 MusicPlayerHomeView()
             case 2:
-                AudioBooksView()
+                AudioBookHomePage()
             case 3:
                 SettignsView()
             default:
@@ -98,13 +98,4 @@ struct TabBarButton: View {
 
 
 
-struct AudioBooksView: View {
-
-    var body: some View {
-
-        Text("Audiobooks Screen")
-
-    }
-
-}
 
