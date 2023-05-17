@@ -1,10 +1,3 @@
-//
-//  addPlaylist.swift
-//  Babylo
-//
-//  Created by houda lariani on 26/4/2023.
-//
-
 import SwiftUI
 import PhotosUI
 
@@ -24,7 +17,7 @@ struct AddPlaylistView: View {
                 Image(uiImage: image)
                     .resizable()
                     .frame(width: 280, height: 280)
-                    .clipShape(RoundedRectangle(cornerRadius: 20)) 
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                     .onTapGesture {
                         isImagePickerPresented = true
                     }

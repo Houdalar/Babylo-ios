@@ -12,7 +12,7 @@ struct AudioBookOverviewView: View {
     let categories: [(String, String)] = [
         ("Adventure", "http://localhost:8080/media/images/MattRockefeller.png1683522421785.png"),
         ("Fiction", "http://localhost:8080/media/images/OfaFeather.jpeg1683525106258.jpg"),
-        ("Mystery", "http://localhost:8080/media/AudiobookCovers/mystery_cover.jpeg")
+        ("Mystery", "http://localhost:8080/media/images/MattRockefeller.png1683522421785.png")
     ]
 
     var body: some View {
@@ -64,6 +64,11 @@ struct AudioBookOverviewView: View {
                                     .padding(.top, 20)
                                 CategoryBar(categories: [categories[1]], booksByCategory: viewModel.booksByCategory)
                                     .padding(.top, -60)
+                    
+                    CategoryCardView(category: categories[2].0, cover: categories[1].1)
+                        .padding(.top, 20)
+                    CategoryBar(categories: [categories[2]], booksByCategory: viewModel.booksByCategory)
+                        .padding(.top, -60)
 
                                 
                             }

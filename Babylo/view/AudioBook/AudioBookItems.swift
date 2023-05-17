@@ -97,8 +97,11 @@ struct CategoryBar: View {
 
 
 struct BookShelfCardView: View {
+    @StateObject private var viewModel = AudioBookViewModel()
     let audioBook: AudioBook
-
+    @State private var showingActionSheet = false
+    var onRemove: (() -> Void)? = nil
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 15) {
@@ -140,12 +143,27 @@ struct BookShelfCardView: View {
                 Spacer()
 
                 Button(action: {
-                    // Handle three dots column icon tap (to display delete option)
+                    showingActionSheet = true
+                    
                 }) {
                     
                     ThreeDotsColumn()
                         
                 }
+                .actionSheet(isPresented: $showingActionSheet) {
+                               ActionSheet(title: Text("Options"), message: nil, buttons: [
+                                   .destructive(Text("Remove from Bookshelf")) {
+                                       viewModel.removeFromBookShelf(bookId: audioBook.id) { error in
+                                           if let error = error {
+                                               print("Error removing book from favorites: \(error)")
+                                           } else {
+                                               print("Book successfully removed from favorites")
+                                           }
+                                       }
+                                   },
+                                   .cancel()
+                               ])
+                           }
             }
             
         }

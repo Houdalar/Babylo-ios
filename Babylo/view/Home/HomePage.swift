@@ -9,36 +9,37 @@ import SwiftUI
 
 struct HomePage: View {
     @State private var isAuthenticated = true
-    @State private var selectedItem = 0
+    @State private var selectedIndex = 0
     
     @State private var userToken : String = UserDefaults.standard.string(forKey: "token") ?? ""
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0){
-                switch selectedItem{
-                case 0 :
+            ZStack {
+                Color(.systemBackground)
+                    .edgesIgnoringSafeArea(.all)
+
+                switch selectedIndex {
+                case 0:
                     HomeScreen(token: userToken)
-                    
-                case 1 :
+                case 1:
                     MusicPlayerHomeView()
                 case 2:
                     AudioBookHomePage()
                 case 3:
                     SettignsView(isAuthenticated: $isAuthenticated)
                 default:
-                    HomeScreen(token: userToken)
+                    Text("Something went wrong.")
                 }
-                Spacer()
-                BottomNavBar(selectedItem: $selectedItem,token: userToken)
-            }
-            
-        }
-        
-        
 
-        
+                VStack {
+                    Spacer() // Push the custom tab bar to the bottom
+                    BottomNavBar(selectedIndex: $selectedIndex)
+                }
+            }
+        }
     }
+
+
     
 
     struct HomePage_Previews: PreviewProvider {
@@ -51,25 +52,4 @@ struct HomePage: View {
 
     }
 
-}
-
-struct MusicView: View {
-
-    var body: some View {
-
-        Text("Music Screen")
-
-    }
-
-}
-
-struct AudioBooksView: View {
-
-    var body: some View {
-
-        Text("Audiobooks Screen")
-
-    }
-
-}
-
+    

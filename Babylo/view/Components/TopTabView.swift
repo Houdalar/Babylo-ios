@@ -15,10 +15,10 @@ struct TopTabView: View {
     var body: some View {
         HStack(spacing: 20) {
             Spacer()
-            TabBarButton(text: text1, isSelected: .constant(tabIndex == 0))
+            TabBarButton1(text: text1, isSelected: .constant(tabIndex == 0))
                 .onTapGesture { onButtonTapped(index: 0) }
             Spacer()
-            TabBarButton(text: text2, isSelected: .constant(tabIndex == 1))
+            TabBarButton1(text: text2, isSelected: .constant(tabIndex == 1))
                 .onTapGesture { onButtonTapped(index: 1) }
             Spacer()
         }
@@ -58,7 +58,7 @@ struct Underlined: ViewModifier {
     }
 }
 
-struct TabBarButton: View {
+struct TabBarButton1: View {
     let text: String
     @Binding var isSelected: Bool
     var body: some View {
@@ -69,6 +69,4 @@ struct TabBarButton: View {
             .modifier(Underlined(isSelected: isSelected))
     }
 }
-
-
 

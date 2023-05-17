@@ -17,6 +17,8 @@ struct HomeScreen: View {
     @State private var upcomingVaccines: [UpcomingVaccine] = []
     @State private var notificationScheduled : Bool = false
     
+    @State private var selectedBaby: Baby?
+    
 
     func stringToDate(_ dateString: String, format: String = "dd/MM/yyyy") -> Date? {
         let dateFormatter = DateFormatter()
@@ -71,6 +73,7 @@ struct HomeScreen: View {
         }
     
     var body: some View {
+        NavigationView {
         VStack(spacing:0){
             GeometryReader { geometry in
                 HStack{
@@ -155,6 +158,9 @@ struct HomeScreen: View {
                                 HStack(spacing: 25){
                                     ForEach(babyViewModel.babies){
                                         baby in BabyCardView(baby:baby,babyViewModel: babyViewModel)
+                                            .onTapGesture {
+                                                                            self.selectedBaby = baby
+                                                                        }
                                     }
                                 }.padding(.leading,22)
                                 Spacer()
@@ -171,10 +177,16 @@ struct HomeScreen: View {
                 }
                 .offset(y: height * 0.322)
                 
+                
+                
             }
             .edgesIgnoringSafeArea(.all)
             .statusBar(hidden: true)
-            
+            if let baby = selectedBaby {
+                        NavigationLink(destination: Profile(token: babyViewModel.token, babyName: baby.babyName),
+                                       isActive: .constant(selectedBaby != nil),
+                                       label: { EmptyView() })
+                    }
         }
         .onAppear{
             babyViewModel.fetchBabies()
@@ -193,9 +205,13 @@ struct HomeScreen: View {
                         }
                     }
                 }
+            
 
         }
+      
+        
         }
+    }
     }
 
 struct Corners : Shape {
@@ -300,7 +316,7 @@ struct BabyCardView: View {
     let baby : Baby
  
    @ObservedObject var babyViewModel: BabyViewModel
-
+    @State var isLinkActive = false
     var body: some View {
         NavigationLink(destination:
                         Profile(token: babyViewModel.token, babyName: baby.babyName)) {
@@ -348,6 +364,17 @@ struct BabyCardView: View {
             .background(Color.white)
             .cornerRadius(20)
             .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 4)
+            .onTapGesture {
+                        isLinkActive = true
+                    }
+                    .background(
+                        NavigationLink(
+                            destination: Profile(token: babyViewModel.token, babyName: baby.babyName),
+                            isActive: $isLinkActive,
+                            label: { EmptyView() }
+                        )
+                    )
+           /*
             .buttonStyle(PlainButtonStyle()) // This makes sure the entire card is clickable
             .contextMenu{
                 Button(action: {
@@ -369,7 +396,7 @@ struct BabyCardView: View {
                                 Label("Delete Baby", systemImage: "trash")
                             }
 
-        }
+        }*/
         }
         
      

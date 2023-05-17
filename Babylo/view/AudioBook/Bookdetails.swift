@@ -6,6 +6,9 @@ struct BookDetailsView: View {
     @State private var rating: Double = 3.5
     @State private var expandedDescription: Bool = false
     @State private var showingMusicPlayer = false
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
+    @StateObject private var viewModel = AudioBookViewModel()
 
     var body: some View {
         ScrollView {
@@ -48,7 +51,16 @@ struct BookDetailsView: View {
                                        }
                                        
                                        Button(action: {
-                                     
+                                           viewModel.addToBookShelf(bookId: audioBook.id) { error in
+                                                  if let error = error {
+                                                   
+                                                      alertMessage = "Error adding book to favorites: \(error)"
+                                                  } else {
+                                                     
+                                                      alertMessage = "Book successfully added to favorites"
+                                                  }
+                                                  showingAlert = true
+                                              }
                                        }) {
                                            Image(systemName: "heart.fill")
                                                .foregroundColor(.white)
@@ -56,6 +68,9 @@ struct BookDetailsView: View {
                                                .background(Color.yellow)
                                                .clipShape(Circle())
                                        }
+                                       .alert(isPresented: $showingAlert) {
+                                                   Alert(title: Text(alertMessage))
+                                               }
                                    }
 
                     Divider()
@@ -156,7 +171,7 @@ struct BookDetailsView: View {
             }
         }
       
-        .navigationTitle(audioBook.bookTitle)
+        
         .sheet(isPresented: $showingMusicPlayer) {
             playedbook(book: audioBook)
         }

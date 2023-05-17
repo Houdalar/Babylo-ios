@@ -45,7 +45,7 @@ struct MusicPlayerHomeView: View {
 
                            Text(tab.title)
 
-                               .font(.system(size: 14))
+                               .font(.system(size: 12))
 
                                .fontWeight(selectedTab == tab ? .bold : .regular)
 

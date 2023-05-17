@@ -4,6 +4,8 @@ struct PlaylistView: View {
     @EnvironmentObject var backendService: MusicViewModel
 
     @State private var selectedPlaylistIndex: Int = 0
+    @State private var showingDeleteAlert = false
+    @State private var playlistToDelete: Int? = nil
 
    
 
@@ -25,18 +27,56 @@ struct PlaylistView: View {
                             .padding(.top, 200)
                         }
                         VStack {
-                            TabView(selection: $selectedPlaylistIndex) {
-                                ForEach(Array(backendService.playlists.indices), id: \.self) { index in
-                                    PlaylistCoverView(playlist: backendService.playlists[index])
-                                        .tag(index)
+                                  ZStack {
+                                      TabView(selection: $selectedPlaylistIndex) {
+                                          ForEach(Array(backendService.playlists.indices), id: \.self) { index in
+                                              PlaylistCoverView(playlist: backendService.playlists[index]) {
+                                                  self.playlistToDelete = index
+                                                  self.showingDeleteAlert = true
+                                              }
+                                              .tag(index)
+                                          }
+                                          AddPlaylistCard()
+                                              .tag(backendService.playlists.count)
+                                      }
+                                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                                .frame(height: 280)
+                                .padding(.horizontal)
+                                .padding(.top, 30)
+
+                                HStack {
+                                    Button(action: {
+                                        withAnimation {
+                                            selectedPlaylistIndex = max(selectedPlaylistIndex - 1, 0)
+                                        }
+                                    }) {
+                                        Image(systemName: "chevron.left")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(.white)
+                                            .padding(5)
+                                            .background(Color.yellow)
+                                            .clipShape(Circle())
+                                    }
+                                    .disabled(selectedPlaylistIndex == 0)
+
+                                    Spacer()
+
+                                    Button(action: {
+                                        withAnimation {
+                                            selectedPlaylistIndex = min(selectedPlaylistIndex + 1, backendService.playlists.count)
+                                        }
+                                    }) {
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 20))
+                                            .foregroundColor(.white)
+                                            .padding(5)
+                                            .background(Color.yellow)
+                                            .clipShape(Circle())
+                                    }
+                                    .disabled(selectedPlaylistIndex == backendService.playlists.count)
                                 }
-                                AddPlaylistCard()
-                                    .tag(-1)
+                                .padding(.horizontal, 25)
                             }
-                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                            .frame(height: 280)
-                            .padding(.horizontal)
-                            .padding(.top, 30)
                         }
                         .padding(.leading)
                     }
@@ -69,6 +109,18 @@ struct PlaylistView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        
+        .alert(isPresented: $showingDeleteAlert) {
+            Alert(title: Text("Delete Playlist"),
+                  message: Text("Are you sure you want to delete this playlist? This action cannot be undone."),
+                  primaryButton: .destructive(Text("Delete")) {
+                      if let index = self.playlistToDelete {
+                          self.deletePlaylist(at: index)
+                      }
+                  },
+                  secondaryButton: .cancel())
+        }
+
         .onAppear {
             backendService.fetchPlaylists()
            
@@ -89,6 +141,18 @@ struct PlaylistView: View {
         
         backendService.playlists[selectedPlaylistIndex].tracks.remove(atOffsets: offsets)
     }
+    
+    private func deletePlaylist(at index: Int) {
+            backendService.deletePlaylist(playlistid: backendService.playlists[index].id) { error in
+                if let error = error {
+                    print("Failed to delete playlist: \(error.localizedDescription)")
+                } else {
+                    print("Playlist deleted successfully!")
+                    backendService.removePlaylist(playlistId: backendService.playlists[index].id)
+                }
+            }
+        }
+
 
    
 }
