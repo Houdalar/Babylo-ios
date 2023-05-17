@@ -191,13 +191,13 @@ struct WeightLabelsView: View {
     let labelSpacing: CGFloat = 2.0    // Adjust this value to change the spacing between labels
 
     var body: some View {
-        let heightMarks = stride(from: 2, through: 20, by: 10).map { String($0) }
+        let heightMarks = stride(from: 2, through: 20, by: 2).map { String($0) }
         let yRange = 20 - 2
         let yStep = (chartHeight - labelFontSize - labelSpacing * 2) / CGFloat(yRange)
 
         ForEach(heightMarks, id: \.self) { mark in
             let yMarkValue = Double(mark) ?? 0
-            let yPos = chartHeight - (CGFloat(yMarkValue - 40) / CGFloat(yRange)) * (chartHeight - labelFontSize - labelSpacing * 2) - labelSpacing
+            let yPos = chartHeight - (CGFloat(yMarkValue - 2) / CGFloat(yRange)) * (chartHeight - labelFontSize - labelSpacing * 2) - labelSpacing
             Text(mark)
                 .font(.system(size: labelFontSize))
                 .position(x: (geometry.size.width - chartWidth) / 2 - 20, y: yPos)
