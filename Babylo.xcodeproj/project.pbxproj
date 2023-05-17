@@ -8,11 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		49DE319156DDDA8C5B10C051 /* Pods_Babylo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4ED0772AC40D39B2FFADD3 /* Pods_Babylo.framework */; };
-		A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA66F29DEC261001517E2 /* AddBaby.swift */; };
-		A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67229DEC2E0001517E2 /* HomePage.swift */; };
-		A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67429DEC314001517E2 /* BabyProfile.swift */; };
-		A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABA67629DECFAD001517E2 /* HomeView.swift */; };
+		A5056A1B2A139DBD001E79C2 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A1A2A139DBD001E79C2 /* Intro.swift */; };
+		A5056A302A13A1C5001E79C2 /* Baby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A2F2A13A1C5001E79C2 /* Baby.swift */; };
+		A5056A322A13A1DF001E79C2 /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A312A13A1DF001E79C2 /* Height.swift */; };
+		A5056A342A13A1EF001E79C2 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A332A13A1EF001E79C2 /* Weight.swift */; };
+		A5056A362A13A200001E79C2 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A352A13A200001E79C2 /* Vaccine.swift */; };
+		A5056A382A13A20F001E79C2 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A372A13A20F001E79C2 /* Doctor.swift */; };
+		A5056A3A2A13A220001E79C2 /* UpcomingVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A392A13A220001E79C2 /* UpcomingVaccine.swift */; };
+		A5056A3C2A13A244001E79C2 /* BabyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A3B2A13A244001E79C2 /* BabyViewModel.swift */; };
+		A5056A3E2A13A276001E79C2 /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A3D2A13A276001E79C2 /* TopTabView.swift */; };
+		A5056A402A13A289001E79C2 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A3F2A13A289001E79C2 /* BottomNavBar.swift */; };
+		A5056A422A13A2AA001E79C2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A412A13A2AA001E79C2 /* NotificationManager.swift */; };
+		A5056A4B2A13A334001E79C2 /* AddBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A4A2A13A334001E79C2 /* AddBaby.swift */; };
+		A5056A4D2A13A356001E79C2 /* UpcomingVaccineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A4C2A13A356001E79C2 /* UpcomingVaccineCard.swift */; };
+		A5056A4F2A13A365001E79C2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A4E2A13A365001E79C2 /* Profile.swift */; };
+		A5056A512A13A37F001E79C2 /* SettignsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A502A13A37F001E79C2 /* SettignsView.swift */; };
+		A5056A532A13A3B5001E79C2 /* HeightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A522A13A3B5001E79C2 /* HeightTabView.swift */; };
+		A5056A552A13A3CC001E79C2 /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A542A13A3CC001E79C2 /* HeightView.swift */; };
+		A5056A572A13A3DC001E79C2 /* GrowthTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A562A13A3DC001E79C2 /* GrowthTabView.swift */; };
+		A5056A592A13A402001E79C2 /* WeightTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A582A13A402001E79C2 /* WeightTabView.swift */; };
+		A5056A5B2A13A492001E79C2 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A5A2A13A492001E79C2 /* WeightView.swift */; };
+		A5056A5D2A13A4A3001E79C2 /* WeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A5C2A13A4A3001E79C2 /* WeightChartView.swift */; };
+		A5056A5F2A13A4CB001E79C2 /* VaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A5E2A13A4CB001E79C2 /* VaccineView.swift */; };
+		A5056A612A13A4E0001E79C2 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A602A13A4E0001E79C2 /* AppointmentsView.swift */; };
+		A5056A642A13AFB9001E79C2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A632A13AFB9001E79C2 /* HomePage.swift */; };
+		A5056A662A13AFD1001E79C2 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A652A13AFD1001E79C2 /* HomeScreen.swift */; };
+		A5056A6A2A13B391001E79C2 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A692A13B391001E79C2 /* DancingScript-Regular.ttf */; };
+		A5056A6D2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A6B2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf */; };
+		A5056A6E2A13B3A0001E79C2 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A6C2A13B3A0001E79C2 /* DancingScript-Bold.ttf */; };
+		A5056A702A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A6F2A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf */; };
+		A5056A722A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A712A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf */; };
+		A5056A742A13B9CE001E79C2 /* HeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A732A13B9CE001E79C2 /* HeightChartView.swift */; };
+		A58A7FB12A061341005C2133 /* BookShelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB02A061341005C2133 /* BookShelf.swift */; };
+		A58A7FB32A0619A5005C2133 /* Bookdetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB22A0619A5005C2133 /* Bookdetails.swift */; };
+		A58A7FB52A061C31005C2133 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB42A061C31005C2133 /* Rating.swift */; };
+		A5BA0AF52A08BBF40054F1F6 /* AudioBookviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA0AF42A08BBF40054F1F6 /* AudioBookviewModel.swift */; };
+		A5BA0AF72A08E6A20054F1F6 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */; };
 		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
+		A5CFD10A2A14E72B00D17947 /* WeightGrowthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B115D9B629EA0A0B00DA0F63 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B529EA0A0B00DA0F63 /* login.png */; };
 		B115D9B829EA0A1600DA0F63 /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B729EA0A1600DA0F63 /* signup.png */; };
@@ -33,8 +66,6 @@
 		B16BE38D29C229DF0024806A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38C29C229DF0024806A /* Persistence.swift */; };
 		B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B16BE38E29C229DF0024806A /* Babylo.xcdatamodeld */; };
 		B16BE39829C22AF40024806A /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39729C22AF40024806A /* IntroView.swift */; };
-		B16BE39B29C22B2C0024806A /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39A29C22B2C0024806A /* Intro.swift */; };
-		B16BE39E29C22E100024806A /* SettignsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE39D29C22E100024806A /* SettignsView.swift */; };
 		B16BE3A429C2300E0024806A /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A029C2300D0024806A /* Signup.swift */; };
 		B16BE3A529C2300E0024806A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A129C2300D0024806A /* Login.swift */; };
 		B16BE3AA29C230550024806A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16BE3A929C230550024806A /* AppColors.swift */; };
@@ -44,6 +75,10 @@
 		B172A34B29E9806D00A43237 /* PlaylistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172A34A29E9806D00A43237 /* PlaylistItem.swift */; };
 		B172A34D29E9808A00A43237 /* CurrentlyPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172A34C29E9808A00A43237 /* CurrentlyPlaying.swift */; };
 		B172A34F29E994FE00A43237 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B172A34E29E994FE00A43237 /* MusicViewModel.swift */; };
+		B186ABE22A04FC7B00739EAD /* AudioBookHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE12A04FC7B00739EAD /* AudioBookHomePage.swift */; };
+		B186ABE42A05358E00739EAD /* AudioBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE32A05358E00739EAD /* AudioBook.swift */; };
+		B186ABE62A05364700739EAD /* AudioBookItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE52A05364700739EAD /* AudioBookItems.swift */; };
+		B186ABE82A05369800739EAD /* AudioBookOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186ABE72A05369800739EAD /* AudioBookOverviewView.swift */; };
 		B18F15D329E60E17009F6F3B /* MusicHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15D229E60E17009F6F3B /* MusicHomePage.swift */; };
 		B18F15D629E6153F009F6F3B /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15D529E6153F009F6F3B /* OverviewView.swift */; };
 		B18F15D829E616AF009F6F3B /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15D729E616AF009F6F3B /* PageControl.swift */; };
@@ -51,18 +86,54 @@
 		B18F15DC29E7651B009F6F3B /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15DB29E7651B009F6F3B /* Tracks.swift */; };
 		B18F15E029E7669B009F6F3B /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15DF29E7669B009F6F3B /* MusicModels.swift */; };
 		B18F15E229E7A45D009F6F3B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18F15E129E7A45C009F6F3B /* Playlist.swift */; };
+		B1AF906E2A084405001A2977 /* playedbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF906D2A084405001A2977 /* playedbook.swift */; };
 		B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BA9D7029C7D44A0078DAC0 /* reset1.swift */; };
 		B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BA9D7229C7D4810078DAC0 /* reset2.swift */; };
+		B1BB834529F99C4200E5F917 /* addPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB834429F99C4200E5F917 /* addPlaylist.swift */; };
 		B1E2207529C5D6CB001D50A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E2207429C5D6CB001D50A8 /* User.swift */; };
 		B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F316A129C2D66F00C88D78 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A5ABA66F29DEC261001517E2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
-		A5ABA67229DEC2E0001517E2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		A5ABA67429DEC314001517E2 /* BabyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfile.swift; sourceTree = "<group>"; };
-		A5ABA67629DECFAD001517E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A5056A1A2A139DBD001E79C2 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
+		A5056A2F2A13A1C5001E79C2 /* Baby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baby.swift; sourceTree = "<group>"; };
+		A5056A312A13A1DF001E79C2 /* Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Height.swift; sourceTree = "<group>"; };
+		A5056A332A13A1EF001E79C2 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		A5056A352A13A200001E79C2 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		A5056A372A13A20F001E79C2 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		A5056A392A13A220001E79C2 /* UpcomingVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVaccine.swift; sourceTree = "<group>"; };
+		A5056A3B2A13A244001E79C2 /* BabyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyViewModel.swift; sourceTree = "<group>"; };
+		A5056A3D2A13A276001E79C2 /* TopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabView.swift; sourceTree = "<group>"; };
+		A5056A3F2A13A289001E79C2 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
+		A5056A412A13A2AA001E79C2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A5056A4A2A13A334001E79C2 /* AddBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaby.swift; sourceTree = "<group>"; };
+		A5056A4C2A13A356001E79C2 /* UpcomingVaccineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVaccineCard.swift; sourceTree = "<group>"; };
+		A5056A4E2A13A365001E79C2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		A5056A502A13A37F001E79C2 /* SettignsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettignsView.swift; sourceTree = "<group>"; };
+		A5056A522A13A3B5001E79C2 /* HeightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightTabView.swift; sourceTree = "<group>"; };
+		A5056A542A13A3CC001E79C2 /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
+		A5056A562A13A3DC001E79C2 /* GrowthTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthTabView.swift; sourceTree = "<group>"; };
+		A5056A582A13A402001E79C2 /* WeightTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTabView.swift; sourceTree = "<group>"; };
+		A5056A5A2A13A492001E79C2 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		A5056A5C2A13A4A3001E79C2 /* WeightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightChartView.swift; sourceTree = "<group>"; };
+		A5056A5E2A13A4CB001E79C2 /* VaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineView.swift; sourceTree = "<group>"; };
+		A5056A602A13A4E0001E79C2 /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
+		A5056A632A13AFB9001E79C2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		A5056A652A13AFD1001E79C2 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		A5056A682A13B1F6001E79C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A5056A692A13B391001E79C2 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Regular.ttf"; sourceTree = "<group>"; };
+		A5056A6B2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-SemiBold.ttf"; sourceTree = "<group>"; };
+		A5056A6C2A13B3A0001E79C2 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
+		A5056A6F2A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A5056A712A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Bold.ttf"; sourceTree = "<group>"; };
+		A5056A732A13B9CE001E79C2 /* HeightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightChartView.swift; sourceTree = "<group>"; };
+		A58A7FB02A061341005C2133 /* BookShelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelf.swift; sourceTree = "<group>"; };
+		A58A7FB22A0619A5005C2133 /* Bookdetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookdetails.swift; sourceTree = "<group>"; };
+		A58A7FB42A061C31005C2133 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A5BA0AF42A08BBF40054F1F6 /* AudioBookviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookviewModel.swift; sourceTree = "<group>"; };
+		A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
+		A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightGrowthTab.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B115D9B529EA0A0B00DA0F63 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		B115D9B729EA0A1600DA0F63 /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
@@ -84,8 +155,6 @@
 		B16BE38C29C229DF0024806A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B16BE38F29C229DF0024806A /* Babylo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Babylo.xcdatamodel; sourceTree = "<group>"; };
 		B16BE39729C22AF40024806A /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
-		B16BE39A29C22B2C0024806A /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
-		B16BE39D29C22E100024806A /* SettignsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettignsView.swift; sourceTree = "<group>"; };
 		B16BE3A029C2300D0024806A /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		B16BE3A129C2300D0024806A /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B16BE3A929C230550024806A /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -95,6 +164,10 @@
 		B172A34A29E9806D00A43237 /* PlaylistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistItem.swift; sourceTree = "<group>"; };
 		B172A34C29E9808A00A43237 /* CurrentlyPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentlyPlaying.swift; sourceTree = "<group>"; };
 		B172A34E29E994FE00A43237 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		B186ABE12A04FC7B00739EAD /* AudioBookHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookHomePage.swift; sourceTree = "<group>"; };
+		B186ABE32A05358E00739EAD /* AudioBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBook.swift; sourceTree = "<group>"; };
+		B186ABE52A05364700739EAD /* AudioBookItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookItems.swift; sourceTree = "<group>"; };
+		B186ABE72A05369800739EAD /* AudioBookOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookOverviewView.swift; sourceTree = "<group>"; };
 		B18F15D229E60E17009F6F3B /* MusicHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHomePage.swift; sourceTree = "<group>"; };
 		B18F15D529E6153F009F6F3B /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		B18F15D729E616AF009F6F3B /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -102,8 +175,10 @@
 		B18F15DB29E7651B009F6F3B /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		B18F15DF29E7669B009F6F3B /* MusicModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		B18F15E129E7A45C009F6F3B /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		B1AF906D2A084405001A2977 /* playedbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playedbook.swift; sourceTree = "<group>"; };
 		B1BA9D7029C7D44A0078DAC0 /* reset1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset1.swift; sourceTree = "<group>"; };
 		B1BA9D7229C7D4810078DAC0 /* reset2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset2.swift; sourceTree = "<group>"; };
+		B1BB834429F99C4200E5F917 /* addPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPlaylist.swift; sourceTree = "<group>"; };
 		B1E2207429C5D6CB001D50A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B1F316A129C2D66F00C88D78 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		B8BF00082D779302AED2CA37 /* Pods-Babylo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylo.debug.xcconfig"; path = "Target Support Files/Pods-Babylo/Pods-Babylo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,13 +206,86 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A5ABA67129DEC2C8001517E2 /* Home */ = {
+		A5056A432A13A2C8001E79C2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				A5ABA67229DEC2E0001517E2 /* HomePage.swift */,
-				A5ABA67629DECFAD001517E2 /* HomeView.swift */,
+				A5056A492A13A307001E79C2 /* Height */,
+				A5056A482A13A2F5001E79C2 /* Vaccines */,
+				A5056A472A13A2EB001E79C2 /* Doctor */,
+				A5056A462A13A2E5001E79C2 /* Weight */,
+				A5056A442A13A2D0001E79C2 /* Appointments */,
+				A5056A4A2A13A334001E79C2 /* AddBaby.swift */,
+				A5056A4C2A13A356001E79C2 /* UpcomingVaccineCard.swift */,
+				A5056A4E2A13A365001E79C2 /* Profile.swift */,
+				A5056A502A13A37F001E79C2 /* SettignsView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A5056A442A13A2D0001E79C2 /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				A5056A602A13A4E0001E79C2 /* AppointmentsView.swift */,
+			);
+			path = Appointments;
+			sourceTree = "<group>";
+		};
+		A5056A462A13A2E5001E79C2 /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				A5056A582A13A402001E79C2 /* WeightTabView.swift */,
+				A5056A5A2A13A492001E79C2 /* WeightView.swift */,
+				A5056A5C2A13A4A3001E79C2 /* WeightChartView.swift */,
+				A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */,
+			);
+			path = Weight;
+			sourceTree = "<group>";
+		};
+		A5056A472A13A2EB001E79C2 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		A5056A482A13A2F5001E79C2 /* Vaccines */ = {
+			isa = PBXGroup;
+			children = (
+				A5056A5E2A13A4CB001E79C2 /* VaccineView.swift */,
+			);
+			path = Vaccines;
+			sourceTree = "<group>";
+		};
+		A5056A492A13A307001E79C2 /* Height */ = {
+			isa = PBXGroup;
+			children = (
+				A5056A522A13A3B5001E79C2 /* HeightTabView.swift */,
+				A5056A542A13A3CC001E79C2 /* HeightView.swift */,
+				A5056A562A13A3DC001E79C2 /* GrowthTabView.swift */,
+				A5056A732A13B9CE001E79C2 /* HeightChartView.swift */,
+			);
+			path = Height;
+			sourceTree = "<group>";
+		};
+		A5056A622A13AFA6001E79C2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A5056A632A13AFB9001E79C2 /* HomePage.swift */,
+				A5056A652A13AFD1001E79C2 /* HomeScreen.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A5056A672A13B00B001E79C2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A5056A6C2A13B3A0001E79C2 /* DancingScript-Bold.ttf */,
+				A5056A6B2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf */,
+				A5056A712A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf */,
+				A5056A6F2A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf */,
+				A5056A692A13B391001E79C2 /* DancingScript-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B115D9B429EA09EB00DA0F63 /* images */ = {
@@ -180,6 +328,8 @@
 		B16BE38229C229DE0024806A /* Babylo */ = {
 			isa = PBXGroup;
 			children = (
+				A5056A682A13B1F6001E79C2 /* Info.plist */,
+				A5056A672A13B00B001E79C2 /* Fonts */,
 				B115D9B429EA09EB00DA0F63 /* images */,
 				B1F316A029C2D64A00C88D78 /* ViewModel */,
 				B16BE39929C22B180024806A /* Model */,
@@ -205,13 +355,15 @@
 		B16BE39629C22ADB0024806A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A5056A622A13AFA6001E79C2 /* Home */,
+				A5056A432A13A2C8001E79C2 /* Profile */,
+				B186ABE02A04FC5D00739EAD /* AudioBook */,
 				B18F15D129E60E00009F6F3B /* Music */,
-				A5ABA67129DEC2C8001517E2 /* Home */,
 				B16BE3A829C230490024806A /* Components */,
 				B16BE39F29C22FEC0024806A /* Authentication */,
-				B16BE39C29C22DAD0024806A /* Profile */,
 				B16BE39729C22AF40024806A /* IntroView.swift */,
 				A5C4753B29DEE67700A56858 /* Rootview.swift */,
+				A5056A412A13A2AA001E79C2 /* NotificationManager.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -219,21 +371,18 @@
 		B16BE39929C22B180024806A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B16BE39A29C22B2C0024806A /* Intro.swift */,
 				B1E2207429C5D6CB001D50A8 /* User.swift */,
 				B18F15DF29E7669B009F6F3B /* MusicModels.swift */,
+				B186ABE32A05358E00739EAD /* AudioBook.swift */,
+				A5056A1A2A139DBD001E79C2 /* Intro.swift */,
+				A5056A2F2A13A1C5001E79C2 /* Baby.swift */,
+				A5056A312A13A1DF001E79C2 /* Height.swift */,
+				A5056A332A13A1EF001E79C2 /* Weight.swift */,
+				A5056A352A13A200001E79C2 /* Vaccine.swift */,
+				A5056A372A13A20F001E79C2 /* Doctor.swift */,
+				A5056A392A13A220001E79C2 /* UpcomingVaccine.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B16BE39C29C22DAD0024806A /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				B16BE39D29C22E100024806A /* SettignsView.swift */,
-				A5ABA66F29DEC261001517E2 /* AddBaby.swift */,
-				A5ABA67429DEC314001517E2 /* BabyProfile.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		B16BE39F29C22FEC0024806A /* Authentication */ = {
@@ -253,8 +402,24 @@
 			children = (
 				B16BE3A929C230550024806A /* AppColors.swift */,
 				B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */,
+				A5056A3D2A13A276001E79C2 /* TopTabView.swift */,
+				A5056A3F2A13A289001E79C2 /* BottomNavBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B186ABE02A04FC5D00739EAD /* AudioBook */ = {
+			isa = PBXGroup;
+			children = (
+				B186ABE12A04FC7B00739EAD /* AudioBookHomePage.swift */,
+				B186ABE52A05364700739EAD /* AudioBookItems.swift */,
+				B186ABE72A05369800739EAD /* AudioBookOverviewView.swift */,
+				A58A7FB02A061341005C2133 /* BookShelf.swift */,
+				A58A7FB22A0619A5005C2133 /* Bookdetails.swift */,
+				A58A7FB42A061C31005C2133 /* Rating.swift */,
+				B1AF906D2A084405001A2977 /* playedbook.swift */,
+			);
+			path = AudioBook;
 			sourceTree = "<group>";
 		};
 		B18F15D129E60E00009F6F3B /* Music */ = {
@@ -270,6 +435,8 @@
 				B172A34829E9805100A43237 /* songItem.swift */,
 				B172A34A29E9806D00A43237 /* PlaylistItem.swift */,
 				B172A34C29E9808A00A43237 /* CurrentlyPlaying.swift */,
+				B1BB834429F99C4200E5F917 /* addPlaylist.swift */,
+				A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -279,6 +446,8 @@
 			children = (
 				B1F316A129C2D66F00C88D78 /* UserViewModel.swift */,
 				B172A34E29E994FE00A43237 /* MusicViewModel.swift */,
+				A5BA0AF42A08BBF40054F1F6 /* AudioBookviewModel.swift */,
+				A5056A3B2A13A244001E79C2 /* BabyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -355,6 +524,7 @@
 				B16BE38B29C229DF0024806A /* Preview Assets.xcassets in Resources */,
 				B115D9B629EA0A0B00DA0F63 /* login.png in Resources */,
 				B115D9C629EA0A2000DA0F63 /* music.gif in Resources */,
+				A5056A6E2A13B3A0001E79C2 /* DancingScript-Bold.ttf in Resources */,
 				B115D9C829EA0A2000DA0F63 /* tracks.png in Resources */,
 				B115D9C429EA0A2000DA0F63 /* reset3..png in Resources */,
 				B115D9C729EA0A2000DA0F63 /* reset2.png in Resources */,
@@ -363,9 +533,13 @@
 				B115D9C929EA0A2000DA0F63 /* playlis2.png in Resources */,
 				B115D9CE29EA112200DA0F63 /* intro.gif in Resources */,
 				B115D9CC29EA0A6B00DA0F63 /* README.md in Resources */,
+				A5056A6D2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf in Resources */,
 				B115D9B829EA0A1600DA0F63 /* signup.png in Resources */,
 				B115D9C229EA0A2000DA0F63 /* music-overview.png in Resources */,
 				B115D9C329EA0A2000DA0F63 /* reset1.png in Resources */,
+				A5056A702A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf in Resources */,
+				A5056A722A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf in Resources */,
+				A5056A6A2A13B391001E79C2 /* DancingScript-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,38 +593,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16BE39029C229DF0024806A /* Babylo.xcdatamodeld in Sources */,
-				A5ABA67329DEC2E0001517E2 /* HomePage.swift in Sources */,
+				B186ABE82A05369800739EAD /* AudioBookOverviewView.swift in Sources */,
+				B186ABE22A04FC7B00739EAD /* AudioBookHomePage.swift in Sources */,
+				A5056A302A13A1C5001E79C2 /* Baby.swift in Sources */,
 				B18F15D829E616AF009F6F3B /* PageControl.swift in Sources */,
+				A5056A642A13AFB9001E79C2 /* HomePage.swift in Sources */,
+				A5056A342A13A1EF001E79C2 /* Weight.swift in Sources */,
 				B18F15E229E7A45D009F6F3B /* Playlist.swift in Sources */,
+				A5056A1B2A139DBD001E79C2 /* Intro.swift in Sources */,
+				A5056A592A13A402001E79C2 /* WeightTabView.swift in Sources */,
 				B172A34729E9803800A43237 /* favorites.swift in Sources */,
+				A5056A322A13A1DF001E79C2 /* Height.swift in Sources */,
 				B16BE38D29C229DF0024806A /* Persistence.swift in Sources */,
-				B16BE39B29C22B2C0024806A /* Intro.swift in Sources */,
 				B16BE39829C22AF40024806A /* IntroView.swift in Sources */,
 				B16BE38629C229DE0024806A /* ContentView.swift in Sources */,
+				A5056A362A13A200001E79C2 /* Vaccine.swift in Sources */,
+				A5056A3C2A13A244001E79C2 /* BabyViewModel.swift in Sources */,
 				B172A34F29E994FE00A43237 /* MusicViewModel.swift in Sources */,
 				B1F316A229C2D66F00C88D78 /* UserViewModel.swift in Sources */,
+				A58A7FB32A0619A5005C2133 /* Bookdetails.swift in Sources */,
+				B186ABE62A05364700739EAD /* AudioBookItems.swift in Sources */,
 				B172A34B29E9806D00A43237 /* PlaylistItem.swift in Sources */,
+				A5056A742A13B9CE001E79C2 /* HeightChartView.swift in Sources */,
 				B16BE3A429C2300E0024806A /* Signup.swift in Sources */,
-				A5ABA67529DEC314001517E2 /* BabyProfile.swift in Sources */,
+				A5056A662A13AFD1001E79C2 /* HomeScreen.swift in Sources */,
+				A58A7FB52A061C31005C2133 /* Rating.swift in Sources */,
 				B172A34D29E9808A00A43237 /* CurrentlyPlaying.swift in Sources */,
+				A5056A382A13A20F001E79C2 /* Doctor.swift in Sources */,
 				B16BE3A529C2300E0024806A /* Login.swift in Sources */,
+				A5CFD10A2A14E72B00D17947 /* WeightGrowthTab.swift in Sources */,
+				A5056A532A13A3B5001E79C2 /* HeightTabView.swift in Sources */,
 				B18F15DA29E7033E009F6F3B /* NowPlaying.swift in Sources */,
-				A5ABA67029DEC261001517E2 /* AddBaby.swift in Sources */,
+				A5BA0AF72A08E6A20054F1F6 /* AlbumView.swift in Sources */,
+				A5056A512A13A37F001E79C2 /* SettignsView.swift in Sources */,
 				B172A34929E9805100A43237 /* songItem.swift in Sources */,
+				A5056A3A2A13A220001E79C2 /* UpcomingVaccine.swift in Sources */,
+				A5056A4F2A13A365001E79C2 /* Profile.swift in Sources */,
 				B1E2207529C5D6CB001D50A8 /* User.swift in Sources */,
+				A58A7FB12A061341005C2133 /* BookShelf.swift in Sources */,
 				B16BE3B429C278C30024806A /* resetpassword3.swift in Sources */,
+				A5056A5F2A13A4CB001E79C2 /* VaccineView.swift in Sources */,
+				B1AF906E2A084405001A2977 /* playedbook.swift in Sources */,
 				B18F15D629E6153F009F6F3B /* OverviewView.swift in Sources */,
-				A5ABA67729DECFAD001517E2 /* HomeView.swift in Sources */,
+				A5056A5B2A13A492001E79C2 /* WeightView.swift in Sources */,
 				B18F15DC29E7651B009F6F3B /* Tracks.swift in Sources */,
 				B1BA9D7129C7D44A0078DAC0 /* reset1.swift in Sources */,
 				B18F15D329E60E17009F6F3B /* MusicHomePage.swift in Sources */,
+				A5056A4B2A13A334001E79C2 /* AddBaby.swift in Sources */,
+				A5056A3E2A13A276001E79C2 /* TopTabView.swift in Sources */,
+				B186ABE42A05358E00739EAD /* AudioBook.swift in Sources */,
+				A5056A572A13A3DC001E79C2 /* GrowthTabView.swift in Sources */,
+				A5056A552A13A3CC001E79C2 /* HeightView.swift in Sources */,
 				B1BA9D7329C7D4810078DAC0 /* reset2.swift in Sources */,
-				B16BE39E29C22E100024806A /* SettignsView.swift in Sources */,
+				B1BB834529F99C4200E5F917 /* addPlaylist.swift in Sources */,
 				B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */,
 				B16BE3AA29C230550024806A /* AppColors.swift in Sources */,
+				A5056A5D2A13A4A3001E79C2 /* WeightChartView.swift in Sources */,
 				A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */,
+				A5056A402A13A289001E79C2 /* BottomNavBar.swift in Sources */,
 				B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */,
+				A5056A422A13A2AA001E79C2 /* NotificationManager.swift in Sources */,
 				B18F15E029E7669B009F6F3B /* MusicModels.swift in Sources */,
+				A5056A4D2A13A356001E79C2 /* UpcomingVaccineCard.swift in Sources */,
+				A5056A612A13A4E0001E79C2 /* AppointmentsView.swift in Sources */,
+				A5BA0AF52A08BBF40054F1F6 /* AudioBookviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +788,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Babylo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Babylo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -611,6 +818,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Babylo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Babylo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

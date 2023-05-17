@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct SettignsView: View {
     @State var notifEnabled: Bool = true
@@ -20,6 +21,11 @@ struct SettignsView: View {
     @State private var showError = false
     @State private var errorTitle = ""
     @State private var errorMessage = ""
+    @State private var showLogoutConfirmation = false
+    @Binding var isAuthenticated: Bool
+    @State private var isLoggedIn = false
+
+    
     
     var body: some View {
         NavigationView {
@@ -43,18 +49,20 @@ struct SettignsView: View {
                             Image(systemName: "chevron.right").foregroundColor(Color.yellow)
                         }
                     }
-                    
-                    Button(action: {
-                        
-                        showpasswordDialog = true
-                    }) {
-                        HStack {
-                            Text("Change Password")
-                                .foregroundColor(Color.black)
-                            Spacer(minLength: 15)
-                            Image(systemName: "chevron.right").foregroundColor(Color.yellow)
+                   
+                        Button(action: {
+                            
+                            showpasswordDialog = true
+                        }) {
+                            HStack {
+                                Text("Change Password")
+                                    .foregroundColor(Color.black)
+                                Spacer(minLength: 15)
+                                Image(systemName: "chevron.right").foregroundColor(Color.yellow)
+                            }
                         }
-                    }
+                    
+            
                 }
                 
                 Section {
@@ -70,15 +78,43 @@ struct SettignsView: View {
                         Image("logout")
                             .resizable()
                             .frame(width: 20, height: 20)
-                        Text("Logout")
-                        Spacer(minLength: 15)
-                        Image(systemName: "chevron.right").foregroundColor(Color.yellow)
+                        Button(action: {
+                            viewModel.logout()
+                            showLogoutConfirmation = true
+                            isLoggedIn=true
+                        }) {
+                            HStack {
+                                Text("Logout")
+                                    .foregroundColor(.black)
+                                Spacer(minLength: 15)
+                                Image(systemName: "chevron.right").foregroundColor(Color.yellow)
+                            }
+                        }
                     }
                 }
+
             }
             .alert(isPresented: $showError) {
                 Alert(title: Text(errorTitle).foregroundColor(.red), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
+            .alert(isPresented: $showLogoutConfirmation) {
+                Alert(title: Text("Logout"),
+                      message: Text("Are you sure you want to logout?"),
+                      primaryButton: .destructive(Text("Logout")) {
+                          viewModel.logout()
+                          isAuthenticated = false
+                      },
+                      secondaryButton: .cancel())
+            }
+            .background(
+                
+                        NavigationLink(
+                            destination: LoginView().navigationBarHidden(false),
+                            isActive: $isLoggedIn
+                        ) { EmptyView() }
+                    )
+
+
             .navigationTitle("Settings")
             .alert("Change your username", isPresented: $showUsernameDialog, actions: {
                 TextField("Username", text: $username)
@@ -136,7 +172,9 @@ struct SettignsView: View {
 
 
 struct SettignsView_Previews: PreviewProvider {
+    @State static private var isAuthenticated = true
+
     static var previews: some View {
-        SettignsView()
+        SettignsView(isAuthenticated: $isAuthenticated)
     }
 }

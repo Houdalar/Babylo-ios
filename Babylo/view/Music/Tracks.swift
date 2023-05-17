@@ -12,7 +12,7 @@ struct TracksView: View {
                         .padding(.top, 10)
 
                     ForEach(backendService.tracks, id: \.id) { track in
-                        TrackRow(track: track, isPlaylistSong: false)
+                        TrackRow(track: track, isPlaylistSong: false , isFavorite: false,playlistId: nil)
                             .padding(.horizontal)
                             .padding(.vertical, 5)
                     }

@@ -9,6 +9,7 @@ import SwiftUI
 struct PlaylistCoverView: View {
 
     let playlist: Playlist
+    var onLongPress: (() -> Void)?
 
     
 
@@ -55,7 +56,40 @@ struct PlaylistCoverView: View {
                 .padding(.leading, 10)
 
         }
+        .gesture(
+            LongPressGesture(minimumDuration: 1)
+                .onEnded { _ in
+                    onLongPress?()
+                }
+        )
 
     }
 
 }
+
+struct AddPlaylistCard: View {
+    var body: some View {
+        NavigationLink(destination: AddPlaylistView()) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 280, height: 280)
+
+                Image(systemName: "plus")
+                    .font(.system(size: 80))
+                    .foregroundColor(.white)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+
+
+
+
+
+
+
+
+
+

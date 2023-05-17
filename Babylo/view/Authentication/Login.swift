@@ -167,7 +167,7 @@ struct LoginView: View {
                         ) { EmptyView() }
                         
                         NavigationLink(
-                            destination:  HomePage()
+                            destination:  MusicPlayerHomeView()
                                 .environmentObject(musicViewModel).navigationBarHidden(true),
                             isActive: $isHomeActive
                         ) { EmptyView() }

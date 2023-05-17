@@ -14,9 +14,22 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     var currentUser: User?
     @Published var isLoading: Bool = false
-    @Published var isAuthenticated = false
+    @Published var isAuthenticated: Bool = false {
+            didSet {
+                UserDefaults.standard.set(isAuthenticated, forKey: "isAuthenticated")
+            }
+        }
     @Published var isRegistred = false
     private let baseURL = "http://localhost:8080/"
+    
+    init() {
+            isAuthenticated = UserDefaults.standard.bool(forKey: "isAuthenticated")
+        }
+
+    func logout() {
+        isAuthenticated = false
+    }
+
     
     func login(email: String, password: String, onSuccess: @escaping (_ token: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
         AF.request(baseURL+"user/login" ,
@@ -38,7 +51,7 @@ class UserViewModel: ObservableObject {
                     case 200:
                         guard let token = jsonData["token"] as? String,
                               let email = jsonData["email"] as? String,
-                              let name = jsonData["name"] as? String 
+                              let name = jsonData["name"] as? String
                         else {
                             onFailure("Error", "Invalid response format")
                             return
@@ -214,4 +227,3 @@ class UserViewModel: ObservableObject {
     
 
 }
-

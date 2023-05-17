@@ -3,23 +3,26 @@ import AVFoundation
 import CoreImage
 import CoreImage.CIFilterBuiltins
 import UIImageColors
+import SDWebImageSwiftUI
 
 struct MusicPlayerView: View {
 
-    let coverImage: Image
-    let songName: String
-    let artistName: String
-
+    let track : Track
     @State private var isPlaying: Bool = false
     @State private var progressColor: Color = .green
     @State private var progress: Double = 0.8
-   
-
+    @State private var dominantColor: Color = .white
+    @State private var currentPosition: String = "0:00"
+    @State private var remainingTime: String = "-0:00"
+    
+    @StateObject private var audioPlayer = AudioPlayer()
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack {
             HStack{
                             Button(action: {
                                 // Back button tapped
+                                presentationMode.wrappedValue.dismiss()
                             }) {
                                 Image(systemName: "chevron.left")
                                     .font(Font.system(size: 22, weight: .bold))
@@ -44,32 +47,31 @@ struct MusicPlayerView: View {
             ZStack {
                            Circle()
                                .fill(Color.white)
-                               .frame(width: 280, height: 280)
-                           Circle()
-                               .trim(from: 0, to: CGFloat(progress))
-                               .stroke(progressColor, lineWidth: 8)
-                               .frame(width: 280, height: 280)
-                               .rotationEffect(Angle(degrees: -90))
+                               .frame(width: 300, height: 300)
+                          
 
-                           CDView(image: coverImage)
-                               .frame(width: 250, height: 250)
-                               .clipShape(Circle())
-                               .overlay(Circle().stroke(Color.white, lineWidth: 5))
-                               .rotationEffect(Angle(degrees: isPlaying ? 360 : 0))
-                               .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isPlaying)
-                               .shadow(radius: 10)
-                               .padding(30)
+                CDView(url: URL(string: track.cover)!)
+                    .frame(width: 300, height: 300)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                    .rotationEffect(Angle(degrees: isPlaying ? 360 : 0))
+                    .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isPlaying)
+                    .shadow(radius: 10)
+                    .padding(30)
                        }
-                       .padding(.bottom, 50)
+                       .padding(.bottom, 20)
 
-                       Text(songName)
-                           .font(.custom("YourCustomFontName-ExtraBold", size: 24))
-                           .foregroundColor(Color(.label))
+            Text(track.name)
+                           .font(.custom("YourCustomFontName-ExtraBold", size: 30))
+                           .foregroundColor(progressColor)
+                           .fontWeight(.bold)
+                           
 
-                       Text(artistName)
+            Text(track.artist)
                            .font(.custom("YourCustomFontName-Regular", size: 18))
                            .foregroundColor(.gray)
-                           .padding(.bottom, 10)
+                           .padding(.top,10)
+                           .padding(.bottom, 20)
 
             ProgressBar(value: $progress, progressColor: $progressColor, thumbPosition: CGFloat(progress))
                 .frame(height: 8)
@@ -77,13 +79,13 @@ struct MusicPlayerView: View {
                 
 
                        HStack {
-                           Text("0:00")
+                           Text(currentPosition)
                                .font(.caption)
                                .foregroundColor(.gray)
 
                            Spacer()
 
-                           Text("-0:00")
+                           Text(remainingTime)
                                .font(.caption)
                                .foregroundColor(.gray)
                        }
@@ -104,6 +106,11 @@ struct MusicPlayerView: View {
                 
                 Button(action: {
                     self.isPlaying.toggle()
+                    if isPlaying {
+                           audioPlayer.play(url: track.url)
+                       } else {
+                           audioPlayer.pause()
+                       }
                 }) {
                     Circle()
                         .fill(Color.white)
@@ -113,7 +120,7 @@ struct MusicPlayerView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.black)
+                                .foregroundColor(progressColor)
                         )
                         .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 3)
                 }
@@ -140,11 +147,26 @@ struct MusicPlayerView: View {
                         .ignoresSafeArea()
                 )
         .onAppear {
-            if let image = UIImage(named: "Education Is The Way Up") {
-                if let dominantColor = self.dominantColor(for: image) {
-                               progressColor = Color(dominantColor)
-                           }
+            DispatchQueue.global(qos: .userInitiated).async {
+                if let imageData = try? Data(contentsOf: URL(string: track.cover)!),
+                   let image = UIImage(data: imageData),
+                   let dominantColor = self.dominantColor(for: image) {
+                    DispatchQueue.main.async {
+                        progressColor = Color(dominantColor)
+                    }
+                }
             }
+        }
+        
+        .onReceive(audioPlayer.$currentTime) { _ in
+            updateTimeLabels()
+            if audioPlayer.duration > 0 {
+                progress = audioPlayer.currentTime / audioPlayer.duration
+            }
+        }
+        .onDisappear {
+            audioPlayer.pause()
+            audioPlayer.currentTime = 0
         }
             }
 
@@ -154,59 +176,113 @@ struct MusicPlayerView: View {
         }
         return nil
     }
+    private func updateTimeLabels() {
+        if !audioPlayer.currentTime.isNaN && !audioPlayer.currentTime.isInfinite && !audioPlayer.duration.isNaN && !audioPlayer.duration.isInfinite {
+            let position = Int(audioPlayer.currentTime)
+            let remaining = Int(audioPlayer.duration - audioPlayer.currentTime)
+            currentPosition = String(format: "%d:%02d", position / 60, position % 60)
+            remainingTime = String(format: "-%d:%02d", remaining / 60, remaining % 60)
+        }
+    }
+
         }
 
-        struct MusicPlayerView_Previews: PreviewProvider {
+struct MusicPlayerView_Previews: PreviewProvider {
             static var previews: some View {
-                MusicPlayerView(coverImage: Image("Education Is The Way Up"), songName: "Example Song", artistName: "Example Artist")
+                MusicPlayerView(track: Track(id: "1", name: "morning", artist: "houda", cover: "http://localhost:8080/media/images/Italian_Illustrator_Shows_The_True_Colors_Of_Cats_That_Prove_How_Adorable_They_Can_Be_(30_Pics).png1682507562100.png", category: "String", url: "http://localhost:8080/media/audiobooks/aladdin.mp3", listened: 4, date: "String", duration: "String"))
             }
         }
 
-        struct ProgressBar: View {
-            @Binding var value: Double
-             var progressColor: Binding<Color>
-             var thumbPosition: CGFloat
+struct ProgressBar: View {
+        @Binding var value: Double
+            var progressColor: Binding<Color>
+            var thumbPosition: CGFloat
 
-            var body: some View {
-                GeometryReader { geometry in
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .opacity(0.3)
-                            .foregroundColor(.gray)
-                        Rectangle()
-                            .foregroundColor(progressColor.wrappedValue)
-                            .frame(width: CGFloat(self.value) * geometry.size.width)
-                        Circle()
-                            .frame(width: 10, height: 10)
-                            .foregroundColor(progressColor.wrappedValue)
-                            .position(x: thumbPosition * geometry.size.width, y: geometry.size.height / 2)
-                    }
-                    .cornerRadius(4)
+        var body: some View {
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .opacity(0.3)
+                        .foregroundColor(.gray)
+                    Rectangle()
+                        .foregroundColor(progressColor.wrappedValue)
+                        .frame(width: CGFloat(self.value) * geometry.size.width)
+                    Circle()
+                        .frame(width: 10, height: 10)
+                        .foregroundColor(progressColor.wrappedValue)
+                        .position(x: thumbPosition * geometry.size.width, y: geometry.size.height / 2)
                 }
+                .cornerRadius(4)
             }
         }
+    }
 
 struct CDView: View {
-    let image: Image
-    @State private var isRotating = false
+        let url: URL
+        @State private var isRotating = false
+
+        var body: some View {
+            WebImage(url: url)
+                .resizable()
+                .frame(width: 400, height: 400)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                .mask(
+                    Circle()
+                        .inset(by: 30)
+                        .stroke(style: StrokeStyle(lineWidth: 275, lineCap: .round, lineJoin: .round))
+                        .path(in: CGRect(x: 0, y: 0, width: 400, height: 400))
+                )
+                .rotationEffect(Angle(degrees: isRotating ? 360 : 0))
+                .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isRotating)
+                .onAppear {
+                    isRotating = true
+                }
+                .background(Color.clear)
+        }
+    }
+struct BlurryBackgroundView: View {
+    var color: Color
+
     var body: some View {
-        image
-            .resizable()
-            .frame(width: 300, height: 300)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 5))
-            .mask(
-                Circle()
-                    .inset(by: 30)
-                    .stroke(style: StrokeStyle(lineWidth: 180, lineCap: .round, lineJoin: .round))
-                    .path(in: CGRect(x: 0, y: 0, width:300, height: 300))
-            )
-            .rotationEffect(Angle(degrees: isRotating ? 360 : 0))
-            .animation(Animation.linear(duration: 20).repeatForever(autoreverses: false), value: isRotating)
-            .onAppear {
-                isRotating = true
-            }
-            .background(Color.clear)
+        Rectangle()
+            .fill(color)
+            .blur(radius: 30)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
+class AudioPlayer: ObservableObject {
+    @Published var player: AVPlayer
+    @Published var currentTime: TimeInterval = 0
+    @Published var duration: TimeInterval = 0
+    var timeObserver: Any?
+    var seekTime: CMTime?
+
+    init() {
+        player = AVPlayer()
+        timeObserver = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1000), queue: DispatchQueue.main) { [weak self] time in
+            guard let currentItem = self?.player.currentItem else { return }
+            self?.currentTime = time.seconds
+            self?.duration = currentItem.duration.seconds
+        }
+    }
+    
+    func play(url: String) {
+            if let audioURL = URL(string: url) {
+                let playerItem = AVPlayerItem(url: audioURL)
+                player.replaceCurrentItem(with: playerItem)
+                
+                if let seekTime = seekTime {
+                    player.seek(to: seekTime)
+                }
+                
+                player.play()
+            }
+        }
+    
+    func pause() {
+            seekTime = player.currentTime()
+            player.pause()
+        }
+}

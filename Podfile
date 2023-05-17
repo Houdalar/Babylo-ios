@@ -9,5 +9,10 @@ target 'Babylo' do
 pod 'Alamofire'
 pod 'UIImageColors'
 pod 'Kingfisher'
+pod 'SDWebImageSwiftUI'
+pod 'Cosmos'
+
+
+
 
 end
