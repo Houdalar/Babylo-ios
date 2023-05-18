@@ -51,24 +51,21 @@ struct AudioBookOverviewView: View {
                     }
                     .padding(.top, 10)
                     .onAppear(perform: viewModel.fetchTopAudioBooks)
+                    sectionHeader(title: "Adventure")
+                        .padding(.top, 20)
                     
-                
-                                // Adventure Category
-                                CategoryCardView(category: categories[0].0, cover: categories[0].1)
-                                    .padding(.top, 20)
                                 CategoryBar(categories: [categories[0]], booksByCategory: viewModel.booksByCategory)
-                                    .padding(.top, -60)
+                                    .padding(.top, 10)
                                 
-                                // Fiction Category
-                                CategoryCardView(category: categories[1].0, cover: categories[1].1)
-                                    .padding(.top, 20)
+                    sectionHeader(title: "Fiction")
+                        .padding(.top, 20)
                                 CategoryBar(categories: [categories[1]], booksByCategory: viewModel.booksByCategory)
-                                    .padding(.top, -60)
+                                    .padding(.top, 10)
                     
-                    CategoryCardView(category: categories[2].0, cover: categories[1].1)
+                    sectionHeader(title: "Mystery")
                         .padding(.top, 20)
                     CategoryBar(categories: [categories[2]], booksByCategory: viewModel.booksByCategory)
-                        .padding(.top, -60)
+                        .padding(.top, 10)
 
                                 
                             }

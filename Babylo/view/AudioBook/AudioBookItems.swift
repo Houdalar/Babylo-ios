@@ -94,6 +94,7 @@ struct CategoryBar: View {
             }
         }
     }
+                     
 
 
 struct BookShelfCardView: View {
@@ -101,6 +102,7 @@ struct BookShelfCardView: View {
     let audioBook: AudioBook
     @State private var showingActionSheet = false
     var onRemove: (() -> Void)? = nil
+    @State private var showingMusicPlayer = false
     
     var body: some View {
         VStack {
@@ -172,6 +174,12 @@ struct BookShelfCardView: View {
         .background(Color(.systemBackground))
         .cornerRadius(20)
         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+        .onTapGesture {
+                    showingMusicPlayer = true
+                }
+                .sheet(isPresented: $showingMusicPlayer) {
+                    BookDetailsView(audioBook: audioBook)
+                }
     }
 }
 

@@ -32,7 +32,7 @@ struct HeightView: View {
                 Spacer()
             }
             
-          //  TopTabView(tabIndex: $selectedTab,text1: //"Height",text2: "Growth")
+            TopTabView(tabIndex: $selectedTab,text1: "Height",text2: "Growth")
             
             if selectedTab == 0 {
                 HeightTabView(babyViewModel: babyViewModel, babyName: babyName)

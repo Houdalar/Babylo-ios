@@ -3,12 +3,25 @@ import Cosmos
 
 struct BookDetailsView: View {
     let audioBook: AudioBook
-    @State private var rating: Double = 3.5
-    @State private var expandedDescription: Bool = false
-    @State private var showingMusicPlayer = false
-    @State private var showingAlert = false
-    @State private var alertMessage = ""
-    @StateObject private var viewModel = AudioBookViewModel()
+        @State private var rating: Double
+        @State private var newRating: Double = 3.5
+        @State private var expandedDescription: Bool = false
+        @State private var showingMusicPlayer = false
+        @State private var showingRatingDialog = false
+        @State private var showingAlert = false
+        @State private var alertMessage = ""
+        @StateObject private var viewModel = AudioBookViewModel()
+    init(audioBook: AudioBook) {
+           self.audioBook = audioBook
+           _rating = State(initialValue: audioBook.rating)
+       
+       }
+    
+    let categories: [(String, String)] = [
+        ("Adventure", "http://localhost:8080/media/images/MattRockefeller.png1683522421785.png"),
+        ("Fiction", "http://localhost:8080/media/images/OfaFeather.jpeg1683525106258.jpg"),
+        ("Mystery", "http://localhost:8080/media/images/MattRockefeller.png1683522421785.png")
+    ]
 
     var body: some View {
         ScrollView {
@@ -71,6 +84,15 @@ struct BookDetailsView: View {
                                        .alert(isPresented: $showingAlert) {
                                                    Alert(title: Text(alertMessage))
                                                }
+                        Button(action: {
+                                            showingRatingDialog = true
+                                        }) {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.white)
+                                                .padding()
+                                                .background(Color.yellow)
+                                                .clipShape(Circle())
+                                        }
                                    }
 
                     Divider()
@@ -153,28 +175,59 @@ struct BookDetailsView: View {
                             .padding(.horizontal)
                             
 
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 30) {
-                                ForEach(0..<5) { _ in
-                                    AudioBookCardView(audioBook: audioBook)
-                                }
-                            }.padding(.horizontal)
+                       /* ScrollView(.horizontal, showsIndicators: false) {
+                            CategoryBar(categories: [(audioBook.category, audioBook.cover)], booksByCategory: viewModel.booksByCategory)
+                                                   .padding(.top, 10)
+                           
+                           
                         }
                        
-                        .padding(.top)
+                        .padding(.top)*/
+                        if let similarBooks = viewModel.booksByCategory[audioBook.category] {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 30) {
+                                    ForEach(similarBooks) { book in
+                                        AudioBookCardView(audioBook: book)
+                                    }
+                                }
+                            }
+                            .padding(.top)
+                            .padding(.horizontal)
+                        } else {
+                            ProgressView()
+                        }
+                            
                     }  .padding(.horizontal,100)
                 }
-              
+               
                 
                
                 
             }
         }
+        .onAppear {
+                  viewModel.fetchAudioBooksByCategory(category: audioBook.category)
+              }
+        .overlay(
+                    RatingDialogView(isShowing: $showingRatingDialog, rating: $newRating) {
+                        viewModel.updateBookRating(bookId: audioBook.id, newRating: newRating) { error in
+                            if let error = error {
+                                alertMessage = "Error updating book rating: \(error)"
+                            } else {
+                                alertMessage = "Book rating successfully updated"
+                                rating = newRating
+                            }
+                            showingAlert = true
+                        }
+                    }
+                )
+
       
         
         .sheet(isPresented: $showingMusicPlayer) {
             playedbook(book: audioBook)
         }
+        
         
     }
 }

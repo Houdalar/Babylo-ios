@@ -46,6 +46,7 @@
 		A5BA0AF72A08E6A20054F1F6 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */; };
 		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
 		A5CFD10A2A14E72B00D17947 /* WeightGrowthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */; };
+		A5F3A3542A163DD000BA84B9 /* RatingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F3A3532A163DD000BA84B9 /* RatingDialog.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B115D9B629EA0A0B00DA0F63 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B529EA0A0B00DA0F63 /* login.png */; };
 		B115D9B829EA0A1600DA0F63 /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B729EA0A1600DA0F63 /* signup.png */; };
@@ -134,6 +135,7 @@
 		A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
 		A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightGrowthTab.swift; sourceTree = "<group>"; };
+		A5F3A3532A163DD000BA84B9 /* RatingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDialog.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B115D9B529EA0A0B00DA0F63 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		B115D9B729EA0A1600DA0F63 /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */,
 				A5056A3D2A13A276001E79C2 /* TopTabView.swift */,
 				A5056A3F2A13A289001E79C2 /* BottomNavBar.swift */,
+				A5F3A3532A163DD000BA84B9 /* RatingDialog.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */,
 				A5056A402A13A289001E79C2 /* BottomNavBar.swift in Sources */,
 				B16BE38429C229DE0024806A /* BabyloApp.swift in Sources */,
+				A5F3A3542A163DD000BA84B9 /* RatingDialog.swift in Sources */,
 				A5056A422A13A2AA001E79C2 /* NotificationManager.swift in Sources */,
 				B18F15E029E7669B009F6F3B /* MusicModels.swift in Sources */,
 				A5056A4D2A13A356001E79C2 /* UpcomingVaccineCard.swift in Sources */,

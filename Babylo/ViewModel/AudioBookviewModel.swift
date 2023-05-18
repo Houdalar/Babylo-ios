@@ -74,20 +74,6 @@ class AudioBookViewModel: ObservableObject {
             }
     }
 
-    func updateRatingAudioBook(id: String, rating: Double) {
-        let parameters: Parameters = ["id": id, "Rating": rating]
-
-        AF.request(baseURL + "media/updateRatingAudioBook", method: .put, parameters: parameters, encoding: JSONEncoding.default)
-            .validate()
-            .responseDecodable(of: AudioBook.self) { response in
-                switch response.result {
-                case .success(let audioBook):
-                    print("Rating updated successfully for audio book: \(audioBook)")
-                case .failure(let error):
-                    print("Error updating rating for audio book: \(error)")
-                }
-            }
-    }
     
     func fetchBookShelf() {
             let parameters: [String: Any] = ["token": token]
@@ -129,6 +115,24 @@ class AudioBookViewModel: ObservableObject {
         ]
         
         AF.request(baseURL+"user/audiobook/removeFavoritesbooks", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                self.fetchBookShelf()
+                completionHandler(nil)
+            case .failure(let error):
+                completionHandler(error)
+            }
+        }
+    }
+    
+    func updateBookRating(bookId: String, newRating: Double, completionHandler: @escaping (Error?) -> Void) {
+        let parameters: [String: Any] = ["id": bookId, "Rating": newRating]
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        
+        AF.request(baseURL+"media/updateRatingAudioBook", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success:
                 self.fetchBookShelf()

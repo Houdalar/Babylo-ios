@@ -12,6 +12,8 @@ struct playedbook: View {
     @State private var progressColor: Color = .green
     @State private var progress: Double = 0.8
     @State private var dominantColor: Color = .white
+    @State private var currentPosition: String = "0:00"
+    @State private var remainingTime: String = "-0:00"
     
     @StateObject private var audioPlayer = AudioPlayer()
     @Environment(\.presentationMode) var presentationMode
@@ -46,14 +48,10 @@ struct playedbook: View {
                            Circle()
                                .fill(Color.white)
                                .frame(width: 280, height: 280)
-                           Circle()
-                               .trim(from: 0, to: CGFloat(progress))
-                               .stroke(progressColor, lineWidth: 8)
-                               .frame(width: 280, height: 280)
-                               .rotationEffect(Angle(degrees: -90))
+                          
 
                 CDView(url: URL(string: book.cover)!)
-                    .frame(width: 250, height: 250)
+                    .frame(width: 300, height: 300)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 5))
                     .rotationEffect(Angle(degrees: isPlaying ? 360 : 0))
@@ -61,20 +59,20 @@ struct playedbook: View {
                     .shadow(radius: 10)
                     .padding(30)
                        }
-                       .padding(.bottom, 50)
+                       .padding(.bottom, 20)
 
             Text(book.bookTitle)
                            .font(.custom("YourCustomFontName-ExtraBold", size: 24))
                            .foregroundColor(Color(.label))
 
-            Text(book.author)
+            Text("by : "+book.author)
                            .font(.custom("YourCustomFontName-Regular", size: 18))
                            .foregroundColor(.gray)
-                           .padding(.bottom, 10)
-            Text(book.narrator)
+                           .padding(.top, 20)
+            Text("narrator : "+book.narrator)
                            .font(.custom("YourCustomFontName-Regular", size: 18))
                            .foregroundColor(.gray)
-                           .padding(.bottom, 10)
+                           .padding(.top, 10)
 
             ProgressBar(value: $progress, progressColor: $progressColor, thumbPosition: CGFloat(progress))
                 .frame(height: 8)
@@ -82,29 +80,21 @@ struct playedbook: View {
                 
 
                        HStack {
-                           Text("0:00")
+                           Text(currentPosition)
                                .font(.caption)
                                .foregroundColor(.gray)
 
                            Spacer()
 
-                           Text("-0:00")
+                           Text(remainingTime)
                                .font(.caption)
                                .foregroundColor(.gray)
                        }
             
+            
             Spacer()
             
             HStack {
-                Button(action: {
-                    // Previous button tapped
-                }) {
-                    Image(systemName: "chevron.backward")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                }
-                
                 Spacer()
                 
                 Button(action: {
@@ -123,21 +113,12 @@ struct playedbook: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.black)
+                                .foregroundColor(progressColor)
                         )
                         .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 3)
                 }
                 
                 Spacer()
-                
-                Button(action: {
-                    // Next button tapped
-                }) {
-                    Image(systemName: "chevron.forward")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                }
                 
             }
             .padding(.bottom, 20)
@@ -160,6 +141,16 @@ struct playedbook: View {
                 }
             }
         }
+        .onReceive(audioPlayer.$currentTime) { _ in
+            updateTimeLabels()
+            if audioPlayer.duration > 0 {
+                progress = audioPlayer.currentTime / audioPlayer.duration
+            }
+        }
+        .onDisappear {
+            audioPlayer.pause()
+            audioPlayer.currentTime = 0
+        }
             }
     func dominantColor(for image: UIImage) -> UIColor? {
         if let colors = image.getColors() {
@@ -167,6 +158,16 @@ struct playedbook: View {
         }
         return nil
     }
+    
+    private func updateTimeLabels() {
+        if !audioPlayer.currentTime.isNaN && !audioPlayer.currentTime.isInfinite && !audioPlayer.duration.isNaN && !audioPlayer.duration.isInfinite {
+            let position = Int(audioPlayer.currentTime)
+            let remaining = Int(audioPlayer.duration - audioPlayer.currentTime)
+            currentPosition = String(format: "%d:%02d", position / 60, position % 60)
+            remainingTime = String(format: "-%d:%02d", remaining / 60, remaining % 60)
+        }
+    }
+
 
  
         }
