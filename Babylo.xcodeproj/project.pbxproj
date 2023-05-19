@@ -39,6 +39,12 @@
 		A5056A702A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A6F2A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf */; };
 		A5056A722A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5056A712A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf */; };
 		A5056A742A13B9CE001E79C2 /* HeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5056A732A13B9CE001E79C2 /* HeightChartView.swift */; };
+		A56E7F612A177D7E001FE947 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = A56E7F5E2A177D7E001FE947 /* chat.png */; };
+		A56E7F622A177D7E001FE947 /* pro.png in Resources */ = {isa = PBXBuildFile; fileRef = A56E7F5F2A177D7E001FE947 /* pro.png */; };
+		A56E7F632A177D7E001FE947 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A56E7F602A177D7E001FE947 /* home.png */; };
+		A56E7F652A177D89001FE947 /* dr.png in Resources */ = {isa = PBXBuildFile; fileRef = A56E7F642A177D89001FE947 /* dr.png */; };
+		A56E7F672A177D8E001FE947 /* hig.png in Resources */ = {isa = PBXBuildFile; fileRef = A56E7F662A177D8E001FE947 /* hig.png */; };
+		A56E7F692A177D91001FE947 /* similarbooks.png in Resources */ = {isa = PBXBuildFile; fileRef = A56E7F682A177D91001FE947 /* similarbooks.png */; };
 		A58A7FB12A061341005C2133 /* BookShelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB02A061341005C2133 /* BookShelf.swift */; };
 		A58A7FB32A0619A5005C2133 /* Bookdetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB22A0619A5005C2133 /* Bookdetails.swift */; };
 		A58A7FB52A061C31005C2133 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A7FB42A061C31005C2133 /* Rating.swift */; };
@@ -135,6 +141,12 @@
 		A5056A6F2A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-BoldItalic.ttf"; sourceTree = "<group>"; };
 		A5056A712A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Bold.ttf"; sourceTree = "<group>"; };
 		A5056A732A13B9CE001E79C2 /* HeightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightChartView.swift; sourceTree = "<group>"; };
+		A56E7F5E2A177D7E001FE947 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
+		A56E7F5F2A177D7E001FE947 /* pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pro.png; sourceTree = "<group>"; };
+		A56E7F602A177D7E001FE947 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		A56E7F642A177D89001FE947 /* dr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dr.png; sourceTree = "<group>"; };
+		A56E7F662A177D8E001FE947 /* hig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hig.png; sourceTree = "<group>"; };
+		A56E7F682A177D91001FE947 /* similarbooks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = similarbooks.png; sourceTree = "<group>"; };
 		A58A7FB02A061341005C2133 /* BookShelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelf.swift; sourceTree = "<group>"; };
 		A58A7FB22A0619A5005C2133 /* Bookdetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookdetails.swift; sourceTree = "<group>"; };
 		A58A7FB42A061C31005C2133 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -307,6 +319,12 @@
 		B115D9B429EA09EB00DA0F63 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A56E7F682A177D91001FE947 /* similarbooks.png */,
+				A56E7F662A177D8E001FE947 /* hig.png */,
+				A56E7F642A177D89001FE947 /* dr.png */,
+				A56E7F5E2A177D7E001FE947 /* chat.png */,
+				A56E7F602A177D7E001FE947 /* home.png */,
+				A56E7F5F2A177D7E001FE947 /* pro.png */,
 				A5DCC33D2A17496B00E34578 /* rating.png */,
 				A5DCC33B2A17493A00E34578 /* bookdetails.png */,
 				A5DCC3372A17481600E34578 /* bookshelf.png */,
@@ -547,8 +565,11 @@
 			files = (
 				B16BE38B29C229DF0024806A /* Preview Assets.xcassets in Resources */,
 				B115D9B629EA0A0B00DA0F63 /* login.png in Resources */,
+				A56E7F612A177D7E001FE947 /* chat.png in Resources */,
+				A56E7F672A177D8E001FE947 /* hig.png in Resources */,
 				B115D9C629EA0A2000DA0F63 /* music.gif in Resources */,
 				A5056A6E2A13B3A0001E79C2 /* DancingScript-Bold.ttf in Resources */,
+				A56E7F652A177D89001FE947 /* dr.png in Resources */,
 				B115D9C829EA0A2000DA0F63 /* tracks.png in Resources */,
 				A5DCC3382A17481600E34578 /* bookshelf.png in Resources */,
 				B115D9C429EA0A2000DA0F63 /* reset3..png in Resources */,
@@ -560,7 +581,9 @@
 				A5DCC3322A17479E00E34578 /* musicplayer.png in Resources */,
 				B115D9CE29EA112200DA0F63 /* intro.gif in Resources */,
 				B115D9CC29EA0A6B00DA0F63 /* README.md in Resources */,
+				A56E7F692A177D91001FE947 /* similarbooks.png in Resources */,
 				A5056A6D2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf in Resources */,
+				A56E7F632A177D7E001FE947 /* home.png in Resources */,
 				A5DCC3342A1747BD00E34578 /* settings.png in Resources */,
 				A5DCC3362A1747F000E34578 /* audiobooks.png in Resources */,
 				A5DCC33E2A17496B00E34578 /* rating.png in Resources */,
@@ -571,6 +594,7 @@
 				A5DCC3302A17478000E34578 /* bookplayer.png in Resources */,
 				A5056A722A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf in Resources */,
 				A5056A6A2A13B391001E79C2 /* DancingScript-Regular.ttf in Resources */,
+				A56E7F622A177D7E001FE947 /* pro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
