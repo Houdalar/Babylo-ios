@@ -13,7 +13,7 @@ Babylo includes an engaging onboarding screen that provides a quick introduction
 The onboarding screen is displayed when the app is installed and opened for the first time, guiding users through the main features of the app, such as tracking baby growth, managing doctor appointments, and accessing a music player and audiobooks for kids.
 
 <p align="center">
-<img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/intro.gif" alt="login" width="300" /> 
+<img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/intro.gif" alt="login" width="300" /> 
 </p>
 
 ## 🌟 Features
@@ -23,11 +23,11 @@ The onboarding screen is displayed when the app is installed and opened for the 
 Babylo uses an authentication system to protect your child's data. Sign up with an email and password, and enjoy the app knowing that your child's information is safe and secure.
 
 <p align="center">
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/login.png" alt="login" width="300" /> 
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/signup.png" alt="register screenshot" width="300" /> 
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/reset1.png" alt="register screenshot" width="300" /> 
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/reset2.png" alt="register screenshot" width="300" /> 
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/reset3..png" alt="register screenshot" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/login.png" alt="login" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/signup.png" alt="register screenshot" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/reset1.png" alt="register screenshot" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/reset2.png" alt="register screenshot" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/reset3..png" alt="register screenshot" width="300" /> 
   </p>
     
     
@@ -40,7 +40,7 @@ Babylo provides a user-friendly home page where you can access various features 
 The home page serves as a centralized hub for all your baby-related activities. It provides an overview of your baby's growth, health, and upcoming appointments. You can easily navigate to different sections of the app from here.
 
 <p align="center">
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/home.png" alt="home" width="300" />
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/home.png" alt="home" width="300" />
 </p>
 
 ### 👶 Baby Management
@@ -48,7 +48,7 @@ The home page serves as a centralized hub for all your baby-related activities. 
 Babylo allows you to manage multiple babies or children within the app. You can add and edit their profiles, track their growth and milestones, and keep their health information up to date.
 
 <p align="center">
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/pro.png" alt="baby management" width="300" />
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/pro.png" alt="baby management" width="300" />
 </p>
 
 ### ⚙️ Settings
@@ -59,7 +59,7 @@ Babylo provides a comprehensive settings section where you can customize the app
 - Notifications: Manage notification preferences for appointments, vaccines, and other reminders.
 
 <p align="center">
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/settings.png" alt="settings" width="300" />
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/settings.png" alt="settings" width="300" />
 </p>
 
 
@@ -69,8 +69,8 @@ Keep track of your child's growth, milestones, and health information all in one
 
 
 <p align="center">
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/hig.png" alt="height" width="300" /> 
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/chat.png" alt="register screenshot" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/hig.png" alt="height" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/chat.png" alt="register screenshot" width="300" /> 
   </p>
 
 ### 🗓️ Doctor Appointments and Vaccines 💉
@@ -78,19 +78,19 @@ Keep track of your child's growth, milestones, and health information all in one
 Never miss a doctor's appointment or vaccine with Babylo's built-in scheduling feature. Set reminders and get notified of upcoming appointments and vaccines.
 
 <p align="center">
-  <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/dr.png" alt="register screenshot" width="300" /> 
+  <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/dr.png" alt="register screenshot" width="300" /> 
   </p>
 ### 🎶 Music Player
 
 Babylo comes with a built-in music player, allowing you to create playlists and enjoy a wide variety of music suitable for babies and kids.
 
 <p align="center">
-   <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/music-overview.png" alt="login" width="300" />
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/music.gif" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/tracks.png" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/playlist.png" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/playlis2.png" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/musicplayer.png" alt="login" width="300" /> 
+   <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/music-overview.png" alt="login" width="300" />
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/music.gif" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/tracks.png" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/playlist.png" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/playlis2.png" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/musicplayer.png" alt="login" width="300" /> 
 
 </p>
 
@@ -99,12 +99,12 @@ Babylo comes with a built-in music player, allowing you to create playlists and 
 Explore our collection of audio books perfect for bedtime stories or keeping your child entertained during the day.
 
 <p align="center">
-   <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/audiobooks.png" alt="login" width="300" />
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/bookdetails.png" alt="login" width="300" /> 
-        <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/similarbooks.png" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/bookshelf.png" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/bookplayer.png" alt="login" width="300" /> 
-    <img src="https://github.com/Houdalar/Babylo-ios/blob/music/Babylo/images/rating.png" alt="login" width="300" /> 
+   <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/audiobooks.png" alt="login" width="300" />
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/bookdetails.png" alt="login" width="300" /> 
+        <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/similarbooks.png" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/bookshelf.png" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/bookplayer.png" alt="login" width="300" /> 
+    <img src="https://github.com/Houdalar/Babylo-ios/blob/integration/Babylo/images/rating.png" alt="login" width="300" /> 
 </p>
 
 
