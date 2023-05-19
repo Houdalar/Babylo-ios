@@ -19,7 +19,7 @@ class MusicViewModel: ObservableObject {
 
     private let baseURL = "http://localhost:8080/"
     
-    private let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTc1YjE3YmYwZmFmZmY1OGRlOTRjMiIsImlhdCI6MTY4MjUwNTQwNH0.6pdyCwz5R0m8RbINwlep4b368EKLaJ68g-Xt25uoaI0"
+  /*  private let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTc1YjE3YmYwZmFmZmY1OGRlOTRjMiIsImlhdCI6MTY4MjUwNTQwNH0.6pdyCwz5R0m8RbINwlep4b368EKLaJ68g-Xt25uoaI0"*/
     
 
 //http://localhost:8080/media/newest
@@ -78,7 +78,7 @@ class MusicViewModel: ObservableObject {
     }
     
     func fetchFavoriteTracks() {
-      //  guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
            
 
             AF.request(baseURL+"user/music/getFavoritesTracks/"+token,method: .get)
@@ -97,7 +97,7 @@ class MusicViewModel: ObservableObject {
         }
     
     func fetchPlaylists() {
-           // guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+            guard let token = UserDefaults.standard.string(forKey: "token") else { return }
 
 
             AF.request(baseURL+"user/music/getPlaylists/"+token, method: .get )
@@ -151,8 +151,8 @@ class MusicViewModel: ObservableObject {
     func addPlaylist(name: String, cover: UIImage, completion: @escaping (Bool) -> Void) {
        
 
-      //  guard let token = UserDefaults.standard.string(forKey: "token") else { return }
-        let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTc1YjE3YmYwZmFmZmY1OGRlOTRjMiIsImlhdCI6MTY4MjUwNTQwNH0.6pdyCwz5R0m8RbINwlep4b368EKLaJ68g-Xt25uoaI0"
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
         guard let imageData = cover.jpegData(compressionQuality: 0.5) else {
             completion(false)
             return
@@ -218,6 +218,7 @@ class MusicViewModel: ObservableObject {
     }
     
     func addTracktoPlaylist(trackid: String, playlistid: String, completionHandler: @escaping (Error?) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         let parameters: [String: Any] = ["trackid": trackid, "playlistid": playlistid, "token": token]
         
         let headers: HTTPHeaders = [
@@ -244,6 +245,7 @@ class MusicViewModel: ObservableObject {
     }
     
     func addFavoriteTrackById(trackId: String, completionHandler: @escaping (Error?) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         let parameters: [String: Any] = ["token": token, "songId": trackId]
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
@@ -259,6 +261,7 @@ class MusicViewModel: ObservableObject {
     }
     
     func removeFavoriteTrack(trackId: String, completionHandler: @escaping (Error?) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         let parameters: [String: Any] = ["token": token, "trackid": trackId]
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"

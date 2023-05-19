@@ -108,7 +108,7 @@ struct OverviewView: View {
                                    .padding(.top)
 
                                    ScrollView {
-                                       LazyVGrid(columns: [GridItem(.adaptive(minimum: 170, maximum: 170), spacing: 20)], spacing: 30) {
+                                       LazyVGrid(columns: [GridItem(.adaptive(minimum: 180, maximum: 180), spacing: 20)], spacing: 30) {
                                            ForEach(backendService.ALbums, id: \.id) { album in
                                                AlbumCardView(playlist: album)
                                            }

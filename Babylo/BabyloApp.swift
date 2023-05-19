@@ -13,6 +13,7 @@ struct BabyloApp: App {
     
     // Create an instance of MusicViewModel
     let musicViewModel = MusicViewModel()
+    @StateObject var babyViewModel = BabyViewModel()
     
     var body: some Scene {
         WindowGroup {

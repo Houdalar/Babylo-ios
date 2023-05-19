@@ -157,11 +157,9 @@ struct HomeScreen: View {
                             ScrollView(.horizontal,showsIndicators: false){
                                 HStack(spacing: 25){
                                     ForEach(babyViewModel.babies){
-                                        baby in BabyCardView(baby:baby,babyViewModel: babyViewModel)
-                                            .onTapGesture {
-                                                                            self.selectedBaby = baby
-                                                                        }
+                                        baby in BabyCardView(baby:baby, babyViewModel: babyViewModel)
                                     }
+                                    AddBabyCard()
                                 }.padding(.leading,22)
                                 Spacer()
                             }
@@ -314,91 +312,107 @@ struct CardView : View {
 
 struct BabyCardView: View {
     let baby : Baby
- 
-   @ObservedObject var babyViewModel: BabyViewModel
+
+    @ObservedObject var babyViewModel: BabyViewModel
     @State var isLinkActive = false
+
     var body: some View {
-        NavigationLink(destination:
-                        Profile(token: babyViewModel.token, babyName: baby.babyName)) {
-            VStack {
-                if let babyPic = baby.babyPic , let url = URL(string: babyPic){
-                    AsyncImage(url: url){
-                        phase in
-                        switch phase{
-                        case .empty:
-                            ProgressView()
-                                .frame(width: 200, height: 210)
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 200, height: 210)
-                                .cornerRadius(20)
-                        case .failure:
-                            Image("placeholder-image")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 200, height: 210)
-                                .cornerRadius(20)
-                        @unknown default:
-                            fatalError()
-                        }
+        ZStack(alignment: .bottomLeading) {
+            if let babyPic = baby.babyPic , let url = URL(string: babyPic) {
+                AsyncImage(url: url) {
+                    phase in
+                    switch phase{
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 280, height: 280)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 280, height: 280)
+                            .cornerRadius(20)
+                    case .failure:
+                        Image("placeholder-image")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 280, height: 280)
+                            .cornerRadius(20)
+                    @unknown default:
+                        fatalError()
                     }
-                                       
                 }
-                else{
-                    Image("placeholder-image")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 200, height: 210)
-                                        .cornerRadius(20)
-
-                }
-                Text(baby.babyName)
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundColor(.black)
             }
-            .frame(width: 210)
-            .padding()
-            .background(Color.white)
-            .cornerRadius(20)
-            .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 4)
-            .onTapGesture {
-                        isLinkActive = true
-                    }
-                    .background(
-                        NavigationLink(
-                            destination: Profile(token: babyViewModel.token, babyName: baby.babyName),
-                            isActive: $isLinkActive,
-                            label: { EmptyView() }
-                        )
-                    )
-           /*
-            .buttonStyle(PlainButtonStyle()) // This makes sure the entire card is clickable
-            .contextMenu{
-                Button(action: {
-                    babyViewModel.deleteBaby(token: babyViewModel.token, babyName: baby.babyName) { result in
-                        switch result {
-                        case .success(let success):
-                            if success {
-                                print("Baby deleted")
-                                babyViewModel.fetchBabies()
-                            } else {
-                                print("Failed to delete baby")
-                            }
-                        case .failure(let error):
-                            print("Error deleting baby: \(error.localizedDescription)")
-                        }
-                    }
-                })
-                {
-                                Label("Delete Baby", systemImage: "trash")
-                            }
+            else{
+                Image("placeholder-image")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 280, height: 280)
+                    .cornerRadius(20)
+            }
 
-        }*/
+            Text(baby.babyName)
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(Color.black.opacity(0.5))
+                .cornerRadius(19)
+                .padding(.bottom, 10)
+                .padding(.leading, 10)
+
+            NavigationLink(
+                destination: Profile(token: babyViewModel.token, babyName: baby.babyName),
+                isActive: $isLinkActive,
+                label: { EmptyView() }
+            )
         }
-        
-     
+        .onTapGesture {
+            isLinkActive = true
+        }
+        .frame(width: 280, height: 280)
+        .contextMenu{
+                        Button(action: {
+                            babyViewModel.deleteBaby(token: babyViewModel.token, babyName: baby.babyName) { result in
+                                switch result {
+                                case .success(let success):
+                                    if success {
+                                        print("Baby deleted")
+                                        babyViewModel.fetchBabies()
+                                    } else {
+                                        print("Failed to delete baby")
+                                    }
+                                case .failure(let error):
+                                    print("Error deleting baby: \(error.localizedDescription)")
+                                }
+                            }
+                        })
+                        {
+                                        Label("Delete Baby", systemImage: "trash")
+                                    }
+        }
+    }
+}
+
+
+
+struct AddBabyCard: View {
+    var token: String {
+        UserDefaults.standard.string(forKey: "token") ?? ""
+    }
+    let babyViewModel = BabyViewModel()
+    
+    var body: some View {
+        NavigationLink(destination: AddBaby(token: token).environmentObject(babyViewModel)) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 280, height: 280)
+
+                Image(systemName: "plus")
+                    .font(.system(size: 80))
+                    .foregroundColor(.white)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }

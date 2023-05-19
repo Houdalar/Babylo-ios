@@ -93,15 +93,7 @@ struct MusicPlayerView: View {
             Spacer()
             
             HStack {
-                Button(action: {
-                    // Previous button tapped
-                }) {
-                    Image(systemName: "chevron.backward")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                }
-                
+               
                 Spacer()
                 
                 Button(action: {
@@ -127,14 +119,6 @@ struct MusicPlayerView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    // Next button tapped
-                }) {
-                    Image(systemName: "chevron.forward")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                }
                 
             }
             .padding(.bottom, 20)

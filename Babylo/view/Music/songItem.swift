@@ -260,12 +260,12 @@ struct AlbumCardView: View {
             ZStack(alignment: .topLeading) {
                 RoundedRectangle(cornerRadius: 30) // RoundedRectangle for rounded edges
                     .fill(Color.gray.opacity(0.1))
-                    .frame(width: 160, height: 160)
+                    .frame(width: 180, height: 180)
 
                 KFImage(URL(string: playlist.cover))
                     .resizable()
                     .aspectRatio(contentMode: .fill) // Change this to .fill
-                    .frame(width: 160, height: 160) // Update the width and height
+                    .frame(width: 180, height: 180) // Update the width and height
                     .cornerRadius(20)
                     .clipped() // Add this to clip the image to the corner radius
 

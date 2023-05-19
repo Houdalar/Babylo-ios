@@ -46,6 +46,13 @@
 		A5BA0AF72A08E6A20054F1F6 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */; };
 		A5C4753C29DEE67700A56858 /* Rootview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4753B29DEE67700A56858 /* Rootview.swift */; };
 		A5CFD10A2A14E72B00D17947 /* WeightGrowthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */; };
+		A5DCC3302A17478000E34578 /* bookplayer.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC32F2A17478000E34578 /* bookplayer.png */; };
+		A5DCC3322A17479E00E34578 /* musicplayer.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC3312A17479E00E34578 /* musicplayer.png */; };
+		A5DCC3342A1747BD00E34578 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC3332A1747BD00E34578 /* settings.png */; };
+		A5DCC3362A1747F000E34578 /* audiobooks.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC3352A1747F000E34578 /* audiobooks.png */; };
+		A5DCC3382A17481600E34578 /* bookshelf.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC3372A17481600E34578 /* bookshelf.png */; };
+		A5DCC33C2A17493A00E34578 /* bookdetails.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC33B2A17493A00E34578 /* bookdetails.png */; };
+		A5DCC33E2A17496B00E34578 /* rating.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCC33D2A17496B00E34578 /* rating.png */; };
 		A5F3A3542A163DD000BA84B9 /* RatingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F3A3532A163DD000BA84B9 /* RatingDialog.swift */; };
 		B1150BDB29CF073F00BC8357 /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */; };
 		B115D9B629EA0A0B00DA0F63 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B115D9B529EA0A0B00DA0F63 /* login.png */; };
@@ -135,6 +142,13 @@
 		A5BA0AF62A08E6A20054F1F6 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		A5C4753B29DEE67700A56858 /* Rootview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rootview.swift; sourceTree = "<group>"; };
 		A5CFD1092A14E72B00D17947 /* WeightGrowthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightGrowthTab.swift; sourceTree = "<group>"; };
+		A5DCC32F2A17478000E34578 /* bookplayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookplayer.png; sourceTree = "<group>"; };
+		A5DCC3312A17479E00E34578 /* musicplayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicplayer.png; sourceTree = "<group>"; };
+		A5DCC3332A1747BD00E34578 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		A5DCC3352A1747F000E34578 /* audiobooks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = audiobooks.png; sourceTree = "<group>"; };
+		A5DCC3372A17481600E34578 /* bookshelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshelf.png; sourceTree = "<group>"; };
+		A5DCC33B2A17493A00E34578 /* bookdetails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookdetails.png; sourceTree = "<group>"; };
+		A5DCC33D2A17496B00E34578 /* rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating.png; sourceTree = "<group>"; };
 		A5F3A3532A163DD000BA84B9 /* RatingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDialog.swift; sourceTree = "<group>"; };
 		B1150BDA29CF073F00BC8357 /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		B115D9B529EA0A0B00DA0F63 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -293,6 +307,13 @@
 		B115D9B429EA09EB00DA0F63 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5DCC33D2A17496B00E34578 /* rating.png */,
+				A5DCC33B2A17493A00E34578 /* bookdetails.png */,
+				A5DCC3372A17481600E34578 /* bookshelf.png */,
+				A5DCC3352A1747F000E34578 /* audiobooks.png */,
+				A5DCC3332A1747BD00E34578 /* settings.png */,
+				A5DCC3312A17479E00E34578 /* musicplayer.png */,
+				A5DCC32F2A17478000E34578 /* bookplayer.png */,
 				B115D9CD29EA112200DA0F63 /* intro.gif */,
 				B115D9B929EA0A1F00DA0F63 /* music-overview.png */,
 				B115D9BD29EA0A2000DA0F63 /* music.gif */,
@@ -529,18 +550,25 @@
 				B115D9C629EA0A2000DA0F63 /* music.gif in Resources */,
 				A5056A6E2A13B3A0001E79C2 /* DancingScript-Bold.ttf in Resources */,
 				B115D9C829EA0A2000DA0F63 /* tracks.png in Resources */,
+				A5DCC3382A17481600E34578 /* bookshelf.png in Resources */,
 				B115D9C429EA0A2000DA0F63 /* reset3..png in Resources */,
+				A5DCC33C2A17493A00E34578 /* bookdetails.png in Resources */,
 				B115D9C729EA0A2000DA0F63 /* reset2.png in Resources */,
 				B16BE38829C229DF0024806A /* Assets.xcassets in Resources */,
 				B115D9CA29EA0A2000DA0F63 /* playlist.png in Resources */,
 				B115D9C929EA0A2000DA0F63 /* playlis2.png in Resources */,
+				A5DCC3322A17479E00E34578 /* musicplayer.png in Resources */,
 				B115D9CE29EA112200DA0F63 /* intro.gif in Resources */,
 				B115D9CC29EA0A6B00DA0F63 /* README.md in Resources */,
 				A5056A6D2A13B3A0001E79C2 /* DancingScript-SemiBold.ttf in Resources */,
+				A5DCC3342A1747BD00E34578 /* settings.png in Resources */,
+				A5DCC3362A1747F000E34578 /* audiobooks.png in Resources */,
+				A5DCC33E2A17496B00E34578 /* rating.png in Resources */,
 				B115D9B829EA0A1600DA0F63 /* signup.png in Resources */,
 				B115D9C229EA0A2000DA0F63 /* music-overview.png in Resources */,
 				B115D9C329EA0A2000DA0F63 /* reset1.png in Resources */,
 				A5056A702A13B3C1001E79C2 /* CormorantGaramond-BoldItalic.ttf in Resources */,
+				A5DCC3302A17478000E34578 /* bookplayer.png in Resources */,
 				A5056A722A13B3CE001E79C2 /* CormorantGaramond-Bold.ttf in Resources */,
 				A5056A6A2A13B391001E79C2 /* DancingScript-Regular.ttf in Resources */,
 			);
