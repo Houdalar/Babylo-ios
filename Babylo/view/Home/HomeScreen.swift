@@ -21,50 +21,51 @@ struct HomeScreen: View {
     
 
     func stringToDate(_ dateString: String, format: String = "dd/MM/yyyy") -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = TimeZone.current
-        return dateFormatter.date(from: dateString)
-    }
-   
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = format
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.timeZone = TimeZone.current
+            return dateFormatter.date(from: dateString)
+        }
+       
 
-    func scheduleNotification(for vaccine: UpcomingVaccine) {
-        print ("Scheduling notification for vaccine: \(vaccine.vaccine)")
+        func scheduleNotification(for vaccine: UpcomingVaccine) {
+            print ("Scheduling notification for vaccine: \(vaccine.vaccine)")
 
-        let notificationIdentifier = "vaccine-\(vaccine.id)"
+            let notificationIdentifier = "vaccine-\(vaccine.id)"
 
-        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-            let existingRequest = requests.first { $0.identifier == notificationIdentifier }
+            UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+                let existingRequest = requests.first { $0.identifier == notificationIdentifier }
 
-            if existingRequest == nil {
-                // Schedule the notification only if it doesn't exist
-                let content = UNMutableNotificationContent()
-                content.body = "Reminder 📣:\nYou're doing an amazing job as a parent! Keep up the great work by bringing your baby in for their vaccine appointment tomorrow 💉"
+                if existingRequest == nil {
+                    // Schedule the notification only if it doesn't exist
+                    let content = UNMutableNotificationContent()
+                    content.body = "Reminder 📣:\nYou're doing an amazing job as a parent! Keep up the great work by bringing your baby in for their vaccine appointment tomorrow 💉"
 
-                content.sound = .default
+                    content.sound = .default
 
-                let dateString = vaccine.date
-                if let date = stringToDate(dateString) {
-                    //let triggerDate = Calendar.current.date(byAdding: .second, value: 3, to: Date())!
-                     let triggerDate = Calendar.current.date(byAdding: .hour, value: -24, to: date)!
-                    let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: triggerDate)
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                    let dateString = vaccine.date
+                    if let date = stringToDate(dateString) {
+                        let triggerDate = Calendar.current.date(byAdding: .second, value: 10, to: Date())!
+                        // let triggerDate = Calendar.current.date(byAdding: .hour, value: -24, to: date)!
+                        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: triggerDate)
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
 
-                    let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
-                    UNUserNotificationCenter.current().add(request) { error in
-                        if let error = error {
-                            print("Failed to schedule notification: \(error.localizedDescription)")
-                        } else {
-                            print("Notification scheduled for vaccine \(vaccine.vaccine) 3 seconds from now.")
+                        let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request) { error in
+                            if let error = error {
+                                print("Failed to schedule notification: \(error.localizedDescription)")
+                            } else {
+                                print("Notification scheduled for vaccine \(vaccine.vaccine) 3 seconds from now.")
+                            }
                         }
                     }
+                } else {
+                    print("Notification for vaccine \(vaccine.vaccine) is already scheduled.")
                 }
-            } else {
-                print("Notification for vaccine \(vaccine.vaccine) is already scheduled.")
             }
         }
-    }
+        
     
 
     
@@ -189,20 +190,20 @@ struct HomeScreen: View {
         .onAppear{
             babyViewModel.fetchBabies()
             if !notificationScheduled {
-                    babyViewModel.getUpcomingVaccines(token: UserDefaults.standard.string(forKey: "token") ?? "") { result in
-                        switch result {
-                        case .success(let vaccines):
-                            upcomingVaccines = vaccines
-                            print("Upcoming vaccines: \(upcomingVaccines)")
-                            for vaccine in vaccines {
-                                scheduleNotification(for: vaccine)
+                                babyViewModel.getUpcomingVaccines(token: UserDefaults.standard.string(forKey: "token") ?? "") { result in
+                                    switch result {
+                                    case .success(let vaccines):
+                                        upcomingVaccines = vaccines
+                                        print("Upcoming vaccines: \(upcomingVaccines)")
+                                        for vaccine in vaccines {
+                                            scheduleNotification(for: vaccine)
+                                        }
+                                        notificationScheduled = true
+                                    case .failure(let error):
+                                        print("Error loading upcoming vaccines: \(error.localizedDescription)")
+                                    }
+                                }
                             }
-                            notificationScheduled = true
-                        case .failure(let error):
-                            print("Error loading upcoming vaccines: \(error.localizedDescription)")
-                        }
-                    }
-                }
             
 
         }

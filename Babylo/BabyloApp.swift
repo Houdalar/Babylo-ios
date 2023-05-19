@@ -11,6 +11,11 @@ import SwiftUI
 struct BabyloApp: App {
     let persistenceController = PersistenceController.shared
     
+    init() {
+                NotificationManager.shared.requestAuthorization()
+            }
+
+    
     // Create an instance of MusicViewModel
     let musicViewModel = MusicViewModel()
     @StateObject var babyViewModel = BabyViewModel()
